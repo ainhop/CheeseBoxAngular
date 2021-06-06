@@ -1,1 +1,28 @@
-<p>formulario-add-queso works!</p>
+<section>
+    <h2>Sube tu queso</h2>
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+    
+                    <input type="text" class="form-control" id="nombre" placeholder="Username" formControlName="username">
+                </div>
+                <div class="mb-3">
+    
+                    <input type="password" class="form-control" id="nombre" placeholder="Password" formControlName="password">
+                </div>
+                <div class="mb-3">
+    
+                    <input type="email" class="form-control" id="nombre" placeholder="Email" formControlName="email">
+                </div>
+                <div class="mb-3">
+    
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" formControlName="nombre">
+                </div>
+    
+                <button type="submit" class="btn btn-outline-info">Enviar</button>
+    
+            </form>
+        </div>
+    </div>
+    </section>

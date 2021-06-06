@@ -15,6 +15,7 @@ import { DetalleRecetasComponent } from './componentes/detalle-recetas/detalle-r
 import { AreaClientesComponent } from './componentes/area-clientes/area-clientes.component';
 import { FavoritosComponent } from './componentes/favoritos/favoritos.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BuscadorComponent } from './componentes/buscador/buscador.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DetalleQuesoComponent,
     DetalleRecetasComponent,
     AreaClientesComponent,
-    FavoritosComponent
+    FavoritosComponent,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,
