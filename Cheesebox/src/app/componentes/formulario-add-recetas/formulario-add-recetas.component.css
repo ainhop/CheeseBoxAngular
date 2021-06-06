@@ -1,0 +1,33 @@
+section{
+    margin-top: 2%!important;
+    width: 60%;
+    margin: auto;
+    /* border: 1px solid gray; */
+    padding: 2%;
+    box-shadow: 0 0 15px 4px rgb(213, 213, 213);
+    
+}
+section input, section select{
+    border: none;
+    border-bottom: .5px solid gray;
+    border-radius: 0px;
+    outline: 0px!important;
+}
+.btn{
+
+    border: none;
+    color: #FFD05E!important;
+    transition: all ease 0.5;
+
+    
+}
+.btn:hover{
+    background-color: #FFD05E!important;
+    color: #3b3d34!important;
+}
+.dosCol{
+    display: flex;
+    align-items: flex-start;
+border-bottom: 1px solid grey;
+margin-left: 10px;
+}

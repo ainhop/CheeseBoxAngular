@@ -1,1 +1,51 @@
-<p>formulario-add-recetas works!</p>
+<section>
+    <h2>Sube tu receta</h2>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" formControlName="nombre">
+                </div>
+
+                <div class="mb-3">
+
+                    <input type="text" class="form-control" id="descripcion" placeholder="Descripción"
+                        formControlName="descripcion">
+                </div>
+                <div class="mb-3 dosCol">
+                    <div>
+                        <p>Tiempo preparacion</p>
+                    </div>
+                    <div>
+                        <input type="time" class="form-control" id="tiempo" placeholder="Tiempo "
+                            formControlName="tiempo" style="border-bottom:none;">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+
+                    <input type="text" class="form-control" id="queso_utilizado" placeholder="Queso utilizado"
+                        formControlName="queso_utilizado">
+                </div>
+                <div class="mb-3">
+
+                    <input type="number" class="form-control" id="raciones" placeholder="Raciones" formControlName="raciones">
+                </div>
+
+                <div class="mb-3">
+
+                    <input type="text" class="form-control" id="ingredientes" placeholder="Ingredientes" formControlName="ingredientes">
+                </div>
+                <div class="mb-3">
+
+                    <input type="textarea" class="form-control" id="ingredientes" placeholder="Ingredientes" formControlName="ingredientes">
+                </div>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Elaboracion"></textarea>
+                <button type="submit" class="btn btn-outline-info">Enviar</button>
+
+            </form>
+        </div>
+    </div>
+</section>
