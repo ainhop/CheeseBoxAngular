@@ -1,1 +1,34 @@
-<p>formulario-registro works!</p>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div>
+    <label class="form-label">Nombre</label>
+    <input type="text" class="form-control" formControlName="nombre" />
+  </div>
+  <div>
+    <label class="form-label">Apellidos</label>
+    <input type="text" class="form-control" formControlName="apellidos" />
+  </div>
+  <div>
+    <label class="form-label">Username</label>
+    <input type="text" class="form-control" formControlName="username" />
+  </div>
+  <!-- ¿min-length? -->
+  <div>
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" formControlName="email" />
+  </div>
+  <!-- ¿required? -->
+  <!-- placeholder?/ value ="davidcontrolaCSS@gmail.com" -->
+  <!-- ¿validation? -->
+  <div>
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control" formControlName="password" />
+    <!-- ¿repetir password? -->
+  </div>
+  <div>
+    <label class="form-label">Foto de perfil</label>
+    <input type="url" class="form-control" formControlName="Imagen" />
+    <!-- añadir archivo? -->
+
+    <button class="btn btn-primary" type="submit">Enviar</button>
+  </div>
+</form>
