@@ -1,24 +1,220 @@
-.search{
-    width: 60%;
-    margin: 10% auto;
-    height: 8vh;
+html {
+    scroll-behavior: smooth;
+}
+
+:root{
+
+--color-princial: #FFD05E;
+--color-secundario: #3b3d34;
+--fuente-princial: 'Montserrat', sans-serif;
+--fontsize: 1em;
+--anchomaximo: 68.750em;
+--margingrid: 1em;
+--padding: 0.625em
+           
+}
+body{
+    font-family: var(--fuente-princial);
+    font-size: var(--fontsize);
+    overflow: hidden;
+  
+}
+header {
+
+    background-image: url(../assets/img/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
     position: relative;
+
+}
+.nav{
+   color: var(--color-secundario)!important;
+  
+}
+.navbar{
+    z-index: 10!important;
+
+}
+header{
+
+    box-shadow: 0 0 15px 4px rgb(213, 213, 213);
+   
+}
+header img {
+
+    position: absolute;
+    left: 20%;
+    top: 0px;
+     width: 60%;
+     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7))
+ } 
+
+header nav ul li a{
     color:var(--color-secundario)!important;
-    border: 2px solid var(--color-princial);
     border-radius: 100px;
-    box-shadow: 0 0 15px 4px var(--color-princial);
+    width: 100%;
+}
+header nav ul li a:hover{
+    text-decoration: underline;
+}
+header nav ul li a.user{
+    border: 1px solid var(--color-secundario)!important;
+    border-radius: 100%;
+    font-size: 1.3em;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+   
+}
+header nav ul li a.user:hover{
+    background-color: var(--color-secundario)!important;
+    color:var(--color-princial)!important;
+    font-size: 1.3em;
+}
+.cabecera{
+    display: none;
+}
 
-}
-.search button, .search input{
-    background-color:rgba(255, 255, 255, 0);
-    border: none;
-    display: inline-block;
-}
-.search button{
-    position:absolute;
-    right: 20px;
-    top: 10px;
-    cursor: pointer;
-    transform: rotatey(180deg);
+section input{
+height: 60px;
+font-size: 20px!important;
+border-radius: 10px!important;
+/* background-color: rgba(255, 255, 255, 0.357)!important; */
+border: 1px solid #fff!important;
 
+
+} 
+section #btnGroupAddon{
+    background-color: rgb(255, 255, 255)!important;
+    border: 1px solid #fff!important;  
+    box-shadow: 0 0 10px 10px #fff;
 }
+.botones{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   margin-top: 3%;
+ 
+}
+.botones button{
+    background-color: rgba(255, 255, 255, 0)!important;
+    color: lightslategray;
+    transition: all ease .5s;
+    margin-left: 10px;
+    
+}
+.botones button:hover{
+    background-color:lightslategray!important
+}
+
+span .navbar-toggler-icon{
+    color: var(--color-secundario)!important;
+}
+
+/* Menú Desplegable */
+.headerDesplegable{
+    text-align: center;
+    padding: 20%;
+}
+
+.headerDesplegable img{
+    width: 40%;
+    margin: auto!important;
+}
+.headBanner{
+ display: none;
+  
+}
+header img {
+
+ 
+    width: 80%;
+   }
+
+/* Efecto ratatuille */
+ .action::before {
+content: none;
+    }
+  .action::before {
+    content: '';
+    background-image: url('https://media.tenor.com/images/0be53f8af408816f3d84ca690fefa1a9/tenor.png');
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    right: 100;
+    position: absolute;
+    bottom: 20vh;
+    height: 200px;
+    width: 200px;
+    transform: translateY(3200px);
+    display: none;
+    transition: transform .5s;
+  }
+  
+  .action:hover::before {
+    transform: translateY(700px);
+    display: block;
+   
+  }
+  
+  
+   @media screen and (min-width: 500px) {
+  
+    
+    .action::before {
+      background-position: 0;
+      background-size: 250px;
+      height: 200px;
+      transform: translateY(1200px);
+      transition: 0.5s;
+     
+    }
+    header img {
+
+ 
+         width: 60%;
+        } 
+        .headBanner{
+        
+            display: none;
+
+          
+        }
+  } 
+  @media screen and (min-width: 700px) {
+ 
+    
+    .action::before {
+      background-size: 200px;
+      height: 200px;
+      transform: translateY(1200px);
+      transition: 0.5s;
+    }
+    header nav ul li a:hover{
+        color:var(--color-princial)!important;
+        background-color: var(--color-secundario)!important;
+        border-radius: 100px;
+        transition: all ease .5s;
+  
+    }
+     header img {
+
+   position: absolute;
+   left: 36%;
+   top: 0px;
+    width: 30%;
+    z-index: 10;
+    } 
+    .headBanner{
+        position: absolute;
+        top: 0;
+        right: 10;
+        width: 120%;
+        z-index: 2;
+      
+    }
+  }
+  
