@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
+declare var Swal;
+
 @Component({
   selector: 'app-formulario-registro',
   templateUrl: './formulario-registro.component.html',
@@ -24,6 +26,12 @@ export class FormularioRegistroComponent implements OnInit {
 
   async onSubmit() {
     const response = await this.usuariosService.registro(this.formulario.value);
-    console.log(response);
+    Swal.fire({
+      position: 'top-center',
+      icon: 'success',
+      title: 'Te has registrado correctamente',
+      showConfirmButton: false,
+      timer: 1500,
+    });
   }
 }
