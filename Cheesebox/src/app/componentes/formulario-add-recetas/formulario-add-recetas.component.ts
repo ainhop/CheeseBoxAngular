@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RecetasService } from 'src/app/services/recetas.service';
 
@@ -18,10 +18,32 @@ export class FormularioAddRecetasComponent implements OnInit {
     private router: Router
   ) {
     this.formulario = new FormGroup({
-      username: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      name: new FormControl()
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5)
+      ]),
+      descripcion: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      tiempo: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      quesoUtilizado: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      raciones: new FormControl(),
+      ingredientes: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      elaboracion: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+
     })
   }
 
