@@ -1,34 +1,62 @@
 <section>
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-  <div>
-    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
-  </div>
-  <div>
+  <h2>Regístrate</h2>
+  <hr />
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="nombre"
+            placeholder="Nombre"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="apellidos"
+            placeholder="Apellidos"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="username"
+            placeholder="Username"
+          />
+        </div>
 
-    <input type="text" class="form-control" formControlName="apellidos" placeholder="Apellidos">
-  </div>
-  <div>
+        <div class="mb-3">
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="Email"
+          />
+        </div>
 
-    <input type="text" class="form-control" formControlName="username" placeholder="Username">
-  </div>
-  <!-- ¿min-length? -->
-  <div>
+        <div class="mb-3">
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="url"
+            class="form-control"
+            formControlName="Imagen"
+            placeholder="Foto de perfil"
+          />
 
-    <input type="email" class="form-control" formControlName="email" placeholder="Email">
+          <button class="btn" type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
   </div>
-  <!-- ¿required? -->
-  <!-- placeholder?/ value ="davidcontrolaCSS@gmail.com" -->
-  <!-- ¿validation? -->
-  <div>
-    <input type="password" class="form-control" formControlName="password" placeholder="Password" >
-    <!-- ¿repetir password? -->
-  </div>
-  <div>
-
-    <input type="url" class="form-control" formControlName="Imagen" placeholder="Foto de perfil">
-    <!-- añadir archivo? -->
-
-    <button class="btn" type="submit">Enviar</button>
-  </div>
-</form>
 </section>

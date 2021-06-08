@@ -1,58 +1,85 @@
 <section>
-    <h2>Sube tu queso</h2>
-    <hr>
-    <div class="row">
-        <div class="col-12">
-            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-                <div class="mb-3">
-    
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" formControlName="nombre">
-                </div>
-
-                <div class="mb-3">
-    
-                    <input type="text" class="form-control" id="descripcion" placeholder="Descripción" formControlName="descripcion">
-                </div>
-
-                <div class="mb-3">
-    
-                    <select class="form-select " aria-label="Tipo de leche">
-                        <option selected>Tipo de leche</option>
-                        <option value="vaca">Vaca</option>
-                        <option value="oveja">Oveja</option>
-                        <option value="vegetal">Vegetal</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-    
-                    <input type="text" class="form-control" id="origen" placeholder="Origen" formControlName="origen">
-                </div>
-                <div class="mb-3">
-    
-                    <input type="text" class="form-control" id="caracteristicas" placeholder="Caracteristicas" formControlName="Caracteristicas">
-                </div>
-                <div class="mb-3">
-    
-                    <input type="text" class="form-control" id="color" placeholder="Color" formControlName="color">
-                </div>
-
-                <div class="mb-3">
-    
-                    <input type="text" class="form-control" id="tipo" placeholder="Tipo" formControlName="tipo">
-                </div>
-                <button type="submit" class="btn btn-outline-info">Enviar</button>
-    
-            </form>
+  <h2>Sube tu queso</h2>
+  <hr />
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            placeholder="Nombre"
+            formControlName="nombre"
+          />
         </div>
-    </div>
-    </section>
 
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="descripcion"
+            placeholder="Descripción"
+            formControlName="descripcion"
+          />
+        </div>
+
+        <div class="mb-3">
+          <select class="form-select" aria-label="Tipo de leche">
+            <option selected>Tipo de leche</option>
+            <option value="vaca">Vaca</option>
+            <option value="oveja">Oveja</option>
+            <option value="vegetal">Vegetal</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="origen"
+            placeholder="Origen"
+            formControlName="origen"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="caracteristicas"
+            placeholder="Caracteristicas"
+            formControlName="Caracteristicas"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="color"
+            placeholder="Color"
+            formControlName="color"
+          />
+        </div>
+
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="tipo"
+            placeholder="Tipo"
+            formControlName="tipo"
+          />
+        </div>
+        <button type="submit" class="btn btn-outline-info">Enviar</button>
+      </form>
+    </div>
+  </div>
+</section>
 
 <!--{export interface Producto{
 
         nombre: string,
         descripcion: string,
-        tipo_leche: string,
+        tipoLeche: string,
         origen: string,
         caracteristicas: string,
         color: string,
