@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 declare var Swal;
@@ -14,11 +14,30 @@ export class FormularioRegistroComponent implements OnInit {
 
   constructor(private usuariosService: UsuariosService) {
     this.formulario = new FormGroup({
-      nombre: new FormControl(),
-      apellidos: new FormControl(),
-      username: new FormControl(),
-      email: new FormControl(),
-      imagen: new FormControl(),
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      apellidos: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+
+      username: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/),
+      ]),
+
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
+        ),
+      ]),
     });
   }
 
