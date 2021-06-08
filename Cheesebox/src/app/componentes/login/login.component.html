@@ -1,1 +1,13 @@
-<p>login works!</p>
+<section>
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" class="form-control" formControlName="email" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password" />
+    </div>
+    <button class="btn btn-outline-primary">Enviar</button>
+  </form>
+</section>
