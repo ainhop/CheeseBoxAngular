@@ -12,7 +12,13 @@ export class UsuariosService {
   }
   registro(formValues: any) {
     return this.httpClient
-      .post(`${this.baseUrl}/registro`, formValues)
+      .post(`${this.baseUrl}/registrar`, formValues)
+      .toPromise();
+  }
+
+  login(formValues: any) {
+    return this.httpClient
+      .post(`${this.baseUrl}/login`, formValues)
       .toPromise();
   }
 }

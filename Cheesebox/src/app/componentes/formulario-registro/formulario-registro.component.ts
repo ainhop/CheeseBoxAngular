@@ -26,12 +26,17 @@ export class FormularioRegistroComponent implements OnInit {
 
   async onSubmit() {
     const response = await this.usuariosService.registro(this.formulario.value);
-    Swal.fire({
-      position: 'top-center',
-      icon: 'success',
-      title: 'Te has registrado correctamente',
-      showConfirmButton: false,
-      timer: 1500,
-    });
+
+    if (response['error']) {
+      Swal.fire('');
+    } else {
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Te has registrado correctamente',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
   }
 }
