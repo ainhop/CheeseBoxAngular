@@ -1,0 +1,26 @@
+.card{
+    margin: 7%;
+    border: none!important;
+    /* background-color: rgba(214, 214, 214, 0.459);
+    box-shadow: 5px 5px 25px rgb(255, 255, 255) inset;
+    border-radius: 10px!important;
+    box-shadow: 10px 10px 10px 2px rgb(213, 213, 213); */
+ 
+}
+.card-img-overlay{
+    padding: 5%;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+.card-img-overlay:hover{
+    opacity: 1;
+}
+.card:hover img{
+
+    transform: scale(1.2)
+}
+.card img{
+    transition: all ease 0.5s;
+    text-shadow:10px 10px 10px 2px rgb(213, 213, 213) ;
+
+}

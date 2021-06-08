@@ -114,6 +114,7 @@ span .navbar-toggler-icon{
     color: var(--color-secundario)!important;
 }
 
+
 /* Menú Desplegable */
 .headerDesplegable{
     text-align: center;
@@ -130,7 +131,6 @@ span .navbar-toggler-icon{
 }
 header img {
 
- 
     width: 80%;
    }
 
@@ -160,7 +160,7 @@ content: none;
    
   }
   
-  
+
    @media screen and (min-width: 500px) {
   
     
@@ -175,11 +175,11 @@ content: none;
     header img {
 
  
-         width: 60%;
+         width: 40%;
         } 
         .headBanner{
         
-            display: none;
+            display: block;
 
           
         }
@@ -200,21 +200,23 @@ content: none;
         transition: all ease .5s;
   
     }
+    
      header img {
 
    position: absolute;
    left: 36%;
    top: 0px;
-    width: 30%;
+    width: 20%;
     z-index: 10;
+    max-width: 23%!important;
     } 
     .headBanner{
         position: absolute;
-        top: 0;
-        right: 10;
-        width: 120%;
+        top: -80px;
+        width: 100%;
         z-index: 2;
       
     }
+  
   }
   
