@@ -30,12 +30,12 @@ export class FormularioAddRecetasComponent implements OnInit {
 
   async onSubmit() {
   
-    // const response = await this.ProductosService.registro(this.formulario.value);
+    const response = await this.RecetasService.create(this.formulario.value);
     
-    // if (response['affectedRows'] === 1) {
-    //   Swal.fire('Registro completado con éxito');
-    //   this.router.navigate(['/profesores']);
-    // }
+    if (response['affectedRows'] === 1) {
+      Swal.fire('Registro completado con éxito');
+      this.router.navigate(['/profesores']);
+    }
   }
     
 }
