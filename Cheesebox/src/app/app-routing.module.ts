@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AreaClientesComponent } from './componentes/area-clientes/area-clientes.component';
 import { BuscadorComponent } from './componentes/buscador/buscador.component';
+import { DetalleQuesoComponent } from './componentes/detalle-queso/detalle-queso.component';
+import { DetalleRecetasComponent } from './componentes/detalle-recetas/detalle-recetas.component';
 import { FormularioAddQuesoComponent } from './componentes/formulario-add-queso/formulario-add-queso.component';
 import { FormularioAddRecetasComponent } from './componentes/formulario-add-recetas/formulario-add-recetas.component';
 import { FormularioRegistroComponent } from './componentes/formulario-registro/formulario-registro.component';
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'recetas', pathMatch: 'full', component: ListaRecetasComponent },
   { path: 'update/queso', pathMatch: 'full', component: FormularioAddQuesoComponent },
   { path: 'update/recetas', pathMatch: 'full', component: FormularioAddRecetasComponent },
+  { path: 'queso/detalle', pathMatch: 'full', component: DetalleQuesoComponent },
+  { path: 'receta/detalle', pathMatch: 'full', component: DetalleRecetasComponent },
   { path: '**', redirectTo: '/'}
     
   
