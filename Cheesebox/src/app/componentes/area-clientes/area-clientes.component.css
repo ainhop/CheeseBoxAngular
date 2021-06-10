@@ -1,0 +1,39 @@
+.container{
+    padding: 5%;
+}
+
+.nav{
+    margin: auto!important;
+    padding: 1%;
+    border: none!important;
+}
+.nav-link{
+    border: none!important;
+    color: #ffd05e; 
+    border-radius: 100px;
+}
+.nav-link:hover{
+    background-color: black;
+    border-radius: 100px;
+}
+.nav-link.active{
+  
+    color: black;
+    text-decoration: underline; 
+}
+.miniatura{
+    width: 33%!important;
+    height: 100px!important;
+    border: 1px solid #fff!important;
+    margin: auto;
+}
+
+.imagenPerfil{
+
+    border-radius: 100%;
+    width: 175px;
+    height: 175px;
+    overflow: hidden;
+    line-height: 175px;
+    
+}

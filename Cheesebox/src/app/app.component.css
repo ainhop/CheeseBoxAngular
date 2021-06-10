@@ -114,7 +114,14 @@ span .navbar-toggler-icon{
     color: var(--color-secundario)!important;
 }
 
+footer{
+    text-align: center!important;
+}
 
+footer h3{
+    font-size: 0.8em!important;
+
+}
 /* Menú Desplegable */
 .headerDesplegable{
     text-align: center;
@@ -122,17 +129,28 @@ span .navbar-toggler-icon{
 }
 
 .headerDesplegable img{
-    width: 40%;
-    margin: auto!important;
+
+    margin-top:5%!important ;
+    margin-left: 10%!important;
+    
+}
+
+.headerDesplegable h4{
+
+    margin: 10%!important ;
+    
 }
 .headBanner{
  display: none;
   
 }
-header img {
+.logogrande {
 
-    width: 80%;
-   }
+    position: absolute;
+    /* left: 35%!important; */
+     z-index: 3;
+     width: 70%!important;
+     } 
 
 /* Efecto ratatuille */
  .action::before {
@@ -175,14 +193,9 @@ content: none;
     header img {
 
  
-         width: 40%;
-        } 
-        .headBanner{
-        
-            display: block;
+        width: 40%;
+    } 
 
-          
-        }
   } 
   @media screen and (min-width: 700px) {
  
@@ -201,22 +214,27 @@ content: none;
   
     }
     
-     header img {
-
-   position: absolute;
-   left: 36%;
-   top: 0px;
-    width: 20%;
-    z-index: 10;
-    max-width: 23%!important;
-    } 
+  
     .headBanner{
         position: absolute;
         top: -80px;
         width: 100%;
         z-index: 2;
+        display: block;
       
     }
-  
+    .logogrande {
+        left: 35%!important;
+        width: 25%!important;
+        } 
   }
   
+  /* @media screen and (min-width: 1300px) {
+ 
+
+    .logogrande {
+        left: 35%!important;
+        width: 30%!important;
+        } 
+  }
+   */
