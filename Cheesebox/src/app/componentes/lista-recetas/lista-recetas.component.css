@@ -22,8 +22,3 @@
     border-radius: 10px!important;
     box-shadow: 10px 10px 10px 2px rgb(213, 213, 213);
 }
-hr{
-    box-shadow: 20px 20px 20px 20px rgb(213, 213, 213);
-    margin-bottom: 40px;
-    color: rgba(123, 121, 121, 0.152)!important;
-}

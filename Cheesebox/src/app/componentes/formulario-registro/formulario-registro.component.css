@@ -9,19 +9,41 @@ section{
 }
 section input, section select{
     border: none;
-    border-bottom: .5px solid gray;
+    background-color: #f8f8f8;
+    border-radius: 10px!important;
     border-radius: 0px;
-    outline: 0px!important;
+    outline: none!important;
+    
+
+ 
+}
+
+
+h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight:800;
+    text-align: center;
 }
 .btn{
-
+margin-top: 1%;
+margin-bottom: 1%;
     border: none;
-    color: #FFD05E!important;
+    color: #3b3d34!important;
     transition: all ease 0.5;
 
     
 }
 .btn:hover{
-    background-color: #FFD05E!important;
-    color: #3b3d34!important;
+    background-color: #3b3d34!important;
+    color: #FFD05E!important;
+    text-decoration: underline;
 }
+.formDoble{
+    display: flex;
+
+}
+.textForm{
+    font-family: 'Montserrat', sans-serif;
+    font-weight:700;
+}
+

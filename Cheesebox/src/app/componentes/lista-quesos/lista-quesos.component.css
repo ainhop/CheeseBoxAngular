@@ -1,3 +1,7 @@
+
+*{
+    font-family: 'Montserrat', sans-serif;;
+}
 .card{
     margin: 7%;
     border: none!important;
@@ -11,8 +15,16 @@
     padding: 5%;
     opacity: 0;
     transition: all ease 0.5s;
+    background: rgba(255,255,255,0.25);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    border-radius: 10px;
+   
+    ;
 }
 .card-img-overlay:hover{
+   
     opacity: 1;
 }
 .card:hover img{
@@ -22,5 +34,16 @@
 .card img{
     transition: all ease 0.5s;
     text-shadow:10px 10px 10px 2px rgb(213, 213, 213) ;
+    
 
 }
+.card-img-overlay h5{
+    padding: 5%;
+  font-weight: 700;
+  font-size: 1.3em;
+  
+}
+.card-img-overlay p{
+
+    padding: 5%;
+  }
