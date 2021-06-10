@@ -4,58 +4,57 @@
   <div class="row">
     <div class="col-12">
       <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-          <input
-            type="text"
-            class="form-control"
-            formControlName="nombre"
-            placeholder="Nombre"
-          />
+        <div class="formDoble">
+        <div class="mb-3 col-6">
+          <label for="" class="ms-2 textForm">Nombre</label>
+          <input type="text" class="form-control" formControlName="nombre"/>
         </div>
-        <div class="mb-3">
-          <input
-            type="text"
-            class="form-control"
-            formControlName="apellidos"
-            placeholder="Apellidos"
-          />
+        <div class="mb-3 ms-2 col-6 ">
+          <label for="" class="ms-2 textForm">Apellidos</label>
+          <input type="text"class="form-control" formControlName="apellidos"/>
         </div>
+      </div>
         <div class="mb-3">
+          <label for="" class="ms-2 textForm">Usuario</label>
           <input
             type="text"
             class="form-control"
             formControlName="username"
-            placeholder="Username"
+  
           />
         </div>
 
         <div class="mb-3">
+          <label for="" class="ms-2 textForm">Email</label>
           <input
             type="email"
             class="form-control"
             formControlName="email"
-            placeholder="Email"
+      
           />
         </div>
 
         <div class="mb-3">
+          <label for="" class="ms-2 textForm">Contraseña</label>
           <input
             type="password"
             class="form-control"
             formControlName="password"
-            placeholder="Password"
+
           />
         </div>
-        <div class="mb-3">
+        <div class="formDoble">
+        <div class="mb-3 col-6">
+          <label for="" class="ms-2 textForm">Foto de perfil</label>
           <input
             type="file"
             class="form-control"
             formControlName="imagen"
-            placeholder="Foto de perfil"
           />
-
-          <button class="btn" type="submit">Enviar</button>
         </div>
+      </div>
+          <button class="btn col-12 botones" type="submit">Enviar</button>
+      
       </form>
     </div>
   </div>

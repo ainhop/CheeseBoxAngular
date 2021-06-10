@@ -5,26 +5,27 @@
     <div class="col-12">
       <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
         <div class="mb-3">
+          <label for="" class="ms-2 textForm">Nombre</label>
           <input
             type="text"
             class="form-control"
             id="nombre"
-            placeholder="Nombre"
             formControlName="nombre"
           />
         </div>
 
         <div class="mb-3">
+          <label for="" class="ms-2 textForm">Descripción</label>
           <input
-            type="text"
+            type="textarea"
             class="form-control"
             id="descripcion"
-            placeholder="Descripción"
             formControlName="descripcion"
           />
         </div>
-
-        <div class="mb-3">
+        <div class="formDoble">
+        <div class="mb-3 col-6">
+          <label for="" class="ms-2 textForm">Tipo de Leche</label>
           <select class="form-select" aria-label="Tipo de leche" formControlName="tipoLeche">
             <option selected>Tipo de leche</option>
             <option value="vaca">Vaca</option>
@@ -32,16 +33,18 @@
             <option value="vegetal">Vegetal</option>
           </select>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 ms-2 col-6">
+          <label for="" class="ms-2 textForm">Origen</label>
           <input
             type="text"
             class="form-control"
             id="origen"
-            placeholder="Origen"
             formControlName="origen"
           />
         </div>
+      </div>
         <div class="mb-3">
+          <label for="" class="ms-2 textForm">Caracteristicas</label>
           <input
             type="text"
             class="form-control"
@@ -50,7 +53,9 @@
             formControlName="caracteristicas"
           />
         </div>
-        <div class="mb-3">
+        <div class="formDoble">
+        <div class="mb-3 col-6">
+          <label for="" class="ms-2 textForm">Color</label>
           <input
             type="text"
             class="form-control"
@@ -60,7 +65,8 @@
           />
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3 ms-2 col-6">
+          <label for="" class="ms-2 textForm">Tipo</label>
           <input
             type="text"
             class="form-control"
@@ -69,19 +75,10 @@
             formControlName="tipo"
           />
         </div>
-        <button type="submit" class="btn btn-outline-info">Enviar</button>
+      </div>
+        <button type="submit" class="btn col-12">Enviar</button>
       </form>
     </div>
   </div>
 </section>
 
-<!--{export interface Producto{
-
-        nombre: string,
-        descripcion: string,
-        tipoLeche: string,
-        origen: string,
-        caracteristicas: string,
-        color: string,
-        tipo: string,
-    } -->

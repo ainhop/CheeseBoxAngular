@@ -5,45 +5,41 @@
         <div class="col-12">
             <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
                 <div class="mb-3">
-
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" formControlName="nombre">
+                    <label for="" class="ms-2 textForm">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" formControlName="nombre">
                 </div>
 
                 <div class="mb-3">
-
-                    <input type="text" class="form-control" id="descripcion" placeholder="Descripción"
+                    <label for="" class="ms-2 textForm">Descripción</label>
+                    <input type="text" class="form-control" id="descripcion"
                         formControlName="descripcion">
                 </div>
-                <div class="mb-3 dosCol">
-                    <div>
-                        <p>Tiempo preparacion</p>
-                    </div>
-                    <div>
-                        <input type="time" class="form-control" id="tiempo" placeholder="Tiempo "
+                <div class="formDoble">
+                <div class="mb-3 col-6">
+                    <label for="" class="ms-2 textForm">Queso utilizado</label>
+                    <input type="text" class="form-control" id="queso_utilizado" 
+                    formControlName="queso_utilizado">
+                </div>
+                <div class="mb-3 ms-2 col-6">
+                 
+                        <label for="" class="ms-2 textForm">Tiempo</label>
+                        <input type="time" class="form-control" id="tiempo" 
                             formControlName="tiempo" style="border-bottom:none;">
-                    </div>
+               
+                </div>
+            </div>
+                <div class="mb-3">
+                    <label for="" class="ms-2 textForm">Raciones</label>
+                    <input type="number" class="form-control" id="raciones"formControlName="raciones">
                 </div>
 
                 <div class="mb-3">
-
-                    <input type="text" class="form-control" id="queso_utilizado" placeholder="Queso utilizado"
-                        formControlName="queso_utilizado">
+                    <label for="" class="ms-2 textForm">Ingredientes</label>
+                    <input type="textarea" class="form-control" id="ingredientes" formControlName="ingredientes">
                 </div>
-                <div class="mb-3">
-
-                    <input type="number" class="form-control" id="raciones" placeholder="Raciones" formControlName="raciones">
-                </div>
-
-                <div class="mb-3">
-
-                    <input type="text" class="form-control" id="ingredientes" placeholder="Ingredientes" formControlName="ingredientes">
-                </div>
-                <div class="mb-3">
-
-                    <input type="textarea" class="form-control" id="ingredientes" placeholder="Ingredientes" formControlName="ingredientes">
-                </div>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Elaboracion"></textarea>
-                <button type="submit" class="btn btn-outline-info">Enviar</button>
+                <label for="" class="ms-2 textForm">Elaboracion</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <button type="submit" class="btn col-12">Enviar</button>
 
             </form>
         </div>
