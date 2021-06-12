@@ -5,6 +5,7 @@
 .card{
     margin: 7%;
     border: none!important;
+    position: relative;
     /* background-color: rgba(214, 214, 214, 0.459);
     box-shadow: 5px 5px 25px rgb(255, 255, 255) inset;
     border-radius: 10px!important;
@@ -14,14 +15,17 @@
 .card-img-overlay{
     padding: 5%;
     opacity: 0;
-    transition: all ease 0.5s;
     background: rgba(255,255,255,0.25);
     box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
     backdrop-filter: blur(4.5px);
     -webkit-backdrop-filter: blur(4.5px);
     border-radius: 10px;
-   
-    ;
+    transition: all ease 0.5s;
+    height: 80%;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    cursor: pointer;
 }
 .card-img-overlay:hover{
    
@@ -34,16 +38,20 @@
 .card img{
     transition: all ease 0.5s;
     text-shadow:10px 10px 10px 2px rgb(213, 213, 213) ;
-    
-
 }
 .card-img-overlay h5{
     padding: 5%;
   font-weight: 700;
   font-size: 1.3em;
-  
+
 }
 .card-img-overlay p{
 
     padding: 5%;
-  }
+}
+.card .linea{
+    width: 25%;
+    height: 1px;
+    margin:0px 10px;
+    border-bottom: 5px solid #ffd05e;
+}
