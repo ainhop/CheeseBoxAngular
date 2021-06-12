@@ -31,3 +31,22 @@
     border: 1px solid #fff!important;
     margin: auto;
 }
+button:focus, select:focus, textarea:focus{
+
+    box-shadow:none!important;
+    text-decoration: underline;
+    color: #FFD05E;
+}
+button{
+    margin-top: 1%;
+    background-color: rgba(255, 255, 255, 0)!important;
+    color: #000;
+    transition: all ease .5s;
+    margin-left: 10px;
+    border-radius: 100px;
+    
+}
+button:hover{
+    background-color:rgb(0, 0, 0)!important;
+    color: #FFD05E;
+}

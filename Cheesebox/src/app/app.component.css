@@ -154,36 +154,34 @@ content: none;
     }
   .action::before {
     content: '';
-    background-image: url('https://media.tenor.com/images/0be53f8af408816f3d84ca690fefa1a9/tenor.png');
+    background-image: url('https://media.giphy.com/media/l1L2UkgpuiE4U/giphy.gif');
     border-radius: 100%;
     background-repeat: no-repeat;
     background-size: 80%;
     right: 100;
     position: absolute;
-    bottom: 20vh;
-    height: 200px;
+    bottom: 2vh;
+    height: 250px;
     width: 200px;
-    transform: translateY(3200px);
-    display: none;
+    padding: 5%;
+    transform: translateY(1200px);
+opacity: 0;
     transition: transform .5s;
+    
   }
   
   .action:hover::before {
     transform: translateY(700px);
-    display: block;
-   
+    opacity: 1;
   }
+  
   
 
    @media screen and (min-width: 500px) {
   
     
     .action::before {
-      background-position: 0;
-      background-size: 250px;
-      height: 200px;
-      transform: translateY(1200px);
-      transition: 0.5s;
+    display: none;
      
     }
     header img {
@@ -195,13 +193,17 @@ content: none;
   } 
   @media screen and (min-width: 700px) {
  
-    
     .action::before {
-      background-size: 200px;
-      height: 200px;
-      transform: translateY(1200px);
-      transition: 0.5s;
+        display: block;
+      background-size: 285px;
+      background-position: center;
+      background-size: cover;
+      width: 175px;
+      height: 175px;
+      transform: translateY(100px);
+      transition: .5s;
     }
+ 
     header nav ul li a:hover{
         color:var(--color-princial)!important;
         background-color: var(--color-secundario)!important;
@@ -210,7 +212,6 @@ content: none;
   
     }
     
-  
     .headBanner{
         position: absolute;
         top: -80px;
@@ -221,16 +222,7 @@ content: none;
     }
     .logogrande {
         left: 37%!important;
-        width: 30%!important;
+        width: 25%!important;
         } 
   }
   
-  /* @media screen and (min-width: 1300px) {
- 
-
-    .logogrande {
-        left: 35%!important;
-        width: 30%!important;
-        } 
-  }
-   */

@@ -1,3 +1,6 @@
+*{
+    font-family: 'Montserrat', sans-serif;;
+}
 section{
     margin-top: 2%!important;
     width: 60%;
@@ -39,6 +42,12 @@ margin-bottom: 1%;
     color: #FFD05E!important;
     text-decoration: underline;
 }
+button:focus{
+
+    box-shadow:none!important;
+    text-decoration: underline;
+    color: #FFD05E;
+}
 .formDoble{
     display: flex;
 
@@ -47,4 +56,3 @@ margin-bottom: 1%;
     font-family: 'Montserrat', sans-serif;
     font-weight:700;
 }
-

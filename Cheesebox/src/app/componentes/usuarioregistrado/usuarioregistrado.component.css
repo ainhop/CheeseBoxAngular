@@ -1,0 +1,89 @@
+*{
+    font-family: 'Montserrat', sans-serif;;
+}
+.container{
+    margin: auto;
+    text-align: center;
+    width: 80%;
+    
+}
+
+.imagenPerfil{
+    width: 175px;
+    height: 175px;
+    line-height: 175px;
+    border-radius: 100%;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+    margin: 0px 15% 15% 15%;
+    
+}
+.dosCol{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dosCol h3{
+    font-weight: 800;
+
+}
+div ul{
+    margin-left: 10%;
+    list-style-type: none;
+
+}
+div ul li{
+    font-weight: 800; 
+    font-size: 1.4em;
+}
+.doble{
+display: flex; 
+}
+.nombre{
+    font-weight: 300; 
+    font-size: 1.4em;
+    color: #ffd05e ;
+}
+button:focus{
+
+    box-shadow:none!important;
+    text-decoration: underline;
+    color: #FFD05E;
+}
+.botones button{
+    background-color: rgba(255, 255, 255, 0)!important;
+    color: #000;
+    transition: all ease .5s;
+    margin-left: 10px;
+    border-radius: 100px;
+    
+}
+.botones button:hover{
+    background-color:rgb(0, 0, 0)!important;
+    color: #FFD05E;
+}
+footer {
+    display: block;
+    position:fixed;
+    bottom: 0px;
+}
+footer h3{
+    font-size: .8em!important;
+}
+
+
+
+@media screen and (min-width: 500px) {
+
+    .footer {
+        display: none;
+            } 
+    } 
+@media screen and (min-width: 700px) {
+    .footer {
+        display: block;
+            } 
+        }

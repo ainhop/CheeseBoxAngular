@@ -16,8 +16,6 @@ section input, section select{
     background-color: #f8f8f8;
     border-radius: 10px!important;
     border-radius: 0px;
-    outline: none!important;
-    
 }
 
 
@@ -49,10 +47,12 @@ margin-bottom: 1%;
     font-weight:700;
 }
 
-input:focus, select:focus, textarea:focus{
+input:focus, select:focus, textarea:focus, button:focus{
 
     box-shadow:2px 2px 2px 1px #FFD05E!important;
 }
+
+
 h4{
     text-align: center;
 }
@@ -70,3 +70,24 @@ h4{
 h5 a{
    color: #FFD05E
 }
+
+footer {
+    position:fixed;
+    bottom: 0px;
+    right: 5%;
+  
+}
+footer h3{
+    font-size: .8em!important;
+}
+@media screen and (min-width: 500px) {
+
+    .footer {
+        display: none;
+            } 
+    } 
+@media screen and (min-width: 700px) {
+    .footer {
+        display: block;
+            } 
+        }

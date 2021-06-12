@@ -1,3 +1,6 @@
+*{
+    font-family: 'Montserrat', sans-serif;;
+}
 section{
     margin-top: 2%!important;
     width: 60%;
@@ -14,10 +17,7 @@ section input, section select{
     border-radius: 0px;
     outline: none!important;
     
-
- 
 }
-
 
 h2{
     font-family: 'Montserrat', sans-serif;
@@ -50,4 +50,24 @@ margin-bottom: 1%;
 input:focus, select:focus, textarea:focus{
 
     box-shadow:2px 2px 2px 1px #FFD05E!important;
+}
+.btn{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border: none;
+    color: #3b3d34!important;
+    transition: all ease 0.5;
+
+    
+}
+.btn:hover{
+    background-color: #3b3d34!important;
+    color: #FFD05E!important;
+    text-decoration: underline;
+}
+button:focus{
+
+    box-shadow:none!important;
+    text-decoration: underline;
+    color: #FFD05E;
 }
