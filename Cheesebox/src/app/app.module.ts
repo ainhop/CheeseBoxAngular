@@ -15,6 +15,7 @@ import { AreaClientesComponent } from './componentes/area-clientes/area-clientes
 import { FavoritosComponent } from './componentes/favoritos/favoritos.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BuscadorComponent } from './componentes/buscador/buscador.component';
+import { UsuarioregistradoComponent } from './componentes/usuarioregistrado/usuarioregistrado.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { BuscadorComponent } from './componentes/buscador/buscador.component';
     DetalleRecetasComponent,
     AreaClientesComponent,
     FavoritosComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    UsuarioregistradoComponent
   ],
   imports: [
     BrowserModule,

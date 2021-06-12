@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'update/queso', component: FormularioAddQuesoComponent },
   { path: 'update/recetas', component: FormularioAddRecetasComponent },
   { path: 'quesos/detalle', component: DetalleQuesoComponent },
-  { path: 'receta/detalle', component: DetalleRecetasComponent },
+  { path: 'recetas/detalle', component: DetalleRecetasComponent },
   { path: '**', redirectTo: '/'}
     
   
