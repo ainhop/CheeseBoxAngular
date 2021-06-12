@@ -1,3 +1,7 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
 section{
     margin-top: 2%!important;
     width: 100%;
@@ -45,3 +49,24 @@ margin-bottom: 1%;
     font-weight:700;
 }
 
+input:focus, select:focus, textarea:focus{
+
+    box-shadow:2px 2px 2px 1px #FFD05E!important;
+}
+h4{
+    text-align: center;
+}
+.headerDesplegable {
+    margin: auto!important;
+}
+.headerDesplegable img{
+    margin-left: 15%;
+    width: 70%;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7))
+}
+.textoDesplegable{
+    margin: 10% 0px;
+}
+h5 a{
+   color: #FFD05E
+}

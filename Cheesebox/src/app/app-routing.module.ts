@@ -14,15 +14,15 @@ import { LoginComponent } from './componentes/login/login.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: BuscadorComponent },
-  { path: 'registrar', pathMatch: 'full', component: FormularioRegistroComponent },
-  { path: 'login', pathMatch: 'full', component: LoginComponent },
-  { path: 'clientes', pathMatch: 'full', component: AreaClientesComponent },
-  { path: 'quesos', pathMatch: 'full', component: ListaQuesosComponent },
-  { path: 'recetas', pathMatch: 'full', component: ListaRecetasComponent },
-  { path: 'update/queso', pathMatch: 'full', component: FormularioAddQuesoComponent },
-  { path: 'update/recetas', pathMatch: 'full', component: FormularioAddRecetasComponent },
-  { path: 'queso/detalle', pathMatch: 'full', component: DetalleQuesoComponent },
-  { path: 'receta/detalle', pathMatch: 'full', component: DetalleRecetasComponent },
+  { path: 'registrar', component: FormularioRegistroComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'clientes', component: AreaClientesComponent },
+  { path: 'quesos', component: ListaQuesosComponent },
+  { path: 'recetas', component: ListaRecetasComponent },
+  { path: 'update/queso', component: FormularioAddQuesoComponent },
+  { path: 'update/recetas', component: FormularioAddRecetasComponent },
+  { path: 'quesos/detalle', component: DetalleQuesoComponent },
+  { path: 'receta/detalle', component: DetalleRecetasComponent },
   { path: '**', redirectTo: '/'}
     
   

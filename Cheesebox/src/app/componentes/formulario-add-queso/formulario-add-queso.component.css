@@ -12,10 +12,11 @@ section input, section select{
     background-color: #f8f8f8;
     border-radius: 10px!important;
     border-radius: 0px;
-    outline: none!important;
-    
+    outline: none!important; 
+}
+input:focus, select:focus{
 
- 
+    box-shadow:2px 2px 2px 1px #FFD05E!important;
 }
 
 

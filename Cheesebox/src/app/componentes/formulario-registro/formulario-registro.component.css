@@ -47,3 +47,7 @@ margin-bottom: 1%;
     font-weight:700;
 }
 
+input:focus, select:focus, textarea:focus{
+
+    box-shadow:2px 2px 2px 1px #FFD05E!important;
+}
