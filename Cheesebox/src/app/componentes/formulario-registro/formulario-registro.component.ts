@@ -11,6 +11,11 @@ declare var Swal;
 })
 export class FormularioRegistroComponent implements OnInit {
   formulario: FormGroup;
+  form: any = {
+    nombre: '',
+    apellidos: '',
+    username: '',
+  };
 
   constructor(private usuariosService: UsuariosService) {
     this.formulario = new FormGroup({
@@ -41,7 +46,23 @@ export class FormularioRegistroComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // console.log(this.formulario);
+  }
+
+  objectLength(object): number {
+    if (!object) {
+      return 0;
+    }
+    return Object.keys(object).length;
+  }
+
+  checkControl(controlName, validatorName) {
+    console.log(`${controlName}: `, this.formulario.get(controlName));
+    console.log(this.formulario.get(controlName).hasError(validatorName));
+
+    return this.formulario.get(controlName).hasError(validatorName);
+  }
 
   async onSubmit() {
     const response = await this.usuariosService.registro(this.formulario.value);
