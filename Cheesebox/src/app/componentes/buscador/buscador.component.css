@@ -1,7 +1,8 @@
+@import url(../../../styles.css);
 div{
     width: 100%;
     height: 8vh;
-    border-bottom: 2px solid var(--color-princial);
+    border-bottom: 2px solid var(--color-principal);
     padding: 1%;
     /* box-shadow: 0 0 15px 1px var(--color-princial); */
 }
@@ -16,7 +17,7 @@ div button, .search input{
 
 }
 .search input {
-    color: #FFD05E!important;
+    color: var(--color-principal)!important;
 
 }
 input::placeholder { color: rgb(154, 154, 160); }

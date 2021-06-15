@@ -24,7 +24,7 @@
                 objectLength(formulario.controls.nombre.errors) > 0
               "
             >
-              El nombre es obligatorio
+            El formato de nombre no es correcto
             </p>
           </div>
           <div class="mb-3 ms-2 col-6">
@@ -39,7 +39,14 @@
               "
             />
             <p class="error" *ngIf="checkControl('apellidos', 'required')">
-              El apellido es obligatorio
+              <p
+              class="error"
+              *ngIf="
+                !formulario.controls.apellidos.pristine &&
+                objectLength(formulario.controls.apellidos.errors) > 0
+              "
+            >
+              El formato de apellido no es correcto
             </p>
           </div>
         </div>
@@ -68,6 +75,8 @@
           />
           <p class="error" *ngIf="checkControl('password', 'pattern')">
             El formato del password es incorrecto
+            <br>
+            Debe estar compuesto por: 
           </p>
         </div>
         <div class="formDoble">

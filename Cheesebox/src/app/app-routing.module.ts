@@ -4,6 +4,7 @@ import { AreaClientesComponent } from './componentes/area-clientes/area-clientes
 import { BuscadorComponent } from './componentes/buscador/buscador.component';
 import { DetalleQuesoComponent } from './componentes/detalle-queso/detalle-queso.component';
 import { DetalleRecetasComponent } from './componentes/detalle-recetas/detalle-recetas.component';
+import { FavoritosComponent } from './componentes/favoritos/favoritos.component';
 import { FormularioAddQuesoComponent } from './componentes/formulario-add-queso/formulario-add-queso.component';
 import { FormularioAddRecetasComponent } from './componentes/formulario-add-recetas/formulario-add-recetas.component';
 import { FormularioRegistroComponent } from './componentes/formulario-registro/formulario-registro.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'update/recetas', component: FormularioAddRecetasComponent },
   { path: 'quesos/detalle', component: DetalleQuesoComponent },
   { path: 'recetas/detalle', component: DetalleRecetasComponent },
+  {path: 'favoritos', component: FavoritosComponent},
   { path: '**', redirectTo: '/'}
     
   
