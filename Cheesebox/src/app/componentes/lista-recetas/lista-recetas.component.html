@@ -1,40 +1,78 @@
 <div class="container">
-    <div class="row">
-        <div class="col-12 col-sm-6 col-md-4">
-            <div class="card">
-                <div class="imagen"
-                    style="background-image:url(https://www.hogarmania.com/archivos/201112/fondue-verduras-v-668x400x80xX.jpg);">
-                </div>
-                <a class="favoritos" href="#"><img width="80%" src="../../../assets/img/confirmado.svg"/></a>
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Queso con Queso</h5>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4">
-            <div class="card">
-                <div class="imagen"
-                    style="background-image:url(https://www.hogarmania.com/archivos/201112/fondue-verduras-v-668x400x80xX.jpg);">
-                </div>
-                <a class="favoritos" href="#"><img width="80%" src="../../../assets/img/confirmado.svg"/></a>
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Queso con Queso</h5>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4">
-            <div class="card">
-                <div class="imagen"
-                    style="background-image:url(https://www.hogarmania.com/archivos/201112/fondue-verduras-v-668x400x80xX.jpg);">
-                </div>
-                <a class="favoritos" href="#"><img width="80%" src="../../../assets/img/confirmado.svg"/></a>
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Queso con Queso</h5>
-                </div>
-            </div>
-        </div>
-      
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let receta of arrRecetas">
+      <div class="card" [routerLink]="['/detalle']"></div>
+      <img
+        src="../../assets/img/revueltos_espinacas_parmesano.jpg"
+        class="card-img"
+      />
+      <div class="card-img-overlay">
+        <h5 class="card-title">{{ receta.nombre }}</h5>
+        <div class="linea"></div>
+        <p class="card-text">Queso utilizado: {{ receta.quesoUtilizado }}</p>
+        <!-- <p class="card-text">Ingredientes: {{ receta.ingredientes }}</p>
+        <p class="card-text">Tiempo: {{ receta.tiempo }}</p>
+        <p class="card-text">Raciones: {{ receta.raciones }}</p>
+        <p class="card-text">Elaboración: {{ receta.elaboracion }}</p> -->
+      </div>
     </div>
+  </div>
 </div>
+
+<!-- </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card">
+          <div
+            class="imagen"
+            style="
+              background-image: url(https://www.hogarmania.com/archivos/201112/fondue-verduras-v-668x400x80xX.jpg);
+            "
+          ></div>
+          <a class="favoritos" href="#"
+            ><img width="80%" src="../../../assets/img/confirmado.svg"
+          /></a>
+          <div class="card-img-overlay">
+            <h5 class="card-title">Queso con Queso</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card">
+          <div
+            class="imagen"
+            style="
+              background-image: url(https://www.hogarmania.com/archivos/201112/fondue-verduras-v-668x400x80xX.jpg);
+            "
+          ></div>
+          <a class="favoritos" href="#"
+            ><img width="80%" src="../../../assets/img/confirmado.svg"
+          /></a>
+          <div class="card-img-overlay">
+            <h5 class="card-title">Queso con Queso</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card">
+          <div
+            class="imagen"
+            style="
+              background-image: url(https://www.hogarmania.com/archivos/201112/fondue-verduras-v-668x400x80xX.jpg);
+            "
+          ></div>
+          <a class="favoritos" href="#"
+            ><img width="80%" src="../../../assets/img/confirmado.svg"
+          /></a>
+          <div class="card-img-overlay">
+            <h5 class="card-title">Queso con Queso</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
