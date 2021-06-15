@@ -9,14 +9,16 @@ export class RecetasService {
   private baseUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = 'http://localhost:3000/recetas';
+    this.baseUrl = 'http://localhost:3000/';
   }
 
   getAll(): Promise<Receta[]> {
-    return this.httpClient.get<Receta[]>(`${this.baseUrl}`).toPromise();
+    return this.httpClient.get<Receta[]>(`${this.baseUrl}recetas`).toPromise();
   }
 
   create(pReceta: Receta) {
-    return this.httpClient.post(`${this.baseUrl}`, pReceta).toPromise();
+    return this.httpClient
+      .post(`${this.baseUrl}recetas/create`, pReceta)
+      .toPromise();
   }
 }
