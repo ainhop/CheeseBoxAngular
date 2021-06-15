@@ -61,7 +61,7 @@ export class FormularioAddQuesoComponent implements OnInit {
     
     if (response['affectedRows'] === 1) {
       Swal.fire('Registro completado con éxito');
-      this.router.navigate(['/profesores']);
+      this.router.navigate(['/quesos']);
     }
   }
 }
