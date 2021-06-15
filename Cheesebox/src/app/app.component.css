@@ -55,6 +55,7 @@ header nav ul li a{
     color:var(--color-secundario)!important;
     border-radius: 100px;
     width: 100%;
+    letter-spacing: 1px!important;
 }
 header nav ul li a:hover{
     text-decoration: underline;
@@ -127,6 +128,7 @@ footer{
 
 footer h3{
     font-size: 0.8em!important;
+    letter-spacing: 1px;
 
 }
 footer hr{
@@ -147,6 +149,8 @@ position: absolute;
 z-index: 3;
 width: 70%!important;
 } 
+/*Efectos form*/
+
 
 /* Efecto ratatuille */
  .action::before {
@@ -165,7 +169,7 @@ content: none;
     width: 200px;
     padding: 5%;
     transform: translateY(1200px);
-opacity: 0;
+    opacity: 0;
     transition: transform .5s;
     
   }
@@ -175,7 +179,11 @@ opacity: 0;
     opacity: 1;
   }
   
-  
+  .btn-close:focus{
+    box-shadow:none!important;
+    outline: none!important; 
+    }
+
 
    @media screen and (min-width: 500px) {
   

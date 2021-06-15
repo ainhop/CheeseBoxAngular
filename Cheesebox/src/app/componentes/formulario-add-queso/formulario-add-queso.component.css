@@ -10,9 +10,9 @@ section{
     box-shadow: 0 0 15px 4px rgb(213, 213, 213);
     
 }
-section input, section select{
+section input, section select, button:focus, .form-control{
     border: none;
-    background-color: #f8f8f8;
+    background-color: #f8f8f8!important;
     border-radius: 10px!important;
     border-radius: 0px;
     outline: none!important; 
@@ -20,27 +20,42 @@ section input, section select{
 input:focus, select:focus, button:focus{
 
     box-shadow:2px 2px 2px 1px #FFD05E!important;
+    transition: box-shadow 0.5s;
+}
+.form-control:focus{
+    border: none;
+    box-shadow:2px 2px 2px 1px #FFD05E!important;
+    transition: box-shadow 0.5s;
 }
 
-
+.btn-close:focus{
+    box-shadow: none!important;
+    outline: none!important; 
+}
 h2{
     font-family: 'Montserrat', sans-serif;
     font-weight:800;
     text-align: center;
 }
-.btn{
-margin-top: 1%;
-margin-bottom: 1%;
+.botonBack, .btn{
+    margin: 1%;
     border: none;
     color: #3b3d34!important;
-    transition: all ease 0.5;
+    transition: all ease .5s;
+    transform: rotateY(360deg)!important;
+    position: relative;
+    overflow: hidden; 
 
-    
 }
-.btn:hover{
+.send:hover{
+    color: var(--color-principal)!important;
+    transition: all ease .5s;
+}
+.botonBack:hover, .send:hover{
     background-color: #3b3d34!important;
-    color: #FFD05E!important;
+    color: #ffcf5e00;
     text-decoration: underline;
+    transition: all ease .5s;
 }
 .formDoble{
     display: flex;
@@ -57,3 +72,24 @@ button:focus, select:focus, textarea:focus{
     text-decoration: underline;
     color: #FFD05E;
 }
+.back{
+    position: absolute;
+    background-image: url('../../../assets/img/arrow.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    height: 70px;
+    width: 100%;
+    top: -40%;
+    right: -75%;
+    transition: all ease .5s;
+ }
+
+ .botonBack:hover .back{
+    transition: transform 0.5s;
+-moz-transform: scale(1.1) translateX(-60%);
+-webkit-transform: scale(1.1) translateX(-60%);
+-o-transform: scale(1.1) translateX(-60%);
+-ms-transform: scale(1.1) translateX(-60%);
+transform: scale(1.1) translateX(-60%);
+} 
