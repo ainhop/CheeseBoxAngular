@@ -4,9 +4,9 @@ html {
 
 :root{
 
---color-princial: #FFD05E;
+--color-principal: #FFD05E;
 --color-secundario: #3b3d34;
---fuente-princial: 'Montserrat', sans-serif;
+--fuente-principal: 'Montserrat', sans-serif;
 --fontsize: 1em;
 --anchomaximo: 68.750em;
 --margingrid: 1em;
@@ -14,13 +14,13 @@ html {
            
 }
 body{
-    font-family: var(--fuente-princial);
+    font-family: var(--fuente-principal);
     font-size: var(--fontsize);
     overflow: hidden;
   
 }
-header {
 
+header {
     background-image: url(../assets/img/banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -70,7 +70,7 @@ header nav ul li a.user{
 }
 header nav ul li a.user:hover{
     background-color: var(--color-secundario)!important;
-    color:var(--color-princial)!important;
+    color:var(--color-principal)!important;
     font-size: 1.3em;
 }
 .cabecera{
@@ -205,7 +205,7 @@ opacity: 0;
     }
  
     header nav ul li a:hover{
-        color:var(--color-princial)!important;
+        color:var(--color-principal)!important;
         background-color: var(--color-secundario)!important;
         border-radius: 100px;
         transition: all ease .5s;

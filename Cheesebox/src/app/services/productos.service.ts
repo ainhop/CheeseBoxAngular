@@ -12,8 +12,21 @@ export class ProductosService {
   constructor(private httpClient: HttpClient) {
     this.baseUrl = 'http://localhost:3000/';
   }
+
+  getAll(): Promise<Producto[]> {
+   
+    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos`).toPromise();
+  }
+
+  getById(): Promise<Producto[]> {
+    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos`).toPromise();
+  }
+
   create(pProducto: Producto) {
     return this.httpClient.post(this.baseUrl, pProducto).toPromise();
   }
+
+  
+  
 
 }
