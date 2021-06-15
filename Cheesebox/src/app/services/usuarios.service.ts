@@ -8,7 +8,7 @@ export class UsuariosService {
   private baseUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = '';
+    this.baseUrl = 'http://localhost:3000/';
   }
   registro(formValues: any) {
     return this.httpClient
@@ -20,5 +20,9 @@ export class UsuariosService {
     return this.httpClient
       .post(`${this.baseUrl}/login`, formValues)
       .toPromise();
+  }
+
+  create(pUsuario: UsuariosService) {
+    return this.httpClient.post(`${this.baseUrl}usuario/create`, pUsuario).toPromise();
   }
 }
