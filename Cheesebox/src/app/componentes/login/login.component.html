@@ -1,26 +1,25 @@
-
 <div class="headerDesplegable">
-  <img src="./assets/img/logobanner.png" alt="">
-  </div>
-  <div class="textoDesplegable">
- <h4>Accede a tu cuenta</h4>
- <h5>y si no eres miembro aún <a href="http://">registrate</a> </h5> 
+  <img src="./assets/img/logobanner.png" alt="" />
+</div>
+<div class="textoDesplegable">
+  <h4>Accede a tu cuenta</h4>
+  <h5>y si aún no eres miembro <a href="http://">regístrate</a></h5>
 </div>
 <section>
   <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <div class="mb-3">
-      <label class="form-label textForm">Username</label>
+      <label class="form-label textForm">Email</label>
       <input type="text" class="form-control" formControlName="email" />
+      <!-- <p class="error" *ngIf="checkControl('email', 'pattern')"></p> -->
     </div>
     <div class="mb-3">
-      <label class="form-labe textForm">Password</label>
+      <label class="form-labe textForm">Contraseña</label>
       <input type="password" class="form-control" formControlName="password" />
     </div>
     <button class="btn col-12">Enviar</button>
   </form>
-  
 </section>
 <footer class="footer navbar-fixed-bottom">
-  <hr>
-  <h3>© 2021 CheeseBox.  All rights reserved🧀</h3>
+  <hr />
+  <h3>© 2021 CheeseBox. All rights reserved🧀</h3>
 </footer>

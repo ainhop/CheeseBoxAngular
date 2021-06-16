@@ -14,12 +14,10 @@ export class LoginComponent implements OnInit {
 
   constructor(private usuariosService: UsuariosService) {
     this.formulario = new FormGroup({
-      username: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
+      email: new FormControl('', [
+        Validators.pattern(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/),
       ]),
       password: new FormControl('', [
-        Validators.required,
         Validators.pattern(
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
         ),
@@ -28,6 +26,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  checkControl(controlEmail, validatorEmail) {
+    return this.formulario.get(controlEmail).hasError(validatorEmail);
+  }
 
   async onSubmit() {
     const response = await this.usuariosService.login(this.formulario.value);
@@ -40,4 +42,4 @@ export class LoginComponent implements OnInit {
 // if (response['error']) {
 //  Swal.fire('Error de login', response['error'], 'error');
 //     } else {
-//       Swal.fire('Login Correcto', 'Ya puedes disfrutar de la aplicación', 'success');
+//       Swal.fire('Login Correcto, correcto, todo correcto');

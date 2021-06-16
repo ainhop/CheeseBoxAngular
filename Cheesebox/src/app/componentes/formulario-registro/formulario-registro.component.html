@@ -8,15 +8,7 @@
         <div class="formDoble">
           <div class="mb-3 col-6">
             <label for="" class="ms-2 textForm">Nombre</label>
-            <input
-              type="text"
-              class="form-control"
-              formControlName="nombre"
-              [(ngModel)]="form.nombre"
-              (change)="
-                form.username = (form.nombre + form.apellidos).toLowerCase()
-              "
-            />
+            <input type="text" class="form-control" formControlName="nombre" />
             <p
               class="error"
               *ngIf="
@@ -24,7 +16,7 @@
                 objectLength(formulario.controls.nombre.errors) > 0
               "
             >
-            El formato de nombre no es correcto
+              ❌ El nombre es demasiado corto
             </p>
           </div>
           <div class="mb-3 ms-2 col-6">
@@ -33,38 +25,41 @@
               type="text"
               class="form-control"
               formControlName="apellidos"
-              [(ngModel)]="form.apellidos"
-              (change)="
-                form.username = (form.nombre + form.apellidos).LowerCase()
-              "
             />
-            <p class="error" *ngIf="checkControl('apellidos', 'required')">
-              <p
+            <p class="error" *ngIf="checkControl('apellidos', 'required')"></p>
+            <p
               class="error"
               *ngIf="
                 !formulario.controls.apellidos.pristine &&
                 objectLength(formulario.controls.apellidos.errors) > 0
               "
             >
-              El formato de apellido no es correcto
+              ❌ El apellido es demasiado corto
             </p>
           </div>
         </div>
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Usuario</label>
-          <input
-            disabled
-            type="text"
-            class="form-control"
-            formControlName="username"
-            [(ngModel)]="form.username"
-          />
+          <input type="text" class="form-control" formControlName="username" />
+          <p
+            class="error"
+            *ngIf="
+              !formulario.controls.username.pristine &&
+              objectLength(formulario.controls.user.errors) > 0
+            "
+          >
+            ❌ Tu nombre de usuario es demasiado corto
+          </p>
         </div>
 
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Email</label>
-          <input type="email" class="form-control" formControlName="email" />
+          <input type="text" class="form-control" formControlName="email" />
         </div>
+        <p class="error" *ngIf="checkControl('email', 'pattern')">
+          ❌ El formato utilizado no es correcto
+          <br />
+        </p>
 
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Contraseña</label>
@@ -74,9 +69,9 @@
             formControlName="password"
           />
           <p class="error" *ngIf="checkControl('password', 'pattern')">
-            El formato del password es incorrecto
-            <br>
-            Debe estar compuesto por: 
+            ❌ Tu contraseña tiene que incluir: seis caracteres, al menos una
+            letra mayúscula, un número y un símbolo
+            <br />
           </p>
         </div>
         <div class="formDoble">

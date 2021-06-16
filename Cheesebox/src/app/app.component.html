@@ -1,81 +1,142 @@
-  <header>
-    <section>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <button class="navbar-toggler  navbar-dark bg-warning" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-2">
-                          <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active action" href="#"id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Quesos
-                  <i
-                    class="fas fa-cheese"></i>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                  <li><a class="dropdown-item" href="/update/queso">Agregar queso</a></li>
-                  <li><a class="dropdown-item" href="/quesos">Ver todos los quesos</a></li>
-                </ul>
-              </li>
+<header>
+  <section>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler navbar-dark bg-warning"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-2">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active action"
+                href="#"
+                id="navbarScrollingDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Quesos
+                <i class="fas fa-cheese"></i>
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarScrollingDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" href="/update/queso"
+                    >Agregar queso</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/quesos"
+                    >Ver todos los quesos</a
+                  >
+                </li>
+              </ul>
+            </li>
 
-          
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#"id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Recetas
-                  <i
-                  class="far fa-sticky-note"></i></a>
-                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                  <li><a class="dropdown-item" href="update/recetas">Agregar recetas</a></li>
-                  <li><a class="dropdown-item" href="/recetas">Ver todas las recetas</a></li>
-                </ul>
-              </li>
-
-            </ul>
-            <form class="d-flex">
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active recetas" aria-current="page" href="registrar">Registrate</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active recetas user" aria-current="page" href="/login" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="far fa-user"></i></a>
-                    <!--menu desplegable-->
-                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                      <div class="offcanvas-header">
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                      </div>
-                    <div class="offcanvas-body">                 
-                        <!--   <app-login></app-login>--> 
-                   <app-usuarioregistrado></app-usuarioregistrado>    
-                      </div>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarScrollingDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Recetas
+                <i class="far fa-sticky-note"></i
+              ></a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarScrollingDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" href="update/recetas"
+                    >Agregar recetas</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/recetas"
+                    >Ver todas las recetas</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active recetas"
+                    aria-current="page"
+                    href="registrar"
+                    >Registrate</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active recetas user"
+                    aria-current="page"
+                    href="/login"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight"
+                    ><i class="far fa-user"></i
+                  ></a>
+                  <!--menu desplegable-->
+                  <div
+                    class="offcanvas offcanvas-end"
+                    tabindex="-1"
+                    id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel"
+                  >
+                    <div class="offcanvas-header">
+                      <button
+                        type="button"
+                        class="btn-close text-reset"
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                      ></button>
                     </div>
-                    <!-- fin menu desplegable-->
-                  </li>
-                </ul>
-              </div>
-            </form>
-          </div>
+                    <div class="offcanvas-body">
+                      <app-login></app-login>
+                      <!-- <app-usuarioregistrado></app-usuarioregistrado>     -->
+                    </div>
+                  </div>
+                  <!-- fin menu desplegable-->
+                </li>
+              </ul>
+            </div>
+          </form>
         </div>
-      </nav>
-      <a href="#"><img class="logogrande" src="./assets/img/logobanner.png" alt=""></a>
-    </section>
+      </div>
+    </nav>
+    <a href="#"
+      ><img class="logogrande" src="./assets/img/logobanner.png" alt=""
+    /></a>
+  </section>
+</header>
 
-  </header>
+<img class="headBanner" src="./assets/img/cabecera.png" alt="" />
 
-  <img class="headBanner" src="./assets/img/cabecera.png" alt="">
+<router-outlet></router-outlet>
 
- 
-  <router-outlet></router-outlet>
+<footer class="footer navbar-fixed-bottom">
+  <hr />
+  <h3>© 2021 CheeseBox. All rights reserved🧀</h3>
+</footer>
 
-  <footer class="footer navbar-fixed-bottom">
-    <hr>
-    <h3>© 2021 CheeseBox.  All rights reserved🧀</h3>
-
-  </footer>
-
-  <script>
-    $('#zoom_01').ezPlus();
+<script>
+  $("#zoom_01").ezPlus();
 </script>

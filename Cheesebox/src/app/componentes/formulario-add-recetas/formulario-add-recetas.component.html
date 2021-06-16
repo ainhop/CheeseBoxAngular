@@ -1,50 +1,75 @@
 <button class="btn">Volver</button>
 <section>
-    <h2>Sube tu receta</h2>
-    <hr>
-    <div class="row">
-        <div class="col-12">
-            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-                <div class="mb-3">
-                    <label for="" class="ms-2 textForm">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" formControlName="nombre">
-                </div>
-
-                <div class="mb-3">
-                    <label for="" class="ms-2 textForm">Descripción</label>
-                    <input type="text" class="form-control" id="descripcion"
-                        formControlName="descripcion">
-                </div>
-                <div class="formDoble">
-                <div class="mb-3 col-6">
-                    <label for="" class="ms-2 textForm">Queso utilizado</label>
-                    <input type="text" class="form-control" id="queso_utilizado" 
-                    formControlName="queso_utilizado">
-                </div>
-                <div class="mb-3 ms-2 col-6">
-                 
-                        <label for="" class="ms-2 textForm">Tiempo</label>
-                        <input type="time" class="form-control" id="tiempo" 
-                            formControlName="tiempo" style="border-bottom:none;">
-               
-                </div>
-            </div>
-                <div class="mb-3">
-                    <label for="" class="ms-2 textForm">Raciones</label>
-                    <input type="number" class="form-control" id="raciones"formControlName="raciones">
-                </div>
-
-                <div class="mb-3">
-                    <label for="" class="ms-2 textForm">Ingredientes</label>
-                    <input type="textarea" class="form-control" id="ingredientes" formControlName="ingredientes">
-                </div>
-                <label for="" class="ms-2 textForm">Elaboracion</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                <button type="submit" class="btn col-12">Enviar</button>
-
-            </form>
+  <h2>Sube tu receta</h2>
+  <hr />
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="" class="ms-2 textForm">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            formControlName="nombre"
+          />
         </div>
+        <div class="formDoble">
+          <div class="mb-3 col-6">
+            <label for="" class="ms-2 textForm">Queso utilizado</label>
+            <input
+              type="text"
+              class="form-control"
+              id="queso_utilizado"
+              formControlName="queso_utilizado"
+            />
+          </div>
+          <div class="mb-3 ms-2 col-6">
+            <label for="" class="ms-2 textForm">Tiempo</label>
+            <input
+              type="time"
+              class="form-control"
+              id="tiempo"
+              formControlName="tiempo"
+              style="border-bottom: none"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="" class="ms-2 textForm">Raciones</label>
+          <input
+            type="number"
+            class="form-control"
+            id="raciones"
+            formControlName="raciones"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="" class="ms-2 textForm">Ingredientes</label>
+          <input
+            type="textarea"
+            class="form-control"
+            id="ingredientes"
+            formControlName="ingredientes"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="" class="ms-2 textForm">Imagen</label>
+          <input
+            type="file"
+            class="form-control"
+            id="imagen"
+            formControlName="imagen"
+          />
+        </div>
+        <label for="" class="ms-2 textForm">Elaboracion</label>
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+        ></textarea>
+        <button type="submit" class="btn col-12">Enviar</button>
+      </form>
     </div>
+  </div>
 </section>
-
-
