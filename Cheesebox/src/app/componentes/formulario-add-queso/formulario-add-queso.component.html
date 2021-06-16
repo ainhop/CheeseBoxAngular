@@ -1,5 +1,6 @@
-
-<button class="btn botonBack" routerLink> <span class="back"></span> Volver</button>
+<button class="btn botonBack" routerLink>
+  <span class="back"></span> Volver
+</button>
 
 <section>
   <h2>Sube tu queso</h2>
@@ -18,7 +19,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="" class="ms-2 textForm">Descripción</label>
+          <label for="" class="ms-2 textForm">Características</label>
           <input
             type="textarea"
             class="form-control"
@@ -27,27 +28,32 @@
           />
         </div>
         <div class="formDoble">
-        <div class="mb-3 col-6">
-          <label for="" class="ms-2 textForm">Tipo de Leche</label>
-          <select class="form-select" aria-label="Tipo de leche" formControlName="tipoLeche">
-            <option selected>Tipo de leche</option>
-            <option value="vaca">Vaca</option>
-            <option value="oveja">Oveja</option>
-            <option value="vegetal">Vegetal</option>
-          </select>
+          <div class="mb-3 col-6">
+            <label for="" class="ms-2 textForm">Tipo de Leche</label>
+            <select
+              class="form-select"
+              aria-label="Tipo de leche"
+              formControlName="tipoLeche"
+            >
+              <option selected>Tipo de leche</option>
+              <option value="vaca">Vaca</option>
+              <option value="oveja">Oveja</option>
+              <option value="vegetal">Cabra</option>
+              <option value="vegetal">Tres leches</option>
+            </select>
+          </div>
+          <div class="mb-3 ms-2 col-6">
+            <label for="" class="ms-2 textForm">Origen</label>
+            <input
+              type="text"
+              class="form-control"
+              id="origen"
+              formControlName="origen"
+            />
+          </div>
         </div>
-        <div class="mb-3 ms-2 col-6">
-          <label for="" class="ms-2 textForm">Origen</label>
-          <input
-            type="text"
-            class="form-control"
-            id="origen"
-            formControlName="origen"
-          />
-        </div>
-      </div>
         <div class="mb-3">
-          <label for="" class="ms-2 textForm">Caracteristicas</label>
+          <label for="" class="ms-2 textForm">Curiosidades</label>
           <input
             type="text"
             class="form-control"
@@ -57,28 +63,28 @@
           />
         </div>
         <div class="formDoble">
-        <div class="mb-3 col-6">
-          <label for="" class="ms-2 textForm">Color</label>
-          <input
-            type="text"
-            class="form-control"
-            id="color"
-            placeholder="Color"
-            formControlName="color"
-          />
-        </div>
+          <div class="mb-3 col-6">
+            <label for="" class="ms-2 textForm">Color</label>
+            <input
+              type="text"
+              class="form-control"
+              id="color"
+              placeholder="Color"
+              formControlName="color"
+            />
+          </div>
 
-        <div class="mb-3 ms-2 col-6">
-          <label for="" class="ms-2 textForm">Tipo</label>
-          <input
-            type="text"
-            class="form-control"
-            id="tipo"
-            placeholder="Tipo"
-            formControlName="tipo"
-          />
+          <div class="mb-3 ms-2 col-6">
+            <label for="" class="ms-2 textForm">Tipo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="tipo"
+              placeholder="Tipo"
+              formControlName="tipo"
+            />
+          </div>
         </div>
-      </div>
         <button type="submit" class="btn send col-12">Enviar</button>
       </form>
     </div>
