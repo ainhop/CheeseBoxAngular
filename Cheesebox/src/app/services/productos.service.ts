@@ -25,6 +25,4 @@ export class ProductosService {
   create(pProducto: Producto) {
     return this.httpClient.post(`${this.baseUrl}productos/create`, pProducto).toPromise();
   }
-
-
 }

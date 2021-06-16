@@ -1,4 +1,7 @@
-<button class="btn">⬅Volver</button>
+<button class="btn botonBack" routerLink>
+  <span class="back"></span> Volver
+</button>
+
 <div class="container">
   <div class="row">
     <div class="dosCol">
@@ -65,6 +68,10 @@
           role="tabpanel"
           aria-labelledby="nav-home-tab"
         >
+        <button class="btn editar" routerLink>
+          <span class="edit"></span> Editar tus datos
+        </button>
+    
           <ul>
             <div class="doble">
               <li>Nombre</li>
@@ -87,6 +94,8 @@
           aria-labelledby="nav-profile-tab"
         >
           <app-lista-quesos></app-lista-quesos>
+          <hr>
+          <app-lista-recetas></app-lista-recetas>
         </div>
         <div
           class="tab-pane fade"
@@ -94,7 +103,10 @@
           role="tabpanel"
           aria-labelledby="nav-contact-tab"
         >
-          <app-lista-recetas></app-lista-recetas>
+        <button class="btn editar" routerLink>
+          <span class="edit"></span> Editar tus datos
+        </button>
+         
         </div>
       </div>
     </div>

@@ -85,6 +85,16 @@
             />
           </div>
         </div>
+        <div class="col-12">
+          <label for="" class="ms-2 textForm">Imagen</label>
+          <input
+            type="file"
+            class="form-control"
+            id="tipo"
+            placeholder="imagen"
+            formControlName="imagen"  (change)="onChange($event)"
+          />
+        </div>       
         <button type="submit" class="btn send col-12">Enviar</button>
       </form>
     </div>

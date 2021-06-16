@@ -74,6 +74,14 @@ h5 a{
    color: #FFD05E
 }
 
+/* Alert */
+
+.alert{
+    border: 1px solid #FFD05E;
+    box-shadow:2px 2px 2px 1px #FFD05E!important;
+    font-size: .8em;
+}
+
 footer {
     margin-top: 70%;
     text-align: center;

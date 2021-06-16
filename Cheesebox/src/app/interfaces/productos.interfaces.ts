@@ -6,4 +6,5 @@ export interface Producto {
   caracteristicas: string;
   color: string;
   tipo: string;
+  imagen: string
 }
