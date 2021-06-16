@@ -1,1 +1,4 @@
 @import url(../formulario-add-queso/formulario-add-queso.component.css);
+button:disabled{
+    text-decoration: line-through;
+}
