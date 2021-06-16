@@ -8,56 +8,49 @@ declare var Swal;
 @Component({
   selector: 'app-formulario-add-recetas',
   templateUrl: './formulario-add-recetas.component.html',
-  styleUrls: ['./formulario-add-recetas.component.css']
+  styleUrls: ['./formulario-add-recetas.component.css'],
 })
 export class FormularioAddRecetasComponent implements OnInit {
   formulario: FormGroup;
 
-  constructor(
-    private RecetasService:RecetasService ,
-    private router: Router
-  ) {
+  constructor(private RecetasService: RecetasService, private router: Router) {
     this.formulario = new FormGroup({
       nombre: new FormControl('', [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(5),
       ]),
       descripcion: new FormControl('', [
         Validators.required,
-        Validators.minLength(3)
+        Validators.minLength(3),
       ]),
       tiempo: new FormControl('', [
         Validators.required,
-        Validators.minLength(3)
+        Validators.minLength(3),
       ]),
       quesoUtilizado: new FormControl('', [
         Validators.required,
-        Validators.minLength(3)
+        Validators.minLength(3),
       ]),
       raciones: new FormControl(),
       ingredientes: new FormControl('', [
         Validators.required,
-        Validators.minLength(3)
+        Validators.minLength(3),
       ]),
       elaboracion: new FormControl('', [
         Validators.required,
-        Validators.minLength(3)
+        Validators.minLength(3),
       ]),
-
-    })
+    });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   async onSubmit() {
-  
     const response = await this.RecetasService.create(this.formulario.value);
-    
+
     if (response['affectedRows'] === 1) {
       Swal.fire('Registro completado con éxito');
-      this.router.navigate(['/profesores']);
+      this.router.navigate(['/recetas']);
     }
   }
-    
 }
