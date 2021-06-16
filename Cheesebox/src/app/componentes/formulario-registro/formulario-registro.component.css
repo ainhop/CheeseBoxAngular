@@ -2,3 +2,11 @@
 button:disabled{
     text-decoration: line-through;
 }
+/* Alert */
+
+.alert{
+    border: 1px solid #FFD05E;
+    box-shadow:1px 1px 1px 1px #FFD05E!important;
+    font-size: .8em;
+    transition: tranform 1s;
+}

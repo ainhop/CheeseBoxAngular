@@ -80,11 +80,11 @@
 }
 .card:hover .favoritos {
   opacity: 1;
-  -moz-transform: translateY(110%);
-  -webkit-transform: translateY(110%);
-  -o-transform: translateY(110%);
-  -ms-transform: translateY(110%);
-  transform: translateY(110%);
+  -moz-transform: translateY(125%);
+  -webkit-transform: translateY(125%);
+  -o-transform: translateY(125%);
+  -ms-transform: translateY(125%);
+  transform: translateY(125%);
 }
 .favoritos:hover {
   filter: none;

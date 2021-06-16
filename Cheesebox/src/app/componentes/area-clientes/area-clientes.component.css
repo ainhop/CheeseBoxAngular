@@ -74,3 +74,56 @@ display: flex;
     font-size: 1.4em;
     color: #ffd05e ;
 }
+.botonBack, .btn{
+    margin: 1%;
+    border: none;
+    color: #3b3d34!important;
+    transition: all ease .5s;
+    transform: rotateY(360deg)!important;
+    position: relative;
+    overflow: hidden; 
+
+}
+.editar:hover{
+    color: rgba(255, 255, 255, 0)!important;
+}
+
+.botonBack:hover, .send:hover{
+    background-color: #3b3d34!important;
+    color: #ffcf5e00;
+    text-decoration: underline;
+    transition: all ease .5s;
+}
+.edit{
+    position: absolute;
+    background-image: url('../../../assets/img/edit.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    height: 65px;
+    width: 100%;
+    top: -40%;
+    right: -75%;
+    transition: all ease .5s;
+ }
+
+ .btn:hover .edit, .botonBack:hover .back{
+    transition: transform 0.5s;
+-moz-transform: scale(1.1) translateX(-60%);
+-webkit-transform: scale(1.1) translateX(-60%);
+-o-transform: scale(1.1) translateX(-60%);
+-ms-transform: scale(1.1) translateX(-60%);
+transform: scale(1.1) translateX(-60%);
+} 
+.back{
+    position: absolute;
+    background-image: url('../../../assets/img/arrow.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    height: 65px;
+    width: 100%;
+    top: -40%;
+    right: -75%;
+    transition: all ease .5s;
+ }

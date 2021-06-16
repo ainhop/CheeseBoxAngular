@@ -13,10 +13,12 @@ declare var Swal;
 export class FormularioAddQuesoComponent implements OnInit {
 
   formulario: FormGroup;
+  files;
 
   constructor(
     private ProductosService: ProductosService,
-    private router: Router) {
+    private router: Router
+  ) {
     this.formulario = new FormGroup({
       nombre: new FormControl('', [
         Validators.required,
@@ -63,5 +65,14 @@ export class FormularioAddQuesoComponent implements OnInit {
       Swal.fire('Registro completado con éxito');
       this.router.navigate(['/quesos']);
     }
+    // let fd = new FormData();
+    // fd.append('imagen', this.files[0]);
+    // this.ProductosService.create(fd).then(result => {
+    //   this.router.navigate(['']);
+    // })
+  }
+
+  onChange($event) {
+    this.files = $event.target.files;
   }
 }

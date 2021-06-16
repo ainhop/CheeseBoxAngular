@@ -17,10 +17,11 @@
     <div class="mb-3">
       <label class="form-labe textForm">Contraseña</label>
       <input type="password" class="form-control" formControlName="password" />
-      <p class="error" *ngIf="checkControl('password', 'pattern')">
-        ❌ Tu contraseña debe incluir seis caracteres, al menos una letra
-        mayúscula, un número y un símbolo
-      </p>
+        <div class="alert alert-dismissible fade show mt-3" role="alert" *ngIf="checkControl('password', 'pattern')" >
+          Tu contraseña debe incluir <strong>seis caracteres , al menos una letra
+            mayúscula, un número y un símbolo</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div> 
     </div>
     <button class="btn send col-12">Enviar</button>
   </form>
