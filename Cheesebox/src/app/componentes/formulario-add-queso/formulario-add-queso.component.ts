@@ -49,6 +49,8 @@ export class FormularioAddQuesoComponent implements OnInit {
         Validators.required,
         Validators.minLength(3)
       ]),
+      imagen: new FormControl('', [
+      ]),
 
     })
   }
@@ -58,7 +60,8 @@ export class FormularioAddQuesoComponent implements OnInit {
 
 
   async onSubmit() {
-  
+    this.formulario.value.imagen = this.files[0]
+    console.log(this.formulario.value)
     const response = await this.ProductosService.create(this.formulario.value);
     
     if (response['affectedRows'] === 1) {
@@ -74,5 +77,12 @@ export class FormularioAddQuesoComponent implements OnInit {
 
   onChange($event) {
     this.files = $event.target.files;
+  }
+  checkControl(controlEmail, validatorEmail) {
+
+    return (
+      this.formulario.get(controlEmail).hasError(validatorEmail) &&
+      this.formulario.get(controlEmail).touched
+    );
   }
 }

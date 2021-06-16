@@ -12,6 +12,7 @@ declare var Swal;
 })
 export class FormularioAddRecetasComponent implements OnInit {
   formulario: FormGroup;
+  files;
 
   constructor(private RecetasService: RecetasService, private router: Router) {
     this.formulario = new FormGroup({
@@ -52,5 +53,15 @@ export class FormularioAddRecetasComponent implements OnInit {
       Swal.fire('Registro completado con éxito');
       this.router.navigate(['/recetas']);
     }
+  }
+  onChange($event) {
+    this.files = $event.target.files;
+  }
+  checkControl(controlEmail, validatorEmail) {
+
+    return (
+      this.formulario.get(controlEmail).hasError(validatorEmail) &&
+      this.formulario.get(controlEmail).touched
+    );
   }
 }

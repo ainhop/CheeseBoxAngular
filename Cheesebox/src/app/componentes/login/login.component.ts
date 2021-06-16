@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   checkControl(controlEmail, validatorEmail) {
-    console.log(controlEmail);
+
     return (
       this.formulario.get(controlEmail).hasError(validatorEmail) &&
       this.formulario.get(controlEmail).touched
