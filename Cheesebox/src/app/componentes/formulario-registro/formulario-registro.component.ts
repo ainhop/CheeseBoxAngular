@@ -42,6 +42,9 @@ export class FormularioRegistroComponent implements OnInit {
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
         ),
       ]),
+      imagen: new FormControl('', [
+        Validators.required
+      ]),
     });
   }
 

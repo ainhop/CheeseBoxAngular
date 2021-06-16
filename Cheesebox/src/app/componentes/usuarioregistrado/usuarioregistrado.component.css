@@ -1,12 +1,11 @@
-*{
-    font-family: 'Montserrat', sans-serif;;
-}
+@import url(../formulario-add-queso/formulario-add-queso.component.css);
 .container{
     margin: auto;
     text-align: center;
     width: 80%;
     
 }
+
 
 .imagenPerfil{
     width: 175px;
@@ -47,24 +46,7 @@ display: flex;
     font-size: 1.4em;
     color: #ffd05e ;
 }
-button:focus{
 
-    box-shadow:none!important;
-    text-decoration: underline;
-    color: #FFD05E;
-}
-.botones button{
-    background-color: rgba(255, 255, 255, 0)!important;
-    color: #000;
-    transition: all ease .5s;
-    margin-left: 10px;
-    border-radius: 100px;
-    
-}
-.botones button:hover{
-    background-color:rgb(0, 0, 0)!important;
-    color: #FFD05E;
-}
 footer {
     display: block;
     position:fixed;
