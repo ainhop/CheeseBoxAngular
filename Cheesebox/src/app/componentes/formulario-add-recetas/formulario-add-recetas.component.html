@@ -1,4 +1,6 @@
-<button class="btn botonBack" routerLink> <span class="back"></span> Volver</button>
+<button class="btn botonBack" routerLink>
+  <span class="back"></span> Volver
+</button>
 <section>
   <h2>Sube tu receta</h2>
   <hr />
@@ -53,6 +55,12 @@
             formControlName="ingredientes"
           />
         </div>
+        <label for="" class="ms-2 textForm">Elaboración</label>
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+        ></textarea>
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Imagen</label>
           <input
@@ -62,12 +70,6 @@
             formControlName="imagen"
           />
         </div>
-        <label for="" class="ms-2 textForm">Elaboracion</label>
-        <textarea
-          class="form-control"
-          id="exampleFormControlTextarea1"
-          rows="3"
-        ></textarea>
         <button type="submit" class="btn col-12">Enviar</button>
       </form>
     </div>
