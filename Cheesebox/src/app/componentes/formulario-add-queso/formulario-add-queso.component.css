@@ -93,3 +93,11 @@ button:focus, select:focus, textarea:focus{
 -ms-transform: scale(1.1) translateX(-60%);
 transform: scale(1.1) translateX(-60%);
 } 
+
+/* Alert */
+
+.alert{
+    border: 1px solid #FFD05E;
+    box-shadow:2px 2px 2px 1px #FFD05E!important;
+    font-size: .8em;
+}

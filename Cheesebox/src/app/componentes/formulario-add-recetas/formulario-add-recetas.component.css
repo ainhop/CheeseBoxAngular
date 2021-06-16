@@ -1,1 +1,9 @@
 @import url(../formulario-add-queso/formulario-add-queso.component.css);
+
+/* Alert */
+
+.alert{
+    border: 1px solid #FFD05E;
+    box-shadow:2px 2px 2px 1px #FFD05E!important;
+    font-size: .8em;
+}
