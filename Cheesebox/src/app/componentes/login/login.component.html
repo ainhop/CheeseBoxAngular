@@ -10,11 +10,17 @@
     <div class="mb-3">
       <label class="form-label textForm">Email</label>
       <input type="text" class="form-control" formControlName="email" />
-      <!-- <p class="error" *ngIf="checkControl('email', 'pattern')"></p> -->
+      <p class="error" *ngIf="checkControl('email', 'pattern')">
+        ❌ El formato utilizado no es correcto
+      </p>
     </div>
     <div class="mb-3">
       <label class="form-labe textForm">Contraseña</label>
       <input type="password" class="form-control" formControlName="password" />
+      <p class="error" *ngIf="checkControl('password', 'pattern')">
+        ❌ Tu contraseña debe incluir seis caracteres, al menos una letra
+        mayúscula, un número y un símbolo
+      </p>
     </div>
     <button class="btn send col-12">Enviar</button>
   </form>

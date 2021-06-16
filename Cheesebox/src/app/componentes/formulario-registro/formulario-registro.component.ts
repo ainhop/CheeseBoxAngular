@@ -42,9 +42,7 @@ export class FormularioRegistroComponent implements OnInit {
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
         ),
       ]),
-      imagen: new FormControl('', [
-        Validators.required
-      ]),
+      imagen: new FormControl('', [Validators.required]),
     });
   }
 
@@ -63,7 +61,10 @@ export class FormularioRegistroComponent implements OnInit {
   }
 
   checkControl(controlName, validatorName) {
-    return this.formulario.get(controlName).hasError(validatorName);
+    return (
+      this.formulario.get(controlName).hasError(validatorName) &&
+      this.formulario.get(controlName).touched
+    );
   }
 
   // passwordValidator(form) {
