@@ -22,7 +22,8 @@ export class ProductosService {
     return this.httpClient.get<Producto[]>(`${this.baseUrl}productos`).toPromise();
   }
 
-  create(pProducto: Producto) {
-    return this.httpClient.post(`${this.baseUrl}productos/create`, pProducto).toPromise();
+  create(fd: FormData) {
+    console.log(fd)
+    return this.httpClient.post(`${this.baseUrl}productos/create`, fd).toPromise();
   }
 }
