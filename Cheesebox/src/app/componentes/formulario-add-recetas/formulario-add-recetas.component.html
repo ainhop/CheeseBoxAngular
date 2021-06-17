@@ -9,74 +9,104 @@
       <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Nombre</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nombre"
-            formControlName="nombre"
-          />
+          <input type="text" id="nombre" formControlName="nombre" />
+          <div
+            class="error"
+            *ngIf="
+              !formulario.controls.nombre.pristine &&
+              objectLength(formulario.controls.nombre.errors) > 0
+            "
+          >
+            <div class="alert alert-dismissible fade show ms-2" role="alert">
+              El nombre no puede quedar vacío
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
         </div>
         <div class="formDoble">
           <div class="mb-3 col-6">
             <label for="" class="ms-2 textForm">Queso utilizado</label>
             <input
               type="text"
-              class="form-control"
               id="quesoUtilizado"
               formControlName="quesoUtilizado"
             />
+            <div
+              class="error"
+              *ngIf="
+                !formulario.controls.quesoUtilizado.pristine &&
+                objectLength(formulario.controls.quesoUtilizado.errors) > 0
+              "
+            >
+              <div class="alert alert-dismissible fade show ms-2" role="alert">
+                Debes introducir el queso utilizado
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
+            </div>
           </div>
           <div class="mb-3 ms-2 col-6">
             <label for="" class="ms-2 textForm">Tiempo</label>
-            <input
-              type="time"
-              class="form-control"
-              id="tiempo"
-              formControlName="tiempo"
-            />
+            <input type="time" id="tiempo" formControlName="tiempo" />
           </div>
         </div>
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Raciones</label>
-          <input
-            type="number"
-            class="form-control"
-            id="raciones"
-            formControlName="raciones"
-          />
+          <input type="number" id="raciones" formControlName="raciones" />
         </div>
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Ingredientes</label>
           <input
             type="textarea"
-            class="form-control"
             id="ingredientes"
             formControlName="ingredientes"
           />
+          <div
+            class="error"
+            *ngIf="
+              !formulario.controls.ingredientes.pristine &&
+              objectLength(formulario.controls.ingredientes.errors) > 0
+            "
+          >
+            <div class="alert alert-dismissible fade show ms-2" role="alert">
+              Debes introducir al menos un ingrediente
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
         </div>
         <label for="" class="ms-2 textForm">Elaboración</label>
-        <textarea
-          class="form-control"
-          id="exampleFormControlTextarea1"
-          rows="3"
-        ></textarea>
+        <textarea id="exampleFormControlTextarea1" rows="3"></textarea>
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Imagen</label>
           <input
             type="file"
-            class="form-control"
             id="imagen"
             formControlName="imagen"
             (change)="onChange($event)"
           />
         </div>
-        <div class="alert alert-dismissible fade show mt-3" role="alert" *ngIf="checkControl('nombre'&&'descripcion' &&'tiempo'&&'quesoUtilizado'&&'raciones'&&'elaboracion', 'pattern')">
-          La contraseña y/o correo introducido no son validos.
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        <button type="submit" class="btn col-12">Enviar</button>
+        <button
+          class="btn send col-12 botones"
+          [disabled]="!formulario.valid"
+          type="submit"
+        >
+          Enviar
+        </button>
       </form>
     </div>
   </div>
 </section>
-
