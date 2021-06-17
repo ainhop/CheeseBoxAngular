@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from 'src/app/services/usuarios.service';
-import { debounceTime } from 'rxjs/operators';
 
 declare var Swal;
 
@@ -12,11 +11,7 @@ declare var Swal;
 })
 export class FormularioRegistroComponent implements OnInit {
   formulario: FormGroup;
-  form: any = {
-    nombre: '',
-    apellidos: '',
-    username: '',
-  };
+  form: any[];
 
   constructor(private usuariosService: UsuariosService) {
     this.formulario = new FormGroup({
@@ -46,12 +41,7 @@ export class FormularioRegistroComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    //   const control = this.formulario.get('email');
-    //   control.valueChanges.pipe(debounceTime(1000)).subscribe((value) => {
-    //     console.log(value);
-    //   });
-  }
+  ngOnInit(): void {}
 
   objectLength(object): number {
     if (!object) {
@@ -66,11 +56,6 @@ export class FormularioRegistroComponent implements OnInit {
       this.formulario.get(controlName).touched
     );
   }
-
-  // passwordValidator(form) {
-  //   const passwordValue = form.get('password').value;
-  //   if (passwordValue === true) return null;
-  // }
 
   async onSubmit() {
     const response = await this.usuariosService.registro(this.formulario.value);

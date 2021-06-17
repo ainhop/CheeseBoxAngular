@@ -18,16 +18,13 @@ export class FormularioAddRecetasComponent implements OnInit {
     this.formulario = new FormGroup({
       nombre: new FormControl('', [
         Validators.required,
-        Validators.minLength(5),
+        Validators.minLength(3),
       ]),
       descripcion: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
       ]),
-      tiempo: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
+      tiempo: new FormControl('', [Validators.required]),
       quesoUtilizado: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
@@ -46,22 +43,29 @@ export class FormularioAddRecetasComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  objectLength(object): number {
+    if (!object) {
+      return 0;
+    }
+    return Object.keys(object).length;
+  }
+
+  checkControl(controlName, validatorName) {
+    return (
+      this.formulario.get(controlName).hasError(validatorName) &&
+      this.formulario.get(controlName).touched
+    );
+  }
+
   async onSubmit() {
     const response = await this.RecetasService.create(this.formulario.value);
 
     if (response['affectedRows'] === 1) {
-      Swal.fire('Registro completado con éxito');
+      Swal.fire('Receta añadida con éxito');
       this.router.navigate(['/recetas']);
     }
   }
   onChange($event) {
     this.files = $event.target.files;
-  }
-  checkControl(controlEmail, validatorEmail) {
-
-    return (
-      this.formulario.get(controlEmail).hasError(validatorEmail) &&
-      this.formulario.get(controlEmail).touched
-    );
   }
 }
