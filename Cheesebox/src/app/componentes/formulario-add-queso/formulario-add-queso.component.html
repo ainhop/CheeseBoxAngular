@@ -93,12 +93,33 @@
             id="tipo"
             placeholder="imagen"
             multiple
-            formControlName="imagen" (change)="onChange($event)"
+            formControlName="imagen"
+            (change)="onChange($event)"
           />
-        </div>       
-        <div class="alert alert-dismissible fade show mt-3" role="alert" *ngIf="checkControl('nombre'&&'descripcion' &&'tipoLeche'&&'origen'&&'caracteristicas'&&'color' && 'tipo','pattern')">
-          La contraseña y/o correo introducido no son validos.
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div
+          class="alert alert-dismissible fade show mt-3"
+          role="alert"
+          *ngIf="
+            checkControl(
+              'nombre' &&
+                'descripcion' &&
+                'tipoLeche' &&
+                'origen' &&
+                'caracteristicas' &&
+                'color' &&
+                'tipo',
+              'pattern'
+            )
+          "
+        >
+          La contraseña y/o correo introducidos no son validos.
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
         </div>
         <button type="submit" class="btn send col-12">Enviar</button>
       </form>
