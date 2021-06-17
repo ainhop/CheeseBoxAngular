@@ -1,9 +1,9 @@
 export interface Receta {
-  nombre: string;
-  descripcion: string;
-  tiempo: string;
-  quesoUtilizado: string;
-  raciones: number;
-  ingredientes: string;
-  elaboracion: string;
+  nombre:string ;
+  quesoUtilizado:string ;
+  tiempo:string ;
+  raciones:string ;
+  ingredientes:string ;
+  elaboracion:string ;
+  imagen:string ;
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 declare var Swal;
@@ -12,8 +13,9 @@ declare var Swal;
 export class FormularioRegistroComponent implements OnInit {
   formulario: FormGroup;
   form: any[];
+  files;
 
-  constructor(private usuariosService: UsuariosService) {
+  constructor(private usuariosService: UsuariosService,  private router: Router) {
     this.formulario = new FormGroup({
       nombre: new FormControl('', [
         Validators.required,
@@ -56,20 +58,26 @@ export class FormularioRegistroComponent implements OnInit {
       this.formulario.get(controlName).touched
     );
   }
-
+  onChange($event) {
+    this.files = $event.target.files;
+    console.log(this.files);
+  }
   async onSubmit() {
-    const response = await this.usuariosService.registro(this.formulario.value);
+    const fd = new FormData();
+    fd.append('imagen', this.files[0]);
+    fd.append('nombre', this.formulario.value.nombre);
+    fd.append('descripcion', this.formulario.value.descripcion);
+    fd.append('tipoLeche', this.formulario.value.tipoLeche);
+    fd.append('origen', this.formulario.value.origen);
+    fd.append('caracteristicas', this.formulario.value.caracteristicas);
+    fd.append('color', this.formulario.value.color);
+    fd.append('tipo', this.formulario.value.tipo);
+    console.log(fd)
+    const response = await this.usuariosService.create(fd);
 
-    if (response['error']) {
-      Swal.fire('');
-    } else {
-      Swal.fire({
-        position: 'top-center',
-        icon: 'success',
-        title: 'Te has registrado correctamente',
-        showConfirmButton: false,
-        timer: 1500,
-      });
+    if (response['affectedRows'] === 1) {
+      Swal.fire('Registro completado con éxito');
+      this.router.navigate(['/quesos']);
     }
   }
 }

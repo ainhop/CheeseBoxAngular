@@ -6,7 +6,7 @@
   <hr />
   <div class="row">
     <div class="col-12">
-      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <form method="POST" enctype="multipart/form-data" [formGroup]="formulario" (ngSubmit)="onSubmit()">
         <div class="formDoble">
           <div class="mb-3 col-6">
             <label for="" class="ms-2 textForm">Nombre</label>
@@ -123,7 +123,7 @@
         <div class="formDoble">
           <div class="mb-3 col-6">
             <label for="" class="ms-2 textForm">Foto de perfil</label>
-            <input type="file" formControlName="imagen" />
+            <input type="file" formControlName="imagen" (change)="onChange($event)"/>
           </div>
         </div>
         <button

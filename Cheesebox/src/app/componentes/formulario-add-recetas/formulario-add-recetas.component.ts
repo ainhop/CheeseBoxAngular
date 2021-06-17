@@ -22,16 +22,11 @@ export class FormularioAddRecetasComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
       ]),
-      descripcion: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
-      tiempo: new FormControl('', [Validators.required]),
-
       quesoUtilizado: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
       ]),
+      tiempo: new FormControl('', [Validators.required]),
       raciones: new FormControl(),
       ingredientes: new FormControl('', [
         Validators.required,
@@ -44,6 +39,7 @@ export class FormularioAddRecetasComponent implements OnInit {
       imagen: new FormControl('', [Validators.required]),
     });
   }
+
 
   ngOnInit(): void {}
 
@@ -62,14 +58,23 @@ export class FormularioAddRecetasComponent implements OnInit {
   }
 
   async onSubmit() {
-    const response = await this.RecetasService.create(this.formulario.value);
+    const fd = new FormData();
+    fd.append('imagen', this.files[0]);
+    fd.append('nombre', this.formulario.value.nombre);
+    fd.append('quesoUtilizado', this.formulario.value.tipoLeche);
+    fd.append('tiempo', this.formulario.value.origen);
+    fd.append('raciones', this.formulario.value.caracteristicas);
+    fd.append('ingredientes', this.formulario.value.color);
+    fd.append('elaboracion', this.formulario.value.tipo);
+    const response = await this.RecetasService.create(fd);
 
     if (response['affectedRows'] === 1) {
-      Swal.fire('Receta añadida con éxito');
+      Swal.fire('Registro completado con éxito');
       this.router.navigate(['/recetas']);
     }
   }
   onChange($event) {
     this.files = $event.target.files;
   }
+  
 }

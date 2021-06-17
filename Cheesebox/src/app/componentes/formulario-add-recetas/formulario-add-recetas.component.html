@@ -6,7 +6,7 @@
   <hr />
   <div class="row">
     <div class="col-12">
-      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <form method="POST" enctype="multipart/form-data" [formGroup]="formulario" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Nombre</label>
           <input
@@ -58,6 +58,7 @@
         <textarea
           id="exampleFormControlTextarea1"
           class="form-control"
+          formControlName="elaboracion"
           rows="3"
         ></textarea>
         <div class="mb-3">
@@ -70,7 +71,7 @@
             (change)="onChange($event)"
           />
         </div>
-        <div
+     <!--  <div
           class="error"
           *ngIf="
             !formulario.controls.nombre.pristine &&
@@ -91,14 +92,8 @@
               aria-label="Close"
             ></button>
           </div>
-        </div>
-        <button
-          class="btn send col-12 botones"
-          [disabled]="!formulario.valid"
-          type="submit"
-        >
-          Enviar
-        </button>
+        </div>--> 
+        <button type="submit" class="btn send col-12">Enviar</button>
       </form>
     </div>
   </div>
