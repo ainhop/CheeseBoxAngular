@@ -22,7 +22,7 @@ export class UsuariosService {
       .toPromise();
   }
 
-  create(pUsuario: UsuariosService) {
-    return this.httpClient.post(`${this.baseUrl}usuario/create`, pUsuario).toPromise();
+  create(fd: FormData) {
+    return this.httpClient.post(`${this.baseUrl}usuarios/create`, fd).toPromise();
   }
 }

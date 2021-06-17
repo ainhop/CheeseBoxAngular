@@ -16,9 +16,9 @@ export class RecetasService {
     return this.httpClient.get<Receta[]>(`${this.baseUrl}recetas`).toPromise();
   }
 
-  create(pReceta: Receta) {
+  create(fd: FormData) {
     return this.httpClient
-      .post(`${this.baseUrl}recetas/create`, pReceta)
+      .post(`${this.baseUrl}recetas/create`, fd)
       .toPromise();
   }
 
