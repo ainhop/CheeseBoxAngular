@@ -12,6 +12,8 @@ declare var Swal;
 })
 export class FormularioAddRecetasComponent implements OnInit {
   formulario: FormGroup;
+  form: any[];
+
   files;
 
   constructor(private RecetasService: RecetasService, private router: Router) {
@@ -25,6 +27,7 @@ export class FormularioAddRecetasComponent implements OnInit {
         Validators.minLength(3),
       ]),
       tiempo: new FormControl('', [Validators.required]),
+
       quesoUtilizado: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
@@ -38,6 +41,7 @@ export class FormularioAddRecetasComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
       ]),
+      imagen: new FormControl('', [Validators.required]),
     });
   }
 

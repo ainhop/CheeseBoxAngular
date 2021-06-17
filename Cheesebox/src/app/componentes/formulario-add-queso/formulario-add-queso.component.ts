@@ -34,26 +34,18 @@ export class FormularioAddQuesoComponent implements OnInit {
   ngOnInit(): void {}
 
   async onSubmit() {
-<<<<<<< HEAD
-    
-    let fd = new FormData()
-    fd.append('imagen', this.files[0])
-    fd.append('nombre', this.formulario.value.nombre)
-    fd.append('descripcion', this.formulario.value.descripcion)
-    fd.append('tipoLeche', this.formulario.value.tipoLeche)
-    fd.append('origen', this.formulario.value.origen)
-    fd.append('caracteristicas', this.formulario.value.caracteristicas)
-    fd.append('color', this.formulario.value.color)
-    fd.append('tipo', this.formulario.value.tipo)
-    console.log(fd)
+    let fd = new FormData();
+    fd.append('imagen', this.files[0]);
+    fd.append('nombre', this.formulario.value.nombre);
+    fd.append('descripcion', this.formulario.value.descripcion);
+    fd.append('tipoLeche', this.formulario.value.tipoLeche);
+    fd.append('origen', this.formulario.value.origen);
+    fd.append('caracteristicas', this.formulario.value.caracteristicas);
+    fd.append('color', this.formulario.value.color);
+    fd.append('tipo', this.formulario.value.tipo);
+    console.log(fd);
     const response = await this.ProductosService.create(fd);
-    
-=======
-    this.formulario.value.imagen = this.files[0];
-    console.log(this.formulario.value);
-    const response = await this.ProductosService.create(this.formulario.value);
 
->>>>>>> develop
     if (response['affectedRows'] === 1) {
       Swal.fire('Registro completado con éxito');
       this.router.navigate(['/quesos']);
@@ -67,7 +59,7 @@ export class FormularioAddQuesoComponent implements OnInit {
 
   onChange($event) {
     this.files = $event.target.files;
-    console.log(this.files)
+    console.log(this.files);
   }
   checkControl(controlEmail, validatorEmail) {
     return (

@@ -59,7 +59,7 @@
         </div>
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Usuario</label>
-          <input type="text" formControlName="username" />
+          <input type="text" class="form-control" formControlName="username" />
           <div
             class="error"
             *ngIf="
@@ -82,7 +82,7 @@
 
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Email</label>
-          <input type="text" formControlName="email" />
+          <input type="text" class="form-control" formControlName="email" />
 
           <div class="error" *ngIf="checkControl('email', 'pattern')">
             <div class="alert alert-dismissible fade show mt-3" role="alert">
@@ -99,7 +99,11 @@
 
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Contraseña</label>
-          <input type="password" formControlName="password" />
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+          />
           <div class="error" *ngIf="checkControl('password', 'pattern')">
             <div class="alert alert-dismissible fade show mt-3" role="alert">
               Tu contraseña tiene que incluir:
