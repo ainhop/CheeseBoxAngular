@@ -18,5 +18,16 @@ export class ListaRecetasComponent implements OnInit {
       .catch((error) => console.log(error));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+   }
+ 
+   handleSearch(value: string) {
+    this.RecetasService.getByItem(value)
+      .then(response =>
+      { this.arrRecetas = response })
+     
+    .catch (error => console.log(error))
+  }
+  filtroValor = "";
 }

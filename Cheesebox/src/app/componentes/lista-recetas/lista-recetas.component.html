@@ -1,21 +1,24 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-4" *ngFor="let receta of arrRecetas">
-        <div class="card">
-          <div
-            class="imagen"
-            style="
-              background-image: url(../../assets/img/revueltos_espinacas_parmesano.jpg);
-            "
-          ></div>
-          <a class="favoritos" href="#"
-            ><img width="80%" src="../../../assets/img/confirmado.svg"
-          /></a>
+<app-buscador (search)="handleSearch($event)"></app-buscador>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let receta of arrRecetas" [routerLink]="['recetas/:detalle']">
+      <div class="card">
+               <div class="card" [routerLink]="['/detalle']">
+              <img src="../../assets/img/revueltos_espinacas_parmesano.jpg" class="card-img" alt="...">
           <div class="card-img-overlay">
-            <h5 class="card-title">{{ receta.nombre }}</h5> 
-            <p class="card-text">Raciones: {{ receta.raciones }}</p>
-          </div>
+          <a class="favoritos" href="#"><img width="80%" src="../../../assets/img/confirmado.svg" /></a>
+          <div class="text">
+          <h5 class="card-title">{{ receta.nombre }}</h5>
+          <div class="linea"></div>
+          <p class="card-text">Raciones: {{ receta.raciones }}</p>
+        </div>
         </div>
       </div>
-    
-   
+    </div>
+
+    <div class="error" *ngIf="arrRecetas.length === 0">
+      <h2>
+        Aún no hay recetas con {{value}}, se el primero en <a href="/agregarReceta">Agregarla ➕</a>
+      </h2>
+    </div>
+  </div>

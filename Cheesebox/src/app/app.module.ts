@@ -13,9 +13,13 @@ import { DetalleQuesoComponent } from './componentes/detalle-queso/detalle-queso
 import { DetalleRecetasComponent } from './componentes/detalle-recetas/detalle-recetas.component';
 import { AreaClientesComponent } from './componentes/area-clientes/area-clientes.component';
 import { FavoritosComponent } from './componentes/favoritos/favoritos.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BuscadorComponent } from './componentes/buscador/buscador.component';
 import { UsuarioregistradoComponent } from './componentes/usuarioregistrado/usuarioregistrado.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
 
 
 @NgModule({
@@ -32,13 +36,19 @@ import { UsuarioregistradoComponent } from './componentes/usuarioregistrado/usua
     AreaClientesComponent,
     FavoritosComponent,
     BuscadorComponent,
-    UsuarioregistradoComponent
+    UsuarioregistradoComponent,
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
+  
   
   ],
   

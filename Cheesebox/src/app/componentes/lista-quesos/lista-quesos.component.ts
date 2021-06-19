@@ -13,12 +13,27 @@ export class ListaQuesosComponent implements OnInit {
 
   ngOnInit(): void {
     this.ProductosService.getAll()
-    .then(response => {
-      this.arrProducto = response
+      .then(response => {
+        this.arrProducto = response
     
-    })
+      })
       .catch(error => console.log(error))
-
   }
 
+  handleSearch(value: string) {
+    this.ProductosService.getByItem(value)
+     
+      .then(response => {
+      
+        this.arrProducto = response
+      })
+      
+    
+     .catch (error => console.log(error))
+  }
+  filtroValor = "";
+  
+
+
 }
+

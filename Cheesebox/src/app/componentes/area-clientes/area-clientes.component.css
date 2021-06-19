@@ -25,7 +25,7 @@
 }
 .nav-link.active{
   
-    color: black;
+    color: #ffd05e; 
     text-decoration: underline; 
 }
 .miniatura{

@@ -3,7 +3,7 @@ export interface Producto {
   descripcion: string;
   tipoLeche: string;
   origen: string;
-  caracteristicas: string;
+  curiosidades: string;
   color: string;
   tipo: string;
   imagen: string
