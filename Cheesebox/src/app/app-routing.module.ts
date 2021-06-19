@@ -14,17 +14,17 @@ import { LoginComponent } from './componentes/login/login.component';
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: BuscadorComponent },
+  { path: '', pathMatch: 'full', component: ListaQuesosComponent },
   { path: 'registrar', component: FormularioRegistroComponent },
   { path: 'login', component: LoginComponent },
   { path: 'clientes', component: AreaClientesComponent },
   { path: 'quesos', component: ListaQuesosComponent },
   { path: 'recetas', component: ListaRecetasComponent },
-  { path: 'update/queso', component: FormularioAddQuesoComponent },
-  { path: 'update/recetas', component: FormularioAddRecetasComponent },
-  { path: 'quesos/detalle', component: DetalleQuesoComponent },
-  { path: 'recetas/detalle', component: DetalleRecetasComponent },
-  {path: 'favoritos', component: FavoritosComponent},
+  { path: 'update/:queso', component: FormularioAddQuesoComponent },
+  { path: 'update/:recetas', component: FormularioAddRecetasComponent },
+  { path: 'quesos/:detalle', component: DetalleQuesoComponent },
+  { path: 'recetas/:detalle', component: DetalleRecetasComponent },
+  { path: 'favoritos', component: FavoritosComponent },
   { path: '**', redirectTo: '/'}
     
   

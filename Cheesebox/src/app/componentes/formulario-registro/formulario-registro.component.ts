@@ -66,13 +66,10 @@ export class FormularioRegistroComponent implements OnInit {
     const fd = new FormData();
     fd.append('imagen', this.files[0]);
     fd.append('nombre', this.formulario.value.nombre);
-    fd.append('descripcion', this.formulario.value.descripcion);
-    fd.append('tipoLeche', this.formulario.value.tipoLeche);
-    fd.append('origen', this.formulario.value.origen);
-    fd.append('caracteristicas', this.formulario.value.caracteristicas);
-    fd.append('color', this.formulario.value.color);
-    fd.append('tipo', this.formulario.value.tipo);
-    console.log(fd)
+    fd.append('apellidos', this.formulario.value.apellidos);
+    fd.append('username', this.formulario.value.username);
+    fd.append('email', this.formulario.value.email);
+    fd.append('password', this.formulario.value.password);
     const response = await this.usuariosService.create(fd);
 
     if (response['affectedRows'] === 1) {

@@ -17,10 +17,18 @@ export class RecetasService {
   }
 
   create(fd: FormData) {
+    console.log(fd)
     return this.httpClient
       .post(`${this.baseUrl}recetas/create`, fd)
       .toPromise();
   }
 
-  
+  getByItem(pValor): Promise<Receta[]> {
+    return this.httpClient.get<Receta[]>(`${this.baseUrl}recetas/${pValor}`).toPromise();
+  }
+
+  getById(pId): Promise<Receta[]> {
+    return this.httpClient.get<Receta[]>(`${this.baseUrl}recetas/${pId}`).toPromise();
+  }
 }
+

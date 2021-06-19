@@ -16,6 +16,16 @@
             class="form-control"
           />
         </div>
+
+        <div class="error" *ngIf="
+        !formulario.controls.nombre.pristine &&
+        objectLength(formulario.controls.nombre.errors) > 0
+      ">
+        <div class="alert alert-dismissible fade show mt-3" role="alert">
+          El campo es requerido
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
         <div class="formDoble">
           <div class="mb-3 col-6">
             <label for="" class="ms-2 textForm">Queso utilizado</label>
@@ -36,6 +46,24 @@
             />
           </div>
         </div>
+        <div class="error" *ngIf="
+        !formulario.controls.quesoUtilizado.pristine &&
+        objectLength(formulario.controls.quesoUtilizado.errors) > 0
+      ">
+        <div class="alert alert-dismissible fade show mt-3" role="alert">
+          El campo es requerido
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="error" *ngIf="
+      !formulario.controls.tiempo.pristine &&
+      objectLength(formulario.controls.tiempo.errors) > 0
+    ">
+      <div class="alert alert-dismissible fade show mt-3" role="alert">
+        El campo es requerido
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Raciones</label>
           <input
@@ -45,6 +73,15 @@
             formControlName="raciones"
           />
         </div>
+        <div class="error" *ngIf="
+        !formulario.controls.raciones.pristine &&
+        objectLength(formulario.controls.raciones.errors) > 0
+      ">
+        <div class="alert alert-dismissible fade show mt-3" role="alert">
+          El campo es requerido
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Ingredientes</label>
           <input
@@ -54,6 +91,15 @@
             formControlName="ingredientes"
           />
         </div>
+        <div class="error" *ngIf="
+        !formulario.controls.ingredientes.pristine &&
+        objectLength(formulario.controls.ingredientes.errors) > 0
+      ">
+        <div class="alert alert-dismissible fade show mt-3" role="alert">
+          El campo es requerido
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
         <label for="" class="ms-2 textForm">Elaboración</label>
         <textarea
           id="exampleFormControlTextarea1"
@@ -61,6 +107,15 @@
           formControlName="elaboracion"
           rows="3"
         ></textarea>
+        <div class="error" *ngIf="
+        !formulario.controls.elaboracion.pristine &&
+        objectLength(formulario.controls.elaboracion.errors) > 0
+      ">
+        <div class="alert alert-dismissible fade show mt-3" role="alert">
+          El campo es requerido
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Imagen</label>
           <input
@@ -71,29 +126,8 @@
             (change)="onChange($event)"
           />
         </div>
-     <!--  <div
-          class="error"
-          *ngIf="
-            !formulario.controls.nombre.pristine &&
-            !formulario.controls.descripcion.pristine &&
-            !formulario.controls.tipoLeche.pristine &&
-            !formulario.controls.origen.pristine &&
-            !formulario.controls.caracteristicas.pristine &&
-            !formulario.controls.color.pristine &&
-            !formulario.controls.tipo.pristine
-          "
-        >
-          <div class="alert alert-dismissible fade show mt-3" role="alert">
-            Tu nombre debe componerse de <strong>al menos 3 caracteres</strong>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-          </div>
-        </div>--> 
-        <button type="submit" class="btn send col-12">Enviar</button>
+
+        <button type="submit" class="btn mt-3 send col-12">Enviar</button>
       </form>
     </div>
   </div>

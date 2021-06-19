@@ -18,12 +18,19 @@ export class ProductosService {
     return this.httpClient.get<Producto[]>(`${this.baseUrl}productos`).toPromise();
   }
 
-  getById(): Promise<Producto[]> {
-    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos`).toPromise();
+  getById(pId): Promise<Producto[]> {
+    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos/${pId}`).toPromise();
   }
 
   create(fd: FormData) {
     console.log(fd)
     return this.httpClient.post(`${this.baseUrl}productos/create`, fd).toPromise();
   }
+ 
+  getByItem(pValor): Promise<Producto[]> {
+    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos/${pValor}`).toPromise();
+  }
+
+
+
 }
