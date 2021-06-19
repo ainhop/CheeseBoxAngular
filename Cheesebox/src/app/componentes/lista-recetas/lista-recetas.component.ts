@@ -29,6 +29,7 @@ export class ListaRecetasComponent implements OnInit {
       .catch((error) => console.log(error));
   }
 
+<<<<<<< HEAD
   changePage(siguiente: boolean) {
     this.currentPage = siguiente ? this.currentPage + 1 : this.currentPage - 1;
 
@@ -36,4 +37,18 @@ export class ListaRecetasComponent implements OnInit {
       .then((response) => (this.arrRecetas = response))
       .catch((error) => console.log(error));
   }
+=======
+  ngOnInit(): void {
+    
+   }
+ 
+   handleSearch(value: string) {
+    this.RecetasService.getByItem(value)
+      .then(response =>
+      { this.arrRecetas = response })
+     
+    .catch (error => console.log(error))
+  }
+  filtroValor = "";
+>>>>>>> develop
 }

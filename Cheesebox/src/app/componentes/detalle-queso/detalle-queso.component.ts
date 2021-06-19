@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
+import { Producto } from 'src/app/interfaces/productos.interfaces';
+
 
 @Component({
   selector: 'app-detalle-queso',
@@ -7,12 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleQuesoComponent implements OnInit {
 
-  constructor() {
- 
-   }
 
+  @Input() producto: Producto;
+
+  
+
+  constructor(private httpClient: HttpClient) {
+    
+    console.log(this.producto);
+
+    }
+
+    
   ngOnInit(): void {
+      
+    
   }
+
   
 
 }

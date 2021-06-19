@@ -17,11 +17,34 @@ export class ListaQuesosComponent implements OnInit {
 
   ngOnInit(): void {
     this.ProductosService.getAll()
+<<<<<<< HEAD
       .then((response) => {
         this.arrProducto = response;
       })
       .catch((error) => console.log(error));
+=======
+      .then(response => {
+        this.arrProducto = response
+    
+      })
+      .catch(error => console.log(error))
   }
+
+  handleSearch(value: string) {
+    this.ProductosService.getByItem(value)
+     
+      .then(response => {
+      
+        this.arrProducto = response
+      })
+      
+    
+     .catch (error => console.log(error))
+>>>>>>> develop
+  }
+  filtroValor = "";
+  
+
 
   changePage(siguiente: boolean) {
     this.currentPage = siguiente ? this.currentPage + 1 : this.currentPage - 1;
@@ -31,3 +54,4 @@ export class ListaQuesosComponent implements OnInit {
       .catch((error) => console.log(error));
   }
 }
+

@@ -1,22 +1,7 @@
-<!-- <section class="filter">
-<label >
-<input type="text" list="filtroQueso" placeholder="Queso.." name="listaQuesos">
 
-</label>
-    <details id="filtroQueso">
-        <option value="mozarella">Mozarella</option>
-        <option value="mozarella">Ricota</option>
-        <option value="mozarella">Cabra</option>
-        <option value="mozarella">Burgos</option>
-        <option value="mozarella">Queso Crema</option>
-        <option value="mozarella">Picolino</option>
-        <option value="mozarella">Gorgonzola</option>
-        <option value="mozarella">Azul</option>
-          </details>
-
-</section> -->
-
+<app-buscador (search)="handleSearch($event)"></app-buscador>
 <div class="container">
+<<<<<<< HEAD
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let producto of arrProducto">
       <div class="card" [routerLink]="['/detalle']">
@@ -32,6 +17,19 @@
           <p class="card-text">
             <strong>Origen:</strong> {{ producto.origen }}
           </p>
+=======
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-4" *ngFor="let producto of arrProducto" [routerLink]="['quesos/:detalle']">
+            <div class="card" >
+                <img src="../../../assets/img/mozzarella.png" class="card-img" alt="...">
+               <!-- <img [src]="producto.imagen" class="card-img" alt="...">-->
+                <div class="card-img-overlay">
+                    <h5 class="card-title">{{producto.nombre}}</h5>
+                    <div class="linea"></div>
+                    <p class="card-text"><strong>Origen:</strong> {{producto.origen}}</p>
+                </div>
+            </div>
+>>>>>>> develop
         </div>
       </div>
       <button class="btn btn-info" (click)="changePage(false)">Anterior</button>
@@ -42,5 +40,14 @@
         Siguiente
       </button>
     </div>
+<<<<<<< HEAD
   </div>
 </div>
+=======
+<div class="error" *ngIf="arrProducto.length === 0">
+    <h2>
+    {{value}} no esta entre nuestro quesos pero puedes  <a href="/registrarQueso">agregarlo </a>
+    </h2>
+</div>
+</div>
+>>>>>>> develop

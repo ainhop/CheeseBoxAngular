@@ -92,9 +92,7 @@
           role="tabpanel"
           aria-labelledby="nav-profile-tab"
         >
-          <app-lista-quesos></app-lista-quesos>
-          <hr>
-          <app-lista-recetas></app-lista-recetas>
+        <app-favoritos></app-favoritos>
         </div>
         <div
           class="tab-pane fade"
@@ -102,7 +100,7 @@
           role="tabpanel"
           aria-labelledby="nav-contact-tab"
         >
-        <button class="btn editar" routerLink>
+        <button class="btn editar" [routerLink]="['update/:registrar']">
           <span class="edit"></span> Editar tus datos
         </button>
          

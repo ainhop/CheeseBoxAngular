@@ -52,6 +52,6 @@
 .card .linea{
     width: 25%;
     height: 1px;
-    margin:0px 10px;
+    margin: -5px 10px;
     border-bottom: 5px solid #ffd05e;
 }
