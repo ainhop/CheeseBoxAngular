@@ -5,20 +5,29 @@ import { ProductosService } from 'src/app/services/productos.service';
 @Component({
   selector: 'app-lista-quesos',
   templateUrl: './lista-quesos.component.html',
-  styleUrls: ['./lista-quesos.component.css']
+  styleUrls: ['./lista-quesos.component.css'],
 })
 export class ListaQuesosComponent implements OnInit {
   arrProducto: Producto[];
-  constructor(private ProductosService: ProductosService ) { }
+  currentPage: number;
+
+  constructor(private ProductosService: ProductosService) {
+    this.currentPage = 1;
+  }
 
   ngOnInit(): void {
     this.ProductosService.getAll()
-    .then(response => {
-      this.arrProducto = response
-    
-    })
-      .catch(error => console.log(error))
-
+      .then((response) => {
+        this.arrProducto = response;
+      })
+      .catch((error) => console.log(error));
   }
 
+  changePage(siguiente: boolean) {
+    this.currentPage = siguiente ? this.currentPage + 1 : this.currentPage - 1;
+
+    this.ProductosService.getAll()
+      .then((response) => (this.arrProducto = response))
+      .catch((error) => console.log(error));
+  }
 }

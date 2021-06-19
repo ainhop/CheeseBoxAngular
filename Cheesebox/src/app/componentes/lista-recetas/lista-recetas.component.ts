@@ -9,8 +9,11 @@ import { RecetasService } from 'src/app/services/recetas.service';
 })
 export class ListaRecetasComponent implements OnInit {
   arrRecetas: Receta[];
+  currentPage: number;
 
   constructor(private RecetasService: RecetasService) {
+    this.currentPage = 1;
+
     this.RecetasService.getAll()
       .then((response) => {
         this.arrRecetas = response;
@@ -18,5 +21,19 @@ export class ListaRecetasComponent implements OnInit {
       .catch((error) => console.log(error));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.RecetasService.getAll()
+      .then((response) => {
+        this.arrRecetas = response;
+      })
+      .catch((error) => console.log(error));
+  }
+
+  changePage(siguiente: boolean) {
+    this.currentPage = siguiente ? this.currentPage + 1 : this.currentPage - 1;
+
+    this.RecetasService.getAll()
+      .then((response) => (this.arrRecetas = response))
+      .catch((error) => console.log(error));
+  }
 }
