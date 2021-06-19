@@ -7,34 +7,29 @@ import { RecetasService } from 'src/app/services/recetas.service';
 @Component({
   selector: 'app-favoritos',
   templateUrl: './favoritos.component.html',
-  styleUrls: ['./favoritos.component.css']
+  styleUrls: ['./favoritos.component.css'],
 })
 export class FavoritosComponent implements OnInit {
-  arrQuesoFav: Producto[]
-  arrRecetaFav: Receta[]
+  arrQuesoFav: Producto;
+  arrRecetaFav: Receta[];
   show: boolean = true;
-  
- 
-  constructor(private ProductosService: ProductosService, private RecetaService: RecetasService) {
-   
-  }
+
+  constructor(
+    private ProductosService: ProductosService,
+    private RecetaService: RecetasService
+  ) {}
 
   ngOnInit(): void {
     this.ProductosService.getById(1)
-      .then(response => {
-        this.arrQuesoFav = response
+      .then((response) => {
+        this.arrQuesoFav = response;
       })
-      .catch(error => console.log(error))
-    
-    
+      .catch((error) => console.log(error));
+
     this.RecetaService.getById(1)
-      .then(response => {
-        
-        this.arrRecetaFav = response
-
+      .then((response) => {
+        this.arrRecetaFav = response;
       })
-      .catch(error => console.log(error))
+      .catch((error) => console.log(error));
   }
-
-
 }

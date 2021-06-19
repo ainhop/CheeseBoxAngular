@@ -1,39 +1,62 @@
 <button class="btn">Volver</button>
-<div class="container">
-    <div class="row">
-   <div class="col-5" >
-            <img [src]="producto.imagen" alt=""
-                width="100%">
-        </div>
-
-        <div class="col-7 texto">
-           <h2>{{producto.nombre}}</h2>
-            <hr>
-            <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-                        type="button" role="tab" aria-controls="nav-home" aria-selected="true">Descripción</button>
-                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                        type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Otros datos</button>
-
-                </div>
-            </nav>
-
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <h4>{{producto.nombre}}</h4>
-                    <h5>{{producto.nombre}}</h5>
-                    <p>{{producto.nombre}}</p>
-
-                </div>
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    <h4>{{producto.nombre}}</h4>
-
-
-                </div>
-            </div>
-
-        </div>
-
+<div class="container" *ngIf="producto">
+  <div class="row">
+    <div class="col-5">
+      <img [src]="producto.imagen" alt="" width="100%" />
     </div>
+
+    <div class="col-7 texto">
+      <h2>{{ producto.nombre }}</h2>
+      <hr />
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button
+            class="nav-link active"
+            id="nav-home-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-home"
+            type="button"
+            role="tab"
+            aria-controls="nav-home"
+            aria-selected="true"
+          >
+            Descripción
+          </button>
+          <button
+            class="nav-link"
+            id="nav-profile-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-profile"
+            type="button"
+            role="tab"
+            aria-controls="nav-profile"
+            aria-selected="false"
+          >
+            Otros datos
+          </button>
+        </div>
+      </nav>
+
+      <div class="tab-content" id="nav-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="nav-home"
+          role="tabpanel"
+          aria-labelledby="nav-home-tab"
+        >
+          <h4>{{ producto.nombre }}</h4>
+          <h5>{{ producto.nombre }}</h5>
+          <p>{{ producto.nombre }}</p>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="nav-profile"
+          role="tabpanel"
+          aria-labelledby="nav-profile-tab"
+        >
+          <h4>{{ producto.nombre }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

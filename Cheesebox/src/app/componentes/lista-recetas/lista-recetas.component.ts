@@ -21,34 +21,19 @@ export class ListaRecetasComponent implements OnInit {
       .catch((error) => console.log(error));
   }
 
-  ngOnInit(): void {
-    this.RecetasService.getAll()
+  ngOnInit(): void {}
+
+  handleSearch(value: string) {
+    this.RecetasService.getByItem(value)
       .then((response) => {
         this.arrRecetas = response;
       })
+
       .catch((error) => console.log(error));
   }
+  filtroValor = '';
 
-<<<<<<< HEAD
   changePage(siguiente: boolean) {
     this.currentPage = siguiente ? this.currentPage + 1 : this.currentPage - 1;
-
-    this.RecetasService.getAll()
-      .then((response) => (this.arrRecetas = response))
-      .catch((error) => console.log(error));
   }
-=======
-  ngOnInit(): void {
-    
-   }
- 
-   handleSearch(value: string) {
-    this.RecetasService.getByItem(value)
-      .then(response =>
-      { this.arrRecetas = response })
-     
-    .catch (error => console.log(error))
-  }
-  filtroValor = "";
->>>>>>> develop
 }

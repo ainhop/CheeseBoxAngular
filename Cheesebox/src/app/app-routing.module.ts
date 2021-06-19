@@ -12,7 +12,6 @@ import { ListaQuesosComponent } from './componentes/lista-quesos/lista-quesos.co
 import { ListaRecetasComponent } from './componentes/lista-recetas/lista-recetas.component';
 import { LoginComponent } from './componentes/login/login.component';
 
-
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: ListaQuesosComponent },
   { path: 'registrar', component: FormularioRegistroComponent },
@@ -22,16 +21,14 @@ const routes: Routes = [
   { path: 'recetas', component: ListaRecetasComponent },
   { path: 'update/:queso', component: FormularioAddQuesoComponent },
   { path: 'update/:recetas', component: FormularioAddRecetasComponent },
-  { path: 'quesos/:detalle', component: DetalleQuesoComponent },
-  { path: 'recetas/:detalle', component: DetalleRecetasComponent },
+  { path: 'quesos/:id', component: DetalleQuesoComponent },
+  { path: 'recetas/:id', component: DetalleRecetasComponent },
   { path: 'favoritos', component: FavoritosComponent },
-  { path: '**', redirectTo: '/'}
-    
-  
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
