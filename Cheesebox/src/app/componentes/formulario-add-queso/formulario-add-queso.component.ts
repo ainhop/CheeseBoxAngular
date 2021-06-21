@@ -13,20 +13,24 @@ declare var Swal;
 export class FormularioAddQuesoComponent implements OnInit {
   formulario: FormGroup;
   files;
+  id = null;
 
   constructor(
     private ProductosService: ProductosService,
     private router: Router
   ) {
     this.formulario = new FormGroup({
-      nombre: new FormControl('', [Validators.required,  Validators.minLength(2),]),
-      descripcion: new FormControl('', [Validators.required, Validators.minLength(2),]),
-      tipoLeche: new FormControl('', [Validators.required, Validators.minLength(2),]),
-      origen: new FormControl('', [Validators.required, Validators.minLength(2),]),
-      curiosidades: new FormControl('', [Validators.required, Validators.minLength(2),]),
-      color: new FormControl('', [Validators.required, Validators.minLength(2),]),
+      nombre: new FormControl('', [Validators.required,  Validators.minLength(2)]),
+      descripcion: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      tipoLeche: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      origen: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      curiosidades: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      color: new FormControl('', [Validators.required, Validators.minLength(2)]),
       imagen: new FormControl('', []),
     });
+    
+    // const navigation = this.router.getCurrentNavigation()
+    // this.id = navigation?.extras?.state;
   }
 
   ngOnInit(): void {}
@@ -70,5 +74,10 @@ export class FormularioAddQuesoComponent implements OnInit {
       this.formulario.get(controlName).hasError(validatorName) &&
       this.formulario.get(controlName).touched
     );
+  }
+
+  goToEdit(item: any): void {
+   
+    this.router.navigate(['update', item.id])
   }
   }

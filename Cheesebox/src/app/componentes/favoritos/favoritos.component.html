@@ -14,9 +14,9 @@
                     <p class="card-text"><strong>Origen:</strong> {{quesoFav.origen}}</p>
                 
                 </div>
-                <div class="editarCampos" *ngIf="!show">
-                    <button class="btn edicion">Editar</button>
-                    <button class="btn eliminar">Eliminar</button>
+                <div class="editarCampos" *ngIf="show">
+                    <button class="btn edicion" (click)="goToEdit(quesoFav)">Editar</button>
+                    <button class="btn eliminar" (click)="goToDelete(quesoFav)">Eliminar</button>
                 </div>
             </div>
         </div>

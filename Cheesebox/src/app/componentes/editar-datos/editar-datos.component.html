@@ -1,0 +1,140 @@
+<button class="btn botonBack" routerLink>
+    <span class="back"></span> Volver
+  </button>
+  <section>
+    <h2>Edita tus datos</h2>
+    <hr />
+    <div class="row">
+      <div class="col-12">
+        <form method="POST" enctype="multipart/form-data" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+          <div class="formDoble">
+            <div class="mb-3 col-6">
+              <label for="" class="ms-2 textForm">Nombre</label>
+              <input type="text" class="form-control" formControlName="nombre" />
+            </div>
+            <div class="mb-3 ms-2 col-6">
+              <label for="" class="ms-2 textForm">Apellidos</label>
+              <input
+                type="text"
+                formControlName="apellidos"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <!-- Alert -->
+          <div
+            class="error"
+            *ngIf="
+              !formulario.controls.nombre.pristine &&
+              objectLength(formulario.controls.nombre.errors) > 0
+            "
+          >
+            <div class="alert alert-dismissible fade show mt-3" role="alert">
+              Tu nombre debe componerse de <strong>al menos 3 caracteres</strong>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+  
+          <div
+            class="error"
+            *ngIf="
+              !formulario.controls.apellidos.pristine &&
+              objectLength(formulario.controls.apellidos.errors) > 0
+            "
+          >
+            <div class="alert alert-dismissible fade show mt-3" role="alert">
+              Tu apellido debe componerse de <strong>almenos 3 caracteres</strong>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="" class="ms-2 textForm">Usuario</label>
+            <input type="text" class="form-control" formControlName="username" />
+            <div
+              class="error"
+              *ngIf="
+                !formulario.controls.username.pristine &&
+                objectLength(formulario.controls.username.errors) > 0
+              "
+            >
+              <div class="alert alert-dismissible fade show mt-3" role="alert">
+                Tu usuario debe componerse de
+                <strong>almenos 3 caracteres</strong>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="" class="ms-2 textForm">Email</label>
+            <input type="text" class="form-control" formControlName="email" />
+  
+            <div class="error" *ngIf="checkControl('email', 'pattern')">
+              <div class="alert alert-dismissible fade show mt-3" role="alert">
+                El <strong>formato de tu email</strong> no es correcto
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="" class="ms-2 textForm">Contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+            />
+            <div class="error" *ngIf="checkControl('password', 'pattern')">
+              <div class="alert alert-dismissible fade show mt-3" role="alert">
+                Tu contraseña tiene que incluir:
+                <strong
+                  >ocho caracteres, al menos una letra mayúscula, un número y un
+                  símbolo.</strong
+                >
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
+            </div>
+          </div>
+          <div class="formDoble">
+            <div class="mb-3 col-6">
+              <label for="" class="ms-2 textForm">Foto de perfil</label>
+              <input type="file" formControlName="imagen" (change)="onChange($event)"/>
+            </div>
+          </div>
+          <button
+            class="btn send col-12 botones"
+            [disabled]="!formulario.valid"
+            type="submit"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
