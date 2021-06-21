@@ -1,0 +1,104 @@
+*{
+    font-family: 'Montserrat', sans-serif;;
+}
+section{
+    margin-top: 2%!important;
+    width: 60%;
+    margin: auto;
+    /* border: 1px solid gray; */
+    padding: 2%;
+    box-shadow: 0 0 15px 4px rgb(213, 213, 213);
+    overflow: hidden;
+    
+}
+section input, section select, button:focus, .form-control{
+    border: none;
+    background-color: #f8f8f8!important;
+    border-radius: 10px!important;
+    border-radius: 0px;
+    outline: none!important; 
+}
+input:focus, select:focus, button:focus{
+
+    box-shadow:2px 2px 2px 1px #FFD05E!important;
+    transition: box-shadow 0.5s;
+}
+.form-control:focus{
+    border: none;
+    box-shadow:2px 2px 2px 1px #FFD05E!important;
+    transition: box-shadow 0.5s;
+}
+
+.btn-close:focus{
+    box-shadow: none!important;
+    outline: none!important; 
+}
+h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight:800;
+    text-align: center;
+}
+.botonBack, .btn{
+    margin: 1%;
+    border: none;
+    color: #3b3d34!important;
+    transition: all ease .5s;
+    transform: rotateY(360deg)!important;
+    position: relative;
+    overflow: hidden; 
+
+}
+.send:hover{
+    color: var(--color-principal)!important;
+    transition: all ease .5s;
+}
+.botonBack:hover, .send:hover{
+    background-color: #3b3d34!important;
+    color: #ffcf5e00;
+    text-decoration: underline;
+    transition: all ease .5s;
+}
+.formDoble{
+    display: flex;
+
+}
+.textForm{
+    font-family: 'Montserrat', sans-serif;
+    font-weight:700;
+}
+
+button:focus, select:focus, textarea:focus{
+
+    box-shadow:none!important;
+    text-decoration: underline;
+    color: #FFD05E;
+}
+.back{
+    position: absolute;
+    background-image: url('../../../assets/img/arrow.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    height: 65px;
+    width: 100%;
+    top: -40%;
+    right: -75%;
+    transition: all ease .5s;
+ }
+
+ .botonBack:hover .back{
+    transition: transform 0.5s;
+-moz-transform: scale(1.1) translateX(-60%);
+-webkit-transform: scale(1.1) translateX(-60%);
+-o-transform: scale(1.1) translateX(-60%);
+-ms-transform: scale(1.1) translateX(-60%);
+transform: scale(1.1) translateX(-60%);
+} 
+
+/* Alert */
+
+.alert{
+    border: 1px solid #FFD05E;
+    box-shadow:2px 2px 2px 1px #FFD05E!important;
+    font-size: .8em;
+}

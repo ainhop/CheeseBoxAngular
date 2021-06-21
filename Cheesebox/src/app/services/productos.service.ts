@@ -28,9 +28,15 @@ export class ProductosService {
   }
  
   getByItem(pValor): Promise<Producto[]> {
-    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos/${pValor}`).toPromise();
+    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos/search/${pValor}`).toPromise();
   }
 
-
-
+  deleteById(pId): Promise<Producto[]> {
+    return this.httpClient.delete<Producto[]>(`${this.baseUrl}productos/delete/${pId}`).toPromise();
+  }
+  update(pId, fd: FormData) {
+    console.log(fd)
+    return this.httpClient.put(`${this.baseUrl}productos/update/${pId}`, fd).toPromise();
+  }
+  
 }
