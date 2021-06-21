@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
+import { BuscadorComponent } from './componentes/buscador/buscador.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AreaClientesComponent } from './componentes/area-clientes/area-clientes.component';
-import { BuscadorComponent } from './componentes/buscador/buscador.component';
 import { DetalleQuesoComponent } from './componentes/detalle-queso/detalle-queso.component';
 import { DetalleRecetasComponent } from './componentes/detalle-recetas/detalle-recetas.component';
 import { FavoritosComponent } from './componentes/favoritos/favoritos.component';
@@ -21,8 +21,8 @@ const routes: Routes = [
   { path: 'recetas', component: ListaRecetasComponent },
   { path: 'update/:queso', component: FormularioAddQuesoComponent },
   { path: 'update/:recetas', component: FormularioAddRecetasComponent },
-  { path: 'quesos/:id', component: DetalleQuesoComponent },
-  { path: 'recetas/:id', component: DetalleRecetasComponent },
+  { path: 'quesos/:idQueso', component: DetalleQuesoComponent },
+  { path: 'recetas/:idReceta', component: DetalleRecetasComponent },
   { path: 'favoritos', component: FavoritosComponent },
   { path: '**', redirectTo: '/' },
 ];

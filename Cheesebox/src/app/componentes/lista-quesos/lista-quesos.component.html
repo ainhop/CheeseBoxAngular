@@ -1,12 +1,8 @@
-<!-- <app-buscador (search)="handleSearch($event)"></app-buscador> -->
+<app-buscador (search)="handleSearch($event)"></app-buscador>
 <div class="container">
   <div class="row">
-    <div
-      class="col-12 col-sm-6 col-md-4"
-      *ngFor="let producto of pages[currentPage]"
-      [routerLink]="['quesos/:id']"
-    >
-      <div class="card">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let producto of arrProducto">
+      <div class="card" (click)="goToDetails(producto)">
         <img
           src="../../../assets/img/mozzarella.png"
           class="card-img"
@@ -23,17 +19,26 @@
       </div>
     </div>
   </div>
-  <div *ngIf="objectKeys(pages[currentPage]) > 1">
-    <button class="btn btn-success" (click)="changePage(false)">➖</button>
-
-    <span class="ms-2 me-2">{{ currentPage }}</span>
-
-    <button class="btn btn-success ms-2" (click)="changePage(true)">➕</button>
+  <div class="botones">
+    <button
+      class="btn btn-success"
+      (click)="onClick(false)"
+      [disabled]="paginaActual === 1"
+    >
+      ➖
+    </button>
+    <button
+      class="btn btn-success ms-2"
+      (click)="onClick(true)"
+      [disabled]="paginaActual === numPaginas"
+    >
+      ➕
+    </button>
   </div>
-</div>
-<div class="error" *ngIf="objectKeys(pages[currentPage]) === 0">
-  <h2>
-    {{ value }} no está entre nuestros quesos pero puedes
-    <a href="/registrarQueso">agregarlo </a>
-  </h2>
+  <div class="error" *ngIf="arrProducto.length === 0">
+    <h2>
+      {{ value }} no está entre nuestros quesos pero puedes
+      <a href="/registrarQueso">agregarlo </a>
+    </h2>
+  </div>
 </div>

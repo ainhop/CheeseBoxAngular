@@ -1,13 +1,9 @@
 <app-buscador (search)="handleSearch($event)"></app-buscador>
 <div class="container">
   <div class="row">
-    <div
-      class="col-12 col-sm-6 col-md-4"
-      *ngFor="let receta of arrRecetas"
-      [routerLink]="['recetas/:detalle']"
-    >
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let receta of arrRecetas">
       <div class="card">
-        <div class="card" [routerLink]="['/detalle']">
+        <div class="card" (click)="goToDetails(receta)">
           <img
             src="../../assets/img/revueltos_espinacas_parmesano.jpg"
             class="card-img"
@@ -25,20 +21,28 @@
           </div>
         </div>
       </div>
-
       <div class="error" *ngIf="arrRecetas.length === 0">
         <h2>
           Aún no hay recetas con {{ value }}, se el primero en
-          <a href="/agregarReceta">Agregarla ➕</a>
+          <a href="/agregarReceta">agregarla ➕</a>
         </h2>
       </div>
-      <button class="btn btn-info" (click)="changePage(false)">Anterior</button>
-
-      <span class="ms-2 me-2">{{ currentPage }}</span>
-
-      <button class="btn btn-info ms-2" (click)="changePage(true)">
-        Siguiente
-      </button>
     </div>
   </div>
+</div>
+<div class="botones">
+  <button
+    class="btn btn-success"
+    (click)="onClick(false)"
+    [disabled]="paginaActual === 1"
+  >
+    ➖
+  </button>
+  <button
+    class="btn btn-success ms-2"
+    (click)="onClick(true)"
+    [disabled]="paginaActual === numPaginas"
+  >
+    ➕
+  </button>
 </div>

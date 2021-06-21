@@ -32,7 +32,7 @@
             aria-controls="nav-profile"
             aria-selected="false"
           >
-            Otros datos
+            Curiosidades
           </button>
         </div>
       </nav>
@@ -44,9 +44,10 @@
           role="tabpanel"
           aria-labelledby="nav-home-tab"
         >
-          <h4>{{ producto.nombre }}</h4>
-          <h5>{{ producto.nombre }}</h5>
-          <p>{{ producto.nombre }}</p>
+          <h4>{{ producto.descripcion }}</h4>
+          <h5>{{ producto.origen }}</h5>
+          <p>{{ producto.tipoLeche }}</p>
+          <p>{{ producto.color }}</p>
         </div>
         <div
           class="tab-pane fade"
@@ -54,7 +55,7 @@
           role="tabpanel"
           aria-labelledby="nav-profile-tab"
         >
-          <h4>{{ producto.nombre }}</h4>
+          <h4>{{ producto.curiosidades }}</h4>
         </div>
       </div>
     </div>

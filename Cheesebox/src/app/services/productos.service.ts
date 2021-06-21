@@ -31,9 +31,11 @@ export class ProductosService {
       .toPromise();
   }
 
-  getByItem(pValor): Promise<Producto[]> {
+  getByItem(limit: number, page: number, pValor: any): Promise<Producto[]> {
     return this.httpClient
-      .get<Producto[]>(`${this.baseUrl}productos/${pValor}`)
+      .get<Producto[]>(
+        `${this.baseUrl}productos?limit=${limit}&page=${page}/${pValor}`
+      )
       .toPromise();
   }
 }

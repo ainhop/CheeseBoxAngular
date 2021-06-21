@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from 'src/app/interfaces/productos.interfaces';
 import { ProductosService } from 'src/app/services/productos.service';
 
@@ -8,64 +9,46 @@ import { ProductosService } from 'src/app/services/productos.service';
   styleUrls: ['./lista-quesos.component.css'],
 })
 export class ListaQuesosComponent implements OnInit {
-  pages: Record<number, Producto[]> = {};
-  currentPage: number;
+  paginaActual: number;
+  numPaginas: number;
+  arrProducto: Producto[];
 
-  constructor(private ProductosService: ProductosService) {
-    this.currentPage = 1;
+  constructor(
+    private ProductosService: ProductosService,
+    private router: Router,
+    private activatedRouter: ActivatedRoute
+  ) {
+    this.paginaActual = 1;
   }
 
   ngOnInit(): void {
-    this.ProductosService.getAll(50)
+    this.ProductosService.getAll(this.paginaActual)
       .then((response) => {
-        this.pages = this.mapResponseToPages(response);
-        console.log(this.mapResponseToPages(response));
+        this.arrProducto = response;
       })
       .catch((error) => console.log(error));
   }
 
-  // handleSearch(value: string) {
-  //   this.ProductosService.getByItem(value)
-
-  //     .then((response) => {
-  //       this.pages = response;
-  //     })
-
-  //     .catch((error) => console.log(error));
-  // }
-  // filtroValor = '';
-
-  objectKeys(object): number {
-    return Object.keys(object).length;
+  goToDetails(item: any): void {
+    this.router.navigate(['quesos', item.id]);
   }
 
-  changePage(siguiente: boolean) {
-    this.currentPage = siguiente ? this.currentPage + 1 : this.currentPage - 1;
+  handleSearch(value: string) {
+    this.ProductosService.getByItem(1, 6, value)
+      .then((response) => {
+        this.arrProducto = response;
+      })
+
+      .catch((error) => console.log(error));
   }
+  filtroValor = '';
 
-  mapResponseToPages(response: Producto[]): Record<number, Producto[]> {
-    let currentPage = 1;
-    return response.reduce((productObj, product) => {
-      if (!productObj[currentPage]) {
-        return {
-          ...productObj,
-          [currentPage]: [product],
-        };
-      }
-
-      if (productObj[currentPage].length < 6) {
-        return {
-          ...productObj,
-          [currentPage]: [...productObj[currentPage], product],
-        };
-      }
-
-      currentPage += 1;
-
-      return {
-        ...productObj,
-        [currentPage]: [product],
-      };
-    }, {});
+  async onClick(siguiente: boolean) {
+    if (siguiente) {
+      this.paginaActual++;
+    } else {
+      this.paginaActual--;
+    }
+    const response = await this.ProductosService.getAll(this.paginaActual);
   }
 }
