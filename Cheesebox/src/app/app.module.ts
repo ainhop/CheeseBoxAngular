@@ -17,8 +17,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BuscadorComponent } from './componentes/buscador/buscador.component';
 import { UsuarioregistradoComponent } from './componentes/usuarioregistrado/usuarioregistrado.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { EditarQuesoComponent } from './componentes/editar-queso/editar-queso.component';
+import { EditarDatosComponent } from './componentes/editar-datos/editar-datos.component';
+import { EditarRecetasComponent } from './componentes/editar-recetas/editar-recetas.component';
+
 
 
 
@@ -37,6 +39,9 @@ import {MatInputModule} from '@angular/material/input';
     FavoritosComponent,
     BuscadorComponent,
     UsuarioregistradoComponent,
+    EditarQuesoComponent,
+    EditarDatosComponent,
+    EditarRecetasComponent,
  
   ],
   imports: [
@@ -45,9 +50,9 @@ import {MatInputModule} from '@angular/material/input';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule
+    FormsModule,
+    
+ 
   
   
   ],
