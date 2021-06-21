@@ -12,15 +12,28 @@ export class RecetasService {
     this.baseUrl = 'http://localhost:3000/';
   }
 
-  getAll(): Promise<Receta[]> {
-    return this.httpClient.get<Receta[]>(`${this.baseUrl}recetas`).toPromise();
+  getAll(page = 10): Promise<Receta[]> {
+    return this.httpClient
+      .get<Receta[]>(`${this.baseUrl}recetas?page=${page}`)
+      .toPromise();
   }
 
   create(fd: FormData) {
+    console.log(fd);
     return this.httpClient
       .post(`${this.baseUrl}recetas/create`, fd)
       .toPromise();
   }
 
-  
+  getByItem(pValor): Promise<Receta[]> {
+    return this.httpClient
+      .get<Receta[]>(`${this.baseUrl}recetas/${pValor}`)
+      .toPromise();
+  }
+
+  getById(pId): Promise<Receta[]> {
+    return this.httpClient
+      .get<Receta[]>(`${this.baseUrl}recetas/${pId}`)
+      .toPromise();
+  }
 }

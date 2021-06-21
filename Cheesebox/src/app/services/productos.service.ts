@@ -3,27 +3,58 @@ import { HttpClient } from '@angular/common/http';
 import { Producto } from '../interfaces/productos.interfaces';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductosService {
-
   private baseUrl: string;
 
   constructor(private httpClient: HttpClient) {
     this.baseUrl = 'http://localhost:3000/';
   }
 
-  getAll(): Promise<Producto[]> {
-   
-    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos`).toPromise();
+  getAll(limit: number = 6, page: number = 1): Promise<Producto[]> {
+    return this.httpClient
+      .get<Producto[]>(`${this.baseUrl}productos?limit=${limit}&page=${page}`)
+      .toPromise();
   }
 
-  getById(): Promise<Producto[]> {
-    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos`).toPromise();
+  getById(pId): Promise<Producto> {
+    return this.httpClient
+      .get<Producto>(`${this.baseUrl}productos/${pId}`)
+      .toPromise();
   }
 
   create(fd: FormData) {
+<<<<<<< HEAD
+    console.log(fd);
+    return this.httpClient
+      .post(`${this.baseUrl}productos/create`, fd)
+      .toPromise();
+  }
+
+  getByItem(limit: number, page: number, pValor: any): Promise<Producto[]> {
+    return this.httpClient
+      .get<Producto[]>(
+        `${this.baseUrl}productos?limit=${limit}&page=${page}/${pValor}`
+      )
+      .toPromise();
+  }
+=======
     console.log(fd)
     return this.httpClient.post(`${this.baseUrl}productos/create`, fd).toPromise();
   }
+ 
+  getByItem(pValor): Promise<Producto[]> {
+    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos/search/${pValor}`).toPromise();
+  }
+
+  deleteById(pId): Promise<Producto[]> {
+    return this.httpClient.delete<Producto[]>(`${this.baseUrl}productos/delete/${pId}`).toPromise();
+  }
+  update(pId, fd: FormData) {
+    console.log(fd)
+    return this.httpClient.put(`${this.baseUrl}productos/update/${pId}`, fd).toPromise();
+  }
+  
+>>>>>>> develop
 }

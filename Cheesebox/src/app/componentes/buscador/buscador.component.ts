@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,ViewChild, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-buscador',
@@ -6,11 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buscador.component.css']
 })
 export class BuscadorComponent implements OnInit {
+  @ViewChild('search') inputName;
+  search = new FormControl('')
+  constructor() {
 
-  constructor() { }
 
+   }
+  
   ngOnInit(): void {
+    
+    this.search.valueChanges.subscribe(value => this.searchEmitter.emit(value))
+
   }
 
+  @Output('search') searchEmitter = new EventEmitter<string>()
   
+
 }

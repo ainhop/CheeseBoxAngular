@@ -61,11 +61,11 @@ export class FormularioAddRecetasComponent implements OnInit {
     const fd = new FormData();
     fd.append('imagen', this.files[0]);
     fd.append('nombre', this.formulario.value.nombre);
-    fd.append('quesoUtilizado', this.formulario.value.tipoLeche);
-    fd.append('tiempo', this.formulario.value.origen);
-    fd.append('raciones', this.formulario.value.caracteristicas);
-    fd.append('ingredientes', this.formulario.value.color);
-    fd.append('elaboracion', this.formulario.value.tipo);
+    fd.append('quesoUtilizado', this.formulario.value.quesoUtilizado);
+    fd.append('tiempo', this.formulario.value.tiempo);
+    fd.append('raciones', this.formulario.value.raciones);
+    fd.append('ingredientes', this.formulario.value.ingredientes);
+    fd.append('elaboracion', this.formulario.value.elaboracion);
     const response = await this.RecetasService.create(fd);
 
     if (response['affectedRows'] === 1) {

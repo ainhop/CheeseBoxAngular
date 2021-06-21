@@ -10,31 +10,34 @@
       <form method="POST" enctype="multipart/form-data" [formGroup]="formulario" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Nombre</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nombre"
-            formControlName="nombre"
-          />
+          <input type="text" class="form-control" id="nombre" formControlName="nombre" />
         </div>
-
+        <div class="error" *ngIf="
+          !formulario.controls.nombre.pristine &&
+          objectLength(formulario.controls.nombre.errors) > 0
+        ">
+          <div class="alert alert-dismissible fade show mt-3" role="alert">
+            El campo es requerido
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
         <div class="mb-3">
-          <label for="" class="ms-2 textForm">Características</label>
-          <input
-            type="textarea"
-            class="form-control"
-            id="descripcion"
-            formControlName="descripcion"
-          />
+          <label for="" class="ms-2 textForm">Descripción</label>
+          <input type="textarea" class="form-control" id="descripcion" formControlName="descripcion" />
+          <div class="error" *ngIf="
+          !formulario.controls.descripcion.pristine &&
+          objectLength(formulario.controls.descripcion.errors) > 0
+        ">
+          <div class="alert alert-dismissible fade show mt-3" role="alert">
+            El campo es requerido
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
         </div>
         <div class="formDoble">
           <div class="mb-3 col-6">
             <label for="" class="ms-2 textForm">Tipo de Leche</label>
-            <select
-              class="form-select"
-              aria-label="Tipo de leche"
-              formControlName="tipoLeche"
-            >
+            <select class="form-select" aria-label="Tipo de leche" formControlName="tipoLeche">
               <option selected>Tipo de leche</option>
               <option value="vaca">Vaca</option>
               <option value="oveja">Oveja</option>
@@ -44,84 +47,59 @@
           </div>
           <div class="mb-3 ms-2 col-6">
             <label for="" class="ms-2 textForm">Origen</label>
-            <input
-              type="text"
-              class="form-control"
-              id="origen"
-              formControlName="origen"
-            />
+            <input type="text" class="form-control" id="origen" formControlName="origen" />
+          </div>
+        </div>
+        <div class="error" *ngIf="
+          !formulario.controls.tipoLeche.pristine &&
+          objectLength(formulario.controls.tipoLeche.errors) > 0
+        ">
+          <div class="alert alert-dismissible fade show mt-3" role="alert">
+            El campo es requerido
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="error" *ngIf="
+          !formulario.controls.origen.pristine &&
+          objectLength(formulario.controls.origen.errors) > 0
+        ">
+          <div class="alert alert-dismissible fade show mt-3" role="alert">
+            El campo es requerido
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         </div>
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Curiosidades</label>
-          <input
-            type="text"
-            class="form-control"
-            id="caracteristicas"
-            placeholder="Caracteristicas"
-            formControlName="caracteristicas"
-          />
+          <input type="text" class="form-control" id="curiosidades"
+            formControlName="curiosidades" />
         </div>
-        <div class="formDoble">
-          <div class="mb-3 col-6">
+        <div class="error" *ngIf="
+          !formulario.controls.curiosidades.pristine &&
+          objectLength(formulario.controls.curiosidades.errors) > 0
+        ">
+          <div class="alert alert-dismissible fade show mt-3" role="alert">
+            El campo es requerido
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+    
+          <div class="col-12">
             <label for="" class="ms-2 textForm">Color</label>
-            <input
-              type="text"
-              class="form-control"
-              id="color"
-              placeholder="Color"
-              formControlName="color"
-            />
+            <input type="text" class="form-control" id="color" formControlName="color" />
           </div>
 
-          <div class="mb-3 ms-2 col-6">
-            <label for="" class="ms-2 textForm">Tipo</label>
-            <input
-              type="text"
-              class="form-control"
-              id="tipo"
-              placeholder="Tipo"
-              formControlName="tipo"
-            />
-          </div>
+
+        <div class="error" *ngIf="
+          !formulario.controls.color.pristine &&
+          objectLength(formulario.controls.color.errors) > 0
+        ">
         </div>
         <div class="col-12">
           <label for="" class="ms-2 textForm">Imagen</label>
-          <input
-            type="file"
-            class="form-control"
-            id="tipo"
-            placeholder="imagen"
-            multiple
-            formControlName="imagen"
-            (change)="onChange($event)"
-          />
+          <input type="file" class="form-control" id="imagen" placeholder="imagen" multiple formControlName="imagen"
+            (change)="onChange($event)" />
         </div>
-        <div
-          class="alert alert-dismissible fade show mt-3"
-          role="alert"
-          *ngIf="
-            checkControl(
-              'nombre' &&
-                'descripcion' &&
-                'tipoLeche' &&
-                'origen' &&
-                'caracteristicas' &&
-                'color' &&
-                'tipo',
-              'pattern'
-            )
-          "
-        >
-          La contraseña y/o correo introducidos no son validos.
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-        <button type="submit" class="btn send col-12">Enviar</button>
+        <button type="submit" class="btn mt-3 send col-12">Enviar</button>
       </form>
     </div>
   </div>

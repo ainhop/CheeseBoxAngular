@@ -1,49 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 declare var Swal;
 
 @Component({
-  selector: 'app-formulario-registro',
-  templateUrl: './formulario-registro.component.html',
-  styleUrls: ['./formulario-registro.component.css'],
+  selector: 'app-editar-datos',
+  templateUrl: './editar-datos.component.html',
+  styleUrls: ['./editar-datos.component.css']
 })
-export class FormularioRegistroComponent implements OnInit {
+export class EditarDatosComponent implements OnInit {
+
   formulario: FormGroup;
   form: any[];
   files;
+  usuario: any;
 
-  constructor(private usuariosService: UsuariosService,  private router: Router) {
-    this.formulario = new FormGroup({
-      nombre: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
-      apellidos: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
+  constructor(private usuariosService: UsuariosService,  private router: Router, private activatedRoute: ActivatedRoute) {
 
-      username: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
-      email: new FormControl('', [
-        Validators.pattern(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/),
-      ]),
-
-      password: new FormControl('', [
-        Validators.pattern(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
-        ),
-      ]),
-      imagen: new FormControl('', [Validators.required]),
-    });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let sub = this.activatedRoute.params.subscribe(async(params: Params) => {
+      let IdUsuario = params['idUsuario'];
+      this.usuario = await this.usuariosService.getById(IdUsuario)
+      console.log(this.usuario)
+
+      this.formulario = new FormGroup({
+        imagen: new FormControl(this.usuario.imagen, []),
+        nombre: new FormControl(this.usuario.nombre, [Validators.required, Validators.minLength(2)]),
+        apellidos: new FormControl(this.usuario.apellidos, []),
+        username: new FormControl(this.usuario.username, []),
+        email: new FormControl(this.usuario.imagen, []),
+        password: new FormControl(this.usuario.imagen, []),
+  
+      });
+      
+    })
+
+  }
 
   objectLength(object): number {
     if (!object) {
