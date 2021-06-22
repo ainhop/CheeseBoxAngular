@@ -25,36 +25,27 @@ export class ProductosService {
   }
 
   create(fd: FormData) {
-<<<<<<< HEAD
     console.log(fd);
     return this.httpClient
       .post(`${this.baseUrl}productos/create`, fd)
       .toPromise();
   }
 
-  getByItem(limit: number, page: number, pValor: any): Promise<Producto[]> {
-    return this.httpClient
-      .get<Producto[]>(
-        `${this.baseUrl}productos?limit=${limit}&page=${page}/${pValor}`
-      )
-      .toPromise();
-  }
-=======
-    console.log(fd)
-    return this.httpClient.post(`${this.baseUrl}productos/create`, fd).toPromise();
-  }
- 
   getByItem(pValor): Promise<Producto[]> {
-    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos/search/${pValor}`).toPromise();
+    return this.httpClient
+      .get<Producto[]>(`${this.baseUrl}productos/search/${pValor}`)
+      .toPromise();
   }
 
   deleteById(pId): Promise<Producto[]> {
-    return this.httpClient.delete<Producto[]>(`${this.baseUrl}productos/delete/${pId}`).toPromise();
+    return this.httpClient
+      .delete<Producto[]>(`${this.baseUrl}productos/delete/${pId}`)
+      .toPromise();
   }
   update(pId, fd: FormData) {
-    console.log(fd)
-    return this.httpClient.put(`${this.baseUrl}productos/update/${pId}`, fd).toPromise();
+    console.log(fd);
+    return this.httpClient
+      .put(`${this.baseUrl}productos/update/${pId}`, fd)
+      .toPromise();
   }
-  
->>>>>>> develop
 }

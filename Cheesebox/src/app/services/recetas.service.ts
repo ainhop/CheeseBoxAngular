@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Receta } from '../interfaces/recetas.interfaces';
 
@@ -19,9 +19,14 @@ export class RecetasService {
   }
 
   create(fd: FormData) {
-    console.log(fd);
+    const httpOpciones = {
+      headers: new HttpHeaders ({
+        authorization: localStorage.getItem('token')
+      })
+    }
+
     return this.httpClient
-      .post(`${this.baseUrl}recetas/create`, fd)
+      .post(`${this.baseUrl}recetas/create`, fd, httpOpciones)
       .toPromise();
   }
 
@@ -32,6 +37,11 @@ export class RecetasService {
   }
 
   getById(pId): Promise<Receta[]> {
+      const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token')
+      }),
+    };
     return this.httpClient
       .get<Receta[]>(`${this.baseUrl}recetas/${pId}`)
       .toPromise();

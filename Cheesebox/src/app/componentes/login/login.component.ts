@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
-// declare var Swal;
+declare var Swal;
 
 @Component({
   selector: 'app-login',
@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   checkControl(controlEmail, validatorEmail) {
-
     return (
       this.formulario.get(controlEmail).hasError(validatorEmail) &&
       this.formulario.get(controlEmail).touched
@@ -38,12 +37,10 @@ export class LoginComponent implements OnInit {
   async onSubmit() {
     const response = await this.usuariosService.login(this.formulario.value);
     if (response['error']) {
+      Swal.fire('error de login', 'error');
     } else {
+      Swal.fire('login correcto', 'success');
+      localStorage.setItem('token', response['token']);
     }
   }
 }
-
-// if (response['error']) {
-//  Swal.fire('Error de login', response['error'], 'error');
-//     } else {
-//       Swal.fire('Login Correcto, correcto, todo correcto');
