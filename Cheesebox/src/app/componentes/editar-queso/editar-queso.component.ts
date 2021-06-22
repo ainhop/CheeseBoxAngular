@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Producto } from 'src/app/interfaces/productos.interfaces';
 import { ProductosService } from 'src/app/services/productos.service';
 
@@ -18,7 +18,7 @@ export class EditarQuesoComponent implements OnInit {
  
 
   constructor(
-    private ProductosService: ProductosService, private activatedRoute: ActivatedRoute) {
+    private ProductosService: ProductosService, private activatedRoute: ActivatedRoute, private router: Router) {
     
     
  
@@ -59,11 +59,10 @@ export class EditarQuesoComponent implements OnInit {
       fd.append('color', this.formulario.value.color);
       console.log(fd);
       const response = await this.ProductosService.update(IdQueso, fd);
-  
       if (response['affectedRows'] === 1) {
-        Swal.fire('Registro completado con éxito');
+        this.router.navigate(['/clientes']);
       }
-
+      
     })
   }
 
