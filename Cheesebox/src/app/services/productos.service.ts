@@ -12,9 +12,9 @@ export class ProductosService {
     this.baseUrl = 'http://localhost:3000/';
   }
 
-  getAll(limit: number = 6, page: number = 1): Promise<Producto[]> {
+  getAll(pPag:any ): Promise<Producto[]> {
     return this.httpClient
-      .get<Producto[]>(`${this.baseUrl}productos?limit=${limit}&page=${page}`)
+      .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`)
       .toPromise();
   }
 
@@ -25,14 +25,6 @@ export class ProductosService {
   }
 
   create(fd: FormData) {
-<<<<<<< HEAD
-    console.log(fd)
-    return this.httpClient.post(`${this.baseUrl}productos/create`, fd).toPromise();
-  }
- 
-  getByItem(pValor): Promise<Producto[]> {
-    return this.httpClient.get<Producto[]>(`${this.baseUrl}productos/search/${pValor}`).toPromise();
-=======
     console.log(fd);
     return this.httpClient
       .post(`${this.baseUrl}productos/create`, fd)
@@ -43,7 +35,6 @@ export class ProductosService {
     return this.httpClient
       .get<Producto[]>(`${this.baseUrl}productos/search/${pValor}`)
       .toPromise();
->>>>>>> develop
   }
 
   deleteById(pId): Promise<Producto[]> {
@@ -57,8 +48,4 @@ export class ProductosService {
       .put(`${this.baseUrl}productos/update/${pId}`, fd)
       .toPromise();
   }
-<<<<<<< HEAD
-  
-=======
->>>>>>> develop
 }

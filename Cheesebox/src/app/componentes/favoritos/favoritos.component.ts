@@ -13,12 +13,6 @@ declare var Swal;
   styleUrls: ['./favoritos.component.css']
 })
 export class FavoritosComponent implements OnInit {
-<<<<<<< HEAD
-  arrQuesoFav: Producto[]
-  arrRecetaFav: Receta[]
-  show: boolean = true;
-  
-=======
   arrQuesoFav: Producto[];
   arrRecetaFav: Receta[];
   show: boolean = true;
@@ -38,26 +32,13 @@ export class FavoritosComponent implements OnInit {
         this.arrQuesoFav = response;
       })
       .catch((error) => console.log(error));
->>>>>>> develop
 
     this.RecetaService.getByItem(8)
-<<<<<<< HEAD
-      .then(response => {
-        
-        this.arrRecetaFav = response
-
-      })
-      .catch(error => console.log(error))
-         
-  }
-
-=======
       .then((response) => {
         this.arrRecetaFav = response;
       })
       .catch((error) => console.log(error));
   }
->>>>>>> develop
 
   goToEdit(item: any): void {
     this.router.navigate(['editarQueso', item.id]);
@@ -79,37 +60,6 @@ export class FavoritosComponent implements OnInit {
         confirmButton: 'btn btn-success',
         cancelButton: 'btn btn-danger',
       },
-<<<<<<< HEAD
-      buttonsStyling: false
-    })
-    
-    swalWithBootstrapButtons.fire({
-      title: '¿Estas seguro que quieres quitar de favoritos este queso?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Si',
-      cancelButtonText: 'No',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
-        swalWithBootstrapButtons.fire(
-          'Queso Eliminado!'
-         
-        )
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire(
-          'Conservas tu queso',
-        )
-      }
-    })
-    this.router.navigate(['clientes'])
-    }
-
-}
-=======
       buttonsStyling: false,
     });
 
@@ -135,4 +85,3 @@ export class FavoritosComponent implements OnInit {
     this.router.navigate(['clientes']);
   }
 }
->>>>>>> develop

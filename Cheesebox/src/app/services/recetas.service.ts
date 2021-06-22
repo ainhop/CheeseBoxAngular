@@ -12,9 +12,9 @@ export class RecetasService {
     this.baseUrl = 'http://localhost:3000/';
   }
 
-  getAll(page = 10): Promise<Receta[]> {
+  getAll(pPag:any): Promise<Receta[]> {
     return this.httpClient
-      .get<Receta[]>(`${this.baseUrl}recetas?page=${page}`)
+      .get<Receta[]>(`${this.baseUrl}recetas?page=${pPag}`)
       .toPromise();
   }
 
@@ -32,18 +32,18 @@ export class RecetasService {
 
   getByItem(pValor): Promise<Receta[]> {
     return this.httpClient
-      .get<Receta[]>(`${this.baseUrl}recetas/${pValor}`)
+      .get<Receta[]>(`${this.baseUrl}recetas/search/${pValor}`)
       .toPromise();
   }
 
-  getById(pId): Promise<Receta[]> {
+  getById(pId): Promise<Receta> {
       const httpOpciones = {
       headers: new HttpHeaders({
         authorization: localStorage.getItem('token')
       }),
     };
     return this.httpClient
-      .get<Receta[]>(`${this.baseUrl}recetas/${pId}`)
+      .get<Receta>(`${this.baseUrl}recetas/${pId}`)
       .toPromise();
   }
 }

@@ -25,13 +25,16 @@ export class ListaQuesosComponent implements OnInit {
     this.ProductosService.getAll(this.paginaActual)
       .then((response) => {
         this.arrProducto = response;
-         this.numPaginas = response.length;
+        this.numPaginas = response.length;
+
+        console.log(response)
       })
       .catch((error) => console.log(error));
   }
 
   goToDetails(item: any): void {
     this.router.navigate(['quesos', item.id]);
+    console.log(item.id)
   }
 
   handleSearch(value: string) {

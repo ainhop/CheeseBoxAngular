@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 declare var Swal;
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   formulario: FormGroup;
 
 
-  constructor(private usuariosService: UsuariosService) {
+  constructor(private usuariosService: UsuariosService, private router: Router) {
     this.formulario = new FormGroup({
       email: new FormControl('', [
         Validators.pattern(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/),
@@ -38,21 +39,11 @@ export class LoginComponent implements OnInit {
   async onSubmit() {
     const response = await this.usuariosService.login(this.formulario.value);
     if (response['error']) {
-<<<<<<< HEAD
-      Swal.fire('Error de login', response['error'], 'error');
-    } else {
-      Swal.fire('Login Correcto, correcto, todo correcto');
-    }
-  }
-}
-
-
-=======
       Swal.fire('error de login', 'error');
     } else {
       Swal.fire('login correcto', 'success');
       localStorage.setItem('token', response['token']);
     }
+    this.router.navigate(['/usuarioregistrado']);
   }
 }
->>>>>>> develop
