@@ -46,4 +46,11 @@ export class RecetasService {
       .get<Receta>(`${this.baseUrl}recetas/${pId}`)
       .toPromise();
   }
+
+  update(pId, fd: FormData) {
+    console.log(fd);
+    return this.httpClient
+      .put(`${this.baseUrl}recetas/update/${pId}`, fd)
+      .toPromise();
+  }
 }

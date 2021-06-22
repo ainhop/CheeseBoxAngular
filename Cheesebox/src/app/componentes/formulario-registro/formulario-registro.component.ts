@@ -72,9 +72,14 @@ export class FormularioRegistroComponent implements OnInit {
     fd.append('password', this.formulario.value.password);
     const response = await this.usuariosService.create(fd);
 
-    if (response['affectedRows'] === 1) {
-      Swal.fire('Registro completado con éxito');
-      this.router.navigate(['/quesos']);
-    }
+    Swal.fire({
+      title: 'Bienvenid@ amig@ queser@',
+      text: '¡Gracias por formar parte de esta familia!',
+      imageUrl: 'https://media.giphy.com/media/2hN44iSVpRIt2/giphy.gif',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    })
+  
   }
 }

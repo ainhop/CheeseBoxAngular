@@ -67,10 +67,10 @@ export class EditarDatosComponent implements OnInit {
     fd.append('email', this.formulario.value.email);
     fd.append('password', this.formulario.value.password);
     const response = await this.usuariosService.create(fd);
-
+    ;
     if (response['affectedRows'] === 1) {
-      Swal.fire('Registro completado con éxito');
-      this.router.navigate(['/quesos']);
+      this.router.navigate(['/clientes']);
     }
   }
+  
 }
