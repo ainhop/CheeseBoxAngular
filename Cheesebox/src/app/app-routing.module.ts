@@ -23,15 +23,10 @@ const routes: Routes = [
   { path: 'recetas', component: ListaRecetasComponent },
   { path: 'update/:queso', component: FormularioAddQuesoComponent },
   { path: 'update/:recetas', component: FormularioAddRecetasComponent },
-<<<<<<< HEAD
-  { path: 'quesos/:idQueso', component: DetalleQuesoComponent },
-  { path: 'recetas/:idReceta', component: DetalleRecetasComponent },
-=======
-  { path: 'quesos/:detalle', component: DetalleQuesoComponent },
-  { path: 'recetas/:detalle', component: DetalleRecetasComponent },
+  { path: 'quesos/:id', component: DetalleQuesoComponent },
+  { path: 'recetas/:id', component: DetalleRecetasComponent },
   { path: 'editarQueso/:idQueso', component: EditarQuesoComponent },
   { path: 'editarDatos/:idUser', component: EditarDatosComponent },
->>>>>>> develop
   { path: 'favoritos', component: FavoritosComponent },
   { path: '**', redirectTo: '/' },
 ];

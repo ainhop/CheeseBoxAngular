@@ -4,7 +4,7 @@
     <div class="col-5">
       <a
         data-fancybox="gallery"
-        href="https://images.pexels.com/photos/6401668/pexels-photo-6401668.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        href="receta"
         ><img
           src="https://images.pexels.com/photos/6401668/pexels-photo-6401668.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
           width="99%"
@@ -36,7 +36,7 @@
     </div>
 
     <div class="col-7">
-      <h2>Brocheta de pera, queso de Arzúa y jamón serrano</h2>
+      <h2>{{receta.nombre}}</h2>
       <hr />
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -75,9 +75,7 @@
           aria-labelledby="nav-home-tab"
         >
           <ul>
-            <li>Pera</li>
-            <li>queso de Arzúa</li>
-            <li>jamón serrano</li>
+            <li>{{receta.ingredientes}}</li>
           </ul>
         </div>
         <div
@@ -86,20 +84,11 @@
           role="tabpanel"
           aria-labelledby="nav-profile-tab"
         >
-          <p>
-            Primero se pelan las peras, retirando el corazón y las pepitas. Es
-            conveniente cortarlas en ocho gajos y rociarlas con el zumo del
-            limón para que no queden ennegrecidas. Paralelamente se debe retirar
-            la corteza del queso y cortalo en bastones, envolviendo cada uno con
-            media loncha de jamón serrano. En una brocheta de madera o de metal
-            se alterna un trozo de pera con un rollito de queso y jamón
-            colocando dos unidades de cada una. En una sartén antiadherente se
-            calienta un chorrito de aceite y se doran las brochetas durante uno
-            o dos minutos por cada lado' '20 minutos', '4 raciones', '2 peras
-            grandes, 150 gramos de jamón serrano en lonchas finas, 180 gramos de
-            queso Arzúa Ulloa, el zumo de un limón y aceite de oliva virgen
-            extra'
-          </p>
+        <p>🕕Tiempo: {{receta.tiempo}}</p>
+        <p>🍴Raciones: {{receta.raciones}}</p>
+        <p>
+        {{receta.elaboracion}}
+        </p>
         </div>
       </div>
     </div>

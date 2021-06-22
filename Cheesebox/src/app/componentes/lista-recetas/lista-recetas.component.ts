@@ -26,7 +26,7 @@ export class ListaRecetasComponent implements OnInit {
       .then((response) => {
         this.arrRecetas = response;
         this.numPaginas = response.length;
-        console.log(this.numPaginas);
+      
       })
       .catch((error) => console.log(error));
   }

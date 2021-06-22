@@ -10,6 +10,9 @@
         />
         <!-- <img [src]="producto.imagen" class="card-img" alt="...">-->
         <div class="card-img-overlay">
+          <a class="favoritos" href="#"
+          ><img width="80%" src="../../../assets/img/confirmado.svg"
+        /></a>
           <h5 class="card-title">{{ producto.nombre }}</h5>
           <div class="linea"></div>
           <p class="card-text">
@@ -19,7 +22,23 @@
       </div>
     </div>
   </div>
-  <div class="botones">
+  <div class="botones" *ngIf="arrProducto.length >= 6">
+    <nav aria-label="...">
+      <ul class="pagination">
+            <li class="page-item " [disabled]="paginaActual === 1">
+          <a class="page-link"(click)="onClick(false)" 
+          >Previo</a>
+        </li>
+
+
+        <li class="page-item"><a class="page-link" href="#">{{paginaActual}} / {{arrProducto.length}}</a></li>
+ 
+        <li class="page-item">
+          <a class="page-link"(click)="onClick(true)"
+          [disabled]="paginaActual === numPaginas">Siguiente</a>
+        </li>
+      </ul>
+    </nav>
     <button
       class="btn btn-success"
       (click)="onClick(false)"

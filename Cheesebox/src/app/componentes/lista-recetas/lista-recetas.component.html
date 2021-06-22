@@ -21,16 +21,11 @@
           </div>
         </div>
       </div>
-      <div class="error" *ngIf="arrRecetas.length === 0">
-        <h2>
-          Aún no hay recetas con {{ value }}, se el primero en
-          <a href="/agregarReceta">agregarla ➕</a>
-        </h2>
-      </div>
     </div>
   </div>
 </div>
-<div class="botones">
+
+<div class="botones" *ngIf="paginaActual >=1">
   <button
     class="btn btn-success"
     (click)="onClick(false)"
@@ -38,6 +33,7 @@
   >
     ➖
   </button>
+  {{paginaActual}}
   <button
     class="btn btn-success ms-2"
     (click)="onClick(true)"
@@ -45,4 +41,11 @@
   >
     ➕
   </button>
+</div>
+
+<div class="error" *ngIf="paginaActual === 0">
+  <h2>
+    Aún no hay recetas con {{ value }}, se el primero en
+    <a href="/agregarReceta">agregarla ➕</a>
+  </h2>
 </div>

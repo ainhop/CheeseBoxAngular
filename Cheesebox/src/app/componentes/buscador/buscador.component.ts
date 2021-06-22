@@ -19,6 +19,8 @@ export class BuscadorComponent implements OnInit {
     
     this.search.valueChanges.subscribe(value => this.searchEmitter.emit(value))
 
+    console.log(this.search.valueChanges.subscribe(value => this.searchEmitter.emit(value)))
+
   }
 
   @Output('search') searchEmitter = new EventEmitter<string>()
