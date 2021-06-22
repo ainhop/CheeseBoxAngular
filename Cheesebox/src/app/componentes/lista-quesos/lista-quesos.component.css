@@ -1,8 +1,6 @@
-
-*{
-    font-family: 'Montserrat', sans-serif;;
-}
+@import url(../../../styles.css);
 .card{
+    font-family: 'Montserrat', sans-serif;
     margin: 7%;
     border: none!important;
     position: relative;
@@ -53,7 +51,7 @@
     width: 25%;
     height: 1px;
     margin: -5px 10px;
-    border-bottom: 5px solid #ffd05e;
+    border-bottom: 5px solid var(--color-principal);
 }
 
 .favoritos {
@@ -61,7 +59,7 @@
     top: -20%;
     left: 85%;
     transition: all ease 0.5s;
-    filter: invert(50%)   brightness(1%) contrast(1%);
+    filter: invert(50%) brightness(1%) contrast(1%);
     opacity: 0;
     z-index: 10;
   }
@@ -76,7 +74,26 @@
   .favoritos:hover {
     filter: none;
   } 
-  .pagination{
+  .separador{
+      width: 15%;
       margin: auto!important;
+      border-bottom: 2px solid var(--color-principal);
+      padding: 1%;
+      
+  }
+  .pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .pagination li{
+   margin: 2%;
+
+   transition: all ease 0.5s;
+  }
+  
+  .pagination li:hover:nth-child(odd){
+      color: #ffd05e ;
+      text-decoration: underline;
       cursor: pointer;
   }
