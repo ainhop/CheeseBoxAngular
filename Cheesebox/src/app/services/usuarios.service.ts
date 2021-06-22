@@ -12,6 +12,11 @@ export class UsuariosService {
     this.baseUrl = 'http://localhost:3000/usuarios';
   }
   registro(formValues: any) {
+        const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token')
+      }),
+    };
     return this.httpClient
       .post(`${this.baseUrl}/registrar`, formValues)
       .toPromise();
@@ -26,7 +31,7 @@ export class UsuariosService {
   create(fd: FormData) {
     const httpOpciones = {
       headers: new HttpHeaders({
-        authorization: localStorage.getItem('token'),
+        authorization: localStorage.getItem('token')
       }),
     };
     return this.httpClient
@@ -35,6 +40,7 @@ export class UsuariosService {
   }
 
   update(formValues: any, pId) {
+    
     return this.httpClient
       .put(`${this.baseUrl}/update${pId}`, formValues)
       .toPromise();
@@ -43,7 +49,7 @@ export class UsuariosService {
   getById(pId): Promise<Usuario[]> {
     const httpOpciones = {
       headers: new HttpHeaders({
-        authorization: localStorage.getItem('token'),
+        authorization: localStorage.getItem('token')
       }),
     };
     return this.httpClient
