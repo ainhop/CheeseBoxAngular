@@ -39,7 +39,8 @@
                   >
                 </li>
                 <li>
-                  <a  href="/quesos" class="dropdown-item" 
+                  <a  class="dropdown-item" 
+                  [routerLink]="['/quesos']"
                     >Ver todos los quesos</a
                   >
                 </li>
@@ -63,12 +64,14 @@
                 aria-labelledby="navbarScrollingDropdown"
               >
                 <li>
-                  <a class="dropdown-item" href="update/recetas"
+                  <a class="dropdown-item" 
+                  [routerLink]="['/update/recetas']"
                     >Agregar recetas</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="/recetas"
+                  <a class="dropdown-item" 
+                  [routerLink]="['/recetas']"
                     >Ver todas las recetas</a
                   >
                 </li>
@@ -83,7 +86,7 @@
                   <a
                     class="nav-link active recetas user"
                     aria-current="page"
-                    href="/login"
+                    [routerLink]="['/']"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight"
                     aria-controls="offcanvasRight"
@@ -105,7 +108,7 @@
                       ></button>
                     </div>
                     <div class="offcanvas-body">
-                       <app-usuarioregistrado></app-usuarioregistrado > 
+                       <app-usuarioregistrado [routerLink]="['/']"></app-usuarioregistrado > 
                     </div>
                   </div>
                   <!-- fin menu desplegable-->
@@ -137,11 +140,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-2">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/quesos">  Quesos
+              <a class="nav-link active" aria-current="page" [routerLink]="['quesos']">  Quesos
                 <i class="fas fa-cheese"></i></a>
             </li>
                <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/recetas">  Recetas
+              <a class="nav-link active" aria-current="page" [routerLink]="['/recetas']">  Recetas
                 <i class="far fa-sticky-note"></i
               ></a>
             </li>
@@ -153,7 +156,7 @@
                   <a
                     class="nav-link active recetas"
                     aria-current="page"
-                    href="/registrar"
+                    [routerLink]="['/registrar']"
                     >Regístrate</a
                   >
                 </li>
@@ -161,7 +164,7 @@
                   <a
                     class="nav-link active recetas user"
                     aria-current="page"
-                    href="/login"
+                    href="/"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight"
                     aria-controls="offcanvasRight"
@@ -184,7 +187,7 @@
                       ></button>
                     </div>
                     <div class="offcanvas-body">
-                     <app-login></app-login > 
+                     <app-login [routerLink]="['/']"></app-login > 
                     </div>
                   </div>
                   <!-- fin menu desplegable-->

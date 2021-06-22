@@ -76,3 +76,7 @@
   .favoritos:hover {
     filter: none;
   } 
+  .pagination{
+      margin: auto!important;
+      cursor: pointer;
+  }

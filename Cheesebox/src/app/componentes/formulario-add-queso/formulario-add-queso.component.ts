@@ -47,15 +47,14 @@ export class FormularioAddQuesoComponent implements OnInit {
     console.log(fd);
     const response = await this.ProductosService.create(fd);
 
-    if (response['affectedRows'] === 1) {
-      Swal.fire('Registro completado con éxito');
-      this.router.navigate(['/quesos']);
-    }
-    // let fd = new FormData();
-    // fd.append('imagen', this.files[0]);
-    // this.ProductosService.create(fd).then(result => {
-    //   this.router.navigate(['']);
-    // })
+    Swal.fire({
+      title: 'Queso subido',
+      text: '¡ahora somos fans!',
+      imageUrl: 'https://media.giphy.com/media/3XCrktccKK9Pi/giphy.gif',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    })
   }
 
   onChange($event) {
@@ -80,4 +79,5 @@ export class FormularioAddQuesoComponent implements OnInit {
    
     this.router.navigate(['update', item.id])
   }
-  }
+}
+  

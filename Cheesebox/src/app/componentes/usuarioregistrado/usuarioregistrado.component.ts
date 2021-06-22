@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Usuario } from 'src/app/interfaces/usuarios.interfaces';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-usuarioregistrado',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usuarioregistrado.component.css']
 })
 export class UsuarioregistradoComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  usuario: Usuario;
+  constructor(private usuarioService: UsuariosService, private activatedRoute: ActivatedRoute) { }
+  
+  async ngOnInit(): Promise<void> {
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    const usuario = await this.usuarioService.getById(id);
+    this.usuario = usuario
+    
   }
-
 }

@@ -3,7 +3,7 @@
 </div>
 <div class="textoDesplegable">
   <h4>Accede a tu cuenta</h4>
-  <h5>y si aún no eres miembro <a href="http://">regístrate</a></h5>
+  <h5>y si aún no eres miembro <a [routerLink]="['/registrar']">regístrate</a></h5>
 </div>
 <section>
   <form [formGroup]="formulario" (ngSubmit)="onSubmit()">

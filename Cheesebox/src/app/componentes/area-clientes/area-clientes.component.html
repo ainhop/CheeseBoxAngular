@@ -1,4 +1,4 @@
-<button class="btn botonBack" routerLink>
+<button class="btn botonBack" [routerLink]="['../']">
   <span class="back"></span> Volver
 </button>
 <div class="container">
@@ -11,7 +11,6 @@
       </div>
       <div class="col-6 col-md-auto ms-5">
         <h3>{{usuario.nombre}} {{usuario.apellidos}}</h3>
-        <h4>Madrid</h4>
       </div>
     </div>
 

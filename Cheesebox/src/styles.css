@@ -21,3 +21,9 @@ html {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.swal2-styled.swal2-confirm {
+  
+    background-color: #FFD05E!important;
+  
+}

@@ -68,10 +68,15 @@ export class FormularioAddRecetasComponent implements OnInit {
     fd.append('elaboracion', this.formulario.value.elaboracion);
     const response = await this.RecetasService.create(fd);
 
-    if (response['affectedRows'] === 1) {
-      Swal.fire('Registro completado con éxito');
-      this.router.navigate(['/recetas']);
-    }
+    Swal.fire({
+      title: 'Receta subida',
+      text: '¡Tomamos nota!',
+      imageUrl: 'https://media.giphy.com/media/wNDa1OZtvl6Fi/giphy.gif',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    })
+  
   }
   onChange($event) {
     this.files = $event.target.files;
