@@ -18,29 +18,22 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-12">
-    <div class="botones" *ngIf="arrProducto.length >= 6">
+
+
+  <div class="botones" *ngIf="arrProducto.length >= 6">
+    <div class="separador">
+    </div>
       <nav aria-label="...">
         <ul class="pagination">
-          <li class="page-item " [disabled]="paginaActual === 1">
-            <a class="page-link" (click)="onClick(false)">Previo</a>
+          <li class="page-item " [disabled]="paginaActual === 1" (click)="onClick(false)">
+            Previo
           </li>
-
-
-          <li class="page-item"><a class="page-link" href="#">{{paginaActual}} / {{arrProducto.length}}</a></li>
-
-          <li class="page-item">
-            <a class="page-link" (click)="onClick(true)" [disabled]="paginaActual === numPaginas">Siguiente</a>
+          <li class="page-item">{{paginaActual}} / {{arrProducto.length}}</li>
+          <li class="page-item"  (click)="onClick(true)" [disabled]="paginaActual === numPaginas"> 
+          Siguiente
           </li>
         </ul>
       </nav>
-      <button class="btn btn-success" (click)="onClick(false)" [disabled]="paginaActual === 1">
-        ➖
-      </button>
-      <button class="btn btn-success ms-2" (click)="onClick(true)" [disabled]="paginaActual === numPaginas">
-        ➕
-      </button>
     </div>
 
 
@@ -50,5 +43,4 @@
         <a [routerLink]="['/registrarQueso']">agregarlo </a>
       </h2>
     </div>
-  </div>
-</div>
+  
