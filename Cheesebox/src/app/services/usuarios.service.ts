@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../interfaces/usuarios.interfaces';
 
@@ -24,7 +24,14 @@ export class UsuariosService {
   }
 
   create(fd: FormData) {
-    return this.httpClient.post(`${this.baseUrl}/create`, fd).toPromise();
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .post(`${this.baseUrl}/create`, fd, httpOpciones)
+      .toPromise();
   }
 
   update(formValues: any, pId) {
@@ -34,8 +41,13 @@ export class UsuariosService {
   }
 
   getById(pId): Promise<Usuario[]> {
-    return this.httpClient.get<Usuario[]>(`${this.baseUrl}/${pId}`).toPromise();
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .get<Usuario[]>(`${this.baseUrl}/${pId}`, httpOpciones)
+      .toPromise();
   }
-
-
- }
+}
