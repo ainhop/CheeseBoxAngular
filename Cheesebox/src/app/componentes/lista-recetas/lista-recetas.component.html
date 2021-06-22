@@ -50,6 +50,6 @@
 <div class="error" *ngIf="arrRecetas.length === 0">
   <h2>
     {{ value }} no está entre nuestros quesos pero puedes
-    <a href="/registrarReceta">agregarlo </a>
+    <a [routerLink]="['/registrarReceta']">agregarlo </a>
   </h2>
 </div>

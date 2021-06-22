@@ -4,7 +4,7 @@
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let producto of arrProducto">
       <div class="card" (click)="goToDetails(producto)">
         <img src="../../../assets/img/mozzarella.png" class="card-img" alt="..." />
-        <!-- <img [src]="producto.imagen" class="card-img" alt="...">-->
+         <!--<img [src]="producto.imagen" class="card-img" alt="...">-->
         <div class="card-img-overlay">
           <a class="favoritos" href="#"><img width="80%" src="../../../assets/img/confirmado.svg" /></a>
           <h5 class="card-title">{{ producto.nombre }}</h5>
@@ -16,32 +16,39 @@
       </div>
     </div>
   </div>
-  <div class="botones" *ngIf="arrProducto.length >= 6">
-    <nav aria-label="...">
-      <ul class="pagination">
-        <li class="page-item " [disabled]="paginaActual === 1">
-          <a class="page-link" (click)="onClick(false)">Previo</a>
-        </li>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="botones" *ngIf="arrProducto.length >= 6">
+      <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item " [disabled]="paginaActual === 1">
+            <a class="page-link" (click)="onClick(false)">Previo</a>
+          </li>
 
 
-        <li class="page-item"><a class="page-link" href="#">{{paginaActual}} / {{arrProducto.length}}</a></li>
+          <li class="page-item"><a class="page-link" href="#">{{paginaActual}} / {{arrProducto.length}}</a></li>
 
-        <li class="page-item">
-          <a class="page-link" (click)="onClick(true)" [disabled]="paginaActual === numPaginas">Siguiente</a>
-        </li>
-      </ul>
-    </nav>
-    <button class="btn btn-success" (click)="onClick(false)" [disabled]="paginaActual === 1">
-      ➖
-    </button>
-    <button class="btn btn-success ms-2" (click)="onClick(true)" [disabled]="paginaActual === numPaginas">
-      ➕
-    </button>
-  </div>
-  <div class="error" *ngIf="arrProducto.length === 0">
-    <h2>
-      {{ value }} no está entre nuestros quesos pero puedes
-      <a href="/registrarQueso">agregarlo </a>
-    </h2>
+          <li class="page-item">
+            <a class="page-link" (click)="onClick(true)" [disabled]="paginaActual === numPaginas">Siguiente</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="btn btn-success" (click)="onClick(false)" [disabled]="paginaActual === 1">
+        ➖
+      </button>
+      <button class="btn btn-success ms-2" (click)="onClick(true)" [disabled]="paginaActual === numPaginas">
+        ➕
+      </button>
+    </div>
+
+
+    <div class="error" *ngIf="arrProducto.length === 0">
+      <h2>
+        {{ value }} no está entre nuestros quesos pero puedes
+        <a [routerLink]="['/registrarQueso']">agregarlo </a>
+      </h2>
+    </div>
   </div>
 </div>
