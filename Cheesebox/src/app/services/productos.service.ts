@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Producto } from '../interfaces/productos.interfaces';
 
 @Injectable({
@@ -25,9 +25,15 @@ export class ProductosService {
   }
 
   create(fd: FormData) {
+    const httpOpciones = {
+      headers: new HttpHeaders ({
+        authorization: localStorage.getItem('token')
+      })
+    }
     console.log(fd);
+
     return this.httpClient
-      .post(`${this.baseUrl}productos/create`, fd)
+      .post(`${this.baseUrl}productos/create`, fd, httpOpciones)
       .toPromise();
   }
 
