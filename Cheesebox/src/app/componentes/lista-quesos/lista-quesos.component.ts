@@ -34,7 +34,7 @@ export class ListaQuesosComponent implements OnInit {
   }
 
   handleSearch(value: string) {
-    this.ProductosService.getByItem(1, 6, value)
+    this.ProductosService.getByItem(value)
       .then((response) => {
         this.arrProducto = response;
       })

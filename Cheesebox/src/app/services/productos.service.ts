@@ -25,21 +25,6 @@ export class ProductosService {
   }
 
   create(fd: FormData) {
-<<<<<<< HEAD
-    console.log(fd);
-    return this.httpClient
-      .post(`${this.baseUrl}productos/create`, fd)
-      .toPromise();
-  }
-
-  getByItem(limit: number, page: number, pValor: any): Promise<Producto[]> {
-    return this.httpClient
-      .get<Producto[]>(
-        `${this.baseUrl}productos?limit=${limit}&page=${page}/${pValor}`
-      )
-      .toPromise();
-  }
-=======
     console.log(fd)
     return this.httpClient.post(`${this.baseUrl}productos/create`, fd).toPromise();
   }
@@ -56,5 +41,4 @@ export class ProductosService {
     return this.httpClient.put(`${this.baseUrl}productos/update/${pId}`, fd).toPromise();
   }
   
->>>>>>> develop
 }

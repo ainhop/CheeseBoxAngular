@@ -12,26 +12,12 @@ declare var Swal;
 @Component({
   selector: 'app-favoritos',
   templateUrl: './favoritos.component.html',
-  styleUrls: ['./favoritos.component.css'],
+  styleUrls: ['./favoritos.component.css']
 })
 export class FavoritosComponent implements OnInit {
-  arrQuesoFav: Producto;
-  arrRecetaFav: Receta[];
+  arrQuesoFav: Producto[]
+  arrRecetaFav: Receta[]
   show: boolean = true;
-<<<<<<< HEAD
-
-  constructor(
-    private ProductosService: ProductosService,
-    private RecetaService: RecetasService
-  ) {}
-
-  ngOnInit(): void {
-    this.ProductosService.getById(1)
-      .then((response) => {
-        this.arrQuesoFav = response;
-      })
-      .catch((error) => console.log(error));
-=======
   
 
   constructor(private ProductosService: ProductosService, private RecetaService: RecetasService, private router: Router, private activatedRouter: ActivatedRoute) { }
@@ -52,26 +38,10 @@ export class FavoritosComponent implements OnInit {
       .then(response => {
         
         this.arrRecetaFav = response
->>>>>>> develop
 
-    this.RecetaService.getById(1)
-      .then((response) => {
-        this.arrRecetaFav = response;
       })
-<<<<<<< HEAD
-      .catch((error) => console.log(error));
-  }
-}
-=======
       .catch(error => console.log(error))
          
-  }
-  goToEditUser(item: any): void {
-   
-  
-
-    this.router.navigate(['editarQueso',item.id] )
-
   }
 
 
@@ -133,4 +103,3 @@ export class FavoritosComponent implements OnInit {
     }
 
 }
->>>>>>> develop
