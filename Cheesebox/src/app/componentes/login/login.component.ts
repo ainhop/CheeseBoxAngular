@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   checkControl(controlEmail, validatorEmail) {
-
     return (
       this.formulario.get(controlEmail).hasError(validatorEmail) &&
       this.formulario.get(controlEmail).touched
@@ -39,6 +38,7 @@ export class LoginComponent implements OnInit {
   async onSubmit() {
     const response = await this.usuariosService.login(this.formulario.value);
     if (response['error']) {
+<<<<<<< HEAD
       Swal.fire('Error de login', response['error'], 'error');
     } else {
       Swal.fire('Login Correcto, correcto, todo correcto');
@@ -47,3 +47,12 @@ export class LoginComponent implements OnInit {
 }
 
 
+=======
+      Swal.fire('error de login', 'error');
+    } else {
+      Swal.fire('login correcto', 'success');
+      localStorage.setItem('token', response['token']);
+    }
+  }
+}
+>>>>>>> develop

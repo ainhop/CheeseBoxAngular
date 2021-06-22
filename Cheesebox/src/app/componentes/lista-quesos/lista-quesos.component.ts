@@ -25,6 +25,7 @@ export class ListaQuesosComponent implements OnInit {
     this.ProductosService.getAll(this.paginaActual)
       .then((response) => {
         this.arrProducto = response;
+         this.numPaginas = response.length;
       })
       .catch((error) => console.log(error));
   }
@@ -49,6 +50,6 @@ export class ListaQuesosComponent implements OnInit {
     } else {
       this.paginaActual--;
     }
-    const response = await this.ProductosService.getAll(this.paginaActual);
+    this.arrProducto = await this.ProductosService.getAll(this.paginaActual);
   }
 }
