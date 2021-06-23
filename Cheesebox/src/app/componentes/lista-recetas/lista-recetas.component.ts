@@ -19,6 +19,7 @@ export class ListaRecetasComponent implements OnInit {
     private activatedRouter: ActivatedRoute
   ) {
     this.paginaActual = 1;
+    this.arrRecetas = [];
   }
 
   ngOnInit(): void {
