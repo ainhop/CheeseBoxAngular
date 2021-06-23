@@ -20,15 +20,33 @@ export class FormularioAddQuesoComponent implements OnInit {
     private router: Router
   ) {
     this.formulario = new FormGroup({
-      nombre: new FormControl('', [Validators.required,  Validators.minLength(2)]),
-      descripcion: new FormControl('', [Validators.required, Validators.minLength(2)]),
-      tipoLeche: new FormControl('', [Validators.required, Validators.minLength(2)]),
-      origen: new FormControl('', [Validators.required, Validators.minLength(2)]),
-      curiosidades: new FormControl('', [Validators.required, Validators.minLength(2)]),
-      color: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
+      descripcion: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
+      tipoLeche: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
+      origen: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
+      curiosidades: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
+      color: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
       imagen: new FormControl('', []),
     });
-    
+
     // const navigation = this.router.getCurrentNavigation()
     // this.id = navigation?.extras?.state;
   }
@@ -44,7 +62,6 @@ export class FormularioAddQuesoComponent implements OnInit {
     fd.append('origen', this.formulario.value.origen);
     fd.append('caracteristicas', this.formulario.value.curiosidades);
     fd.append('color', this.formulario.value.color);
-    console.log(fd);
     const response = await this.ProductosService.create(fd);
 
     Swal.fire({
@@ -54,12 +71,11 @@ export class FormularioAddQuesoComponent implements OnInit {
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: 'Custom image',
-    })
+    });
   }
 
   onChange($event) {
     this.files = $event.target.files;
-    console.log(this.files);
   }
   objectLength(object): number {
     if (!object) {
@@ -76,8 +92,6 @@ export class FormularioAddQuesoComponent implements OnInit {
   }
 
   goToEdit(item: any): void {
-   
-    this.router.navigate(['update', item.id])
+    this.router.navigate(['update', item.id]);
   }
 }
-  

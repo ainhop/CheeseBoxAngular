@@ -15,7 +15,10 @@ export class FormularioRegistroComponent implements OnInit {
   form: any[];
   files;
 
-  constructor(private usuariosService: UsuariosService,  private router: Router) {
+  constructor(
+    private usuariosService: UsuariosService,
+    private router: Router
+  ) {
     this.formulario = new FormGroup({
       nombre: new FormControl('', [
         Validators.required,
@@ -60,7 +63,6 @@ export class FormularioRegistroComponent implements OnInit {
   }
   onChange($event) {
     this.files = $event.target.files;
-    console.log(this.files);
   }
   async onSubmit() {
     const fd = new FormData();
@@ -79,7 +81,6 @@ export class FormularioRegistroComponent implements OnInit {
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: 'Custom image',
-    })
-  
+    });
   }
 }

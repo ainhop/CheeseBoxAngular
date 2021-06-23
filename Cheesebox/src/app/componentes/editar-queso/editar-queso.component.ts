@@ -8,47 +8,58 @@ declare var Swal;
 @Component({
   selector: 'app-editar-queso',
   templateUrl: './editar-queso.component.html',
-  styleUrls: ['./editar-queso.component.css']
+  styleUrls: ['./editar-queso.component.css'],
 })
 export class EditarQuesoComponent implements OnInit {
-
   formulario: FormGroup;
   files;
   producto: any;
- 
 
   constructor(
-    private ProductosService: ProductosService, private activatedRoute: ActivatedRoute, private router: Router) {
-    
-    
- 
-  }
+    private ProductosService: ProductosService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    let sub = this.activatedRoute.params.subscribe(async(params: Params) => {
+    let sub = this.activatedRoute.params.subscribe(async (params: Params) => {
       let IdQueso = params['idQueso'];
-      this.producto = await this.ProductosService.getById(IdQueso)
-      console.log(this.producto)
+      this.producto = await this.ProductosService.getById(IdQueso);
 
       this.formulario = new FormGroup({
         imagen: new FormControl(this.producto.imagen, []),
-        nombre: new FormControl(this.producto.nombre
-        , [Validators.required,  Validators.minLength(2)]),
-        descripcion: new FormControl(this.producto.descripcion, [Validators.required, Validators.minLength(2)]),
-        tipoLeche: new FormControl(this.producto.tipoLeche, [Validators.required, Validators.minLength(2)]),
-        origen: new FormControl(this.producto.origen, [Validators.required, Validators.minLength(2)]),
-        curiosidades: new FormControl(this.producto.curiosidades, [Validators.required, Validators.minLength(2)]),
-        color: new FormControl(this.producto.color, [Validators.required, Validators.minLength(2)]),
+        nombre: new FormControl(this.producto.nombre, [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        descripcion: new FormControl(this.producto.descripcion, [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        tipoLeche: new FormControl(this.producto.tipoLeche, [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        origen: new FormControl(this.producto.origen, [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        curiosidades: new FormControl(this.producto.curiosidades, [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        color: new FormControl(this.producto.color, [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
       });
-      
-    })
+    });
   }
-  
 
   async onSubmit() {
-      this.activatedRoute.params.subscribe(async (params: Params) => {
+    this.activatedRoute.params.subscribe(async (params: Params) => {
       let IdQueso = params['idQueso'];
-      this.producto = await this.ProductosService.getById(IdQueso)
+      this.producto = await this.ProductosService.getById(IdQueso);
       let fd = new FormData();
       fd.append('imagen', this.files[0]);
       fd.append('nombre', this.formulario.value.nombre);
@@ -57,19 +68,15 @@ export class EditarQuesoComponent implements OnInit {
       fd.append('origen', this.formulario.value.origen);
       fd.append('curiosidades', this.formulario.value.curiosidades);
       fd.append('color', this.formulario.value.color);
-      console.log(fd);
       const response = await this.ProductosService.update(IdQueso, fd);
       if (response['affectedRows'] === 1) {
         this.router.navigate(['/clientes']);
       }
-      
-    })
+    });
   }
 
   onChange($event) {
     this.files = $event.target.files;
-    console.log(this.files);
-    
   }
   objectLength(object): number {
     if (!object) {
@@ -84,6 +91,4 @@ export class EditarQuesoComponent implements OnInit {
       this.formulario.get(controlName).touched
     );
   }
-
 }
-

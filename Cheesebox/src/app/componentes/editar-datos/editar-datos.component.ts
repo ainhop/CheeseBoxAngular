@@ -8,37 +8,37 @@ declare var Swal;
 @Component({
   selector: 'app-editar-datos',
   templateUrl: './editar-datos.component.html',
-  styleUrls: ['./editar-datos.component.css']
+  styleUrls: ['./editar-datos.component.css'],
 })
 export class EditarDatosComponent implements OnInit {
-
   formulario: FormGroup;
   form: any[];
   files;
   usuario: any;
 
-  constructor(private usuariosService: UsuariosService,  private router: Router, private activatedRoute: ActivatedRoute) {
-
-  }
+  constructor(
+    private usuariosService: UsuariosService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    let sub = this.activatedRoute.params.subscribe(async(params: Params) => {
+    let sub = this.activatedRoute.params.subscribe(async (params: Params) => {
       let IdUsuario = params['idUsuario'];
-      this.usuario = await this.usuariosService.getById(IdUsuario)
-      console.log(this.usuario)
+      this.usuario = await this.usuariosService.getById(IdUsuario);
 
       this.formulario = new FormGroup({
         imagen: new FormControl(this.usuario.imagen, []),
-        nombre: new FormControl(this.usuario.nombre, [Validators.required, Validators.minLength(2)]),
+        nombre: new FormControl(this.usuario.nombre, [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
         apellidos: new FormControl(this.usuario.apellidos, []),
         username: new FormControl(this.usuario.username, []),
         email: new FormControl(this.usuario.imagen, []),
         password: new FormControl(this.usuario.imagen, []),
-  
       });
-      
-    })
-
+    });
   }
 
   objectLength(object): number {
@@ -56,7 +56,6 @@ export class EditarDatosComponent implements OnInit {
   }
   onChange($event) {
     this.files = $event.target.files;
-    console.log(this.files);
   }
   async onSubmit() {
     const fd = new FormData();
@@ -67,10 +66,8 @@ export class EditarDatosComponent implements OnInit {
     fd.append('email', this.formulario.value.email);
     fd.append('password', this.formulario.value.password);
     const response = await this.usuariosService.create(fd);
-    ;
     if (response['affectedRows'] === 1) {
       this.router.navigate(['/clientes']);
     }
   }
-  
 }

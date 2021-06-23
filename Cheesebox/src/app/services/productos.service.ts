@@ -12,25 +12,29 @@ export class ProductosService {
     this.baseUrl = 'http://localhost:3000/';
   }
 
-  getAll(pPag:any ): Promise<Producto[]> {
+  getAll(pPag: any): Promise<Producto[]> {
     return this.httpClient
       .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`)
       .toPromise();
   }
 
   getById(pId): Promise<Producto> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
     return this.httpClient
-      .get<Producto>(`${this.baseUrl}productos/${pId}`)
+      .get<Producto>(`${this.baseUrl}productos/${pId}`, httpOpciones)
       .toPromise();
   }
 
   create(fd: FormData) {
     const httpOpciones = {
-      headers: new HttpHeaders ({
-        authorization: localStorage.getItem('token')
-      })
-    }
-    console.log(fd);
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
 
     return this.httpClient
       .post(`${this.baseUrl}productos/create`, fd, httpOpciones)
@@ -49,9 +53,13 @@ export class ProductosService {
       .toPromise();
   }
   update(pId, fd: FormData) {
-    console.log(fd);
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
     return this.httpClient
-      .put(`${this.baseUrl}productos/update/${pId}`, fd)
+      .put(`${this.baseUrl}productos/update/${pId}`, fd, httpOpciones)
       .toPromise();
   }
 }
