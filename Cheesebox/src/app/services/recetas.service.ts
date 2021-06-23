@@ -43,7 +43,7 @@ export class RecetasService {
       }),
     };
     return this.httpClient
-      .get<Receta>(`${this.baseUrl}recetas/${pId}`)
+      .get<Receta>(`${this.baseUrl}recetas/${pId}`, httpOpciones)
       .toPromise();
   }
 

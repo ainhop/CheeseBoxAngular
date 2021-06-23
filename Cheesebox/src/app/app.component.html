@@ -110,7 +110,7 @@
                       ></button>
                     </div>
                     <div class="offcanvas-body">
-                       <app-usuarioregistrado [routerLink]="['/']"></app-usuarioregistrado > 
+                       <app-usuarioregistrado *ngIf="usuariosService.islogged()"></app-usuarioregistrado > 
                     </div>
                   </div>
                   <!-- fin menu desplegable-->

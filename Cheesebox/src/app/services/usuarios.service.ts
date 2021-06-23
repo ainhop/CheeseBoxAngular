@@ -12,11 +12,6 @@ export class UsuariosService {
     this.baseUrl = 'http://localhost:3000/usuarios';
   }
   registro(formValues: any) {
-        const httpOpciones = {
-      headers: new HttpHeaders({
-        authorization: localStorage.getItem('token')
-      }),
-    };
     return this.httpClient
       .post(`${this.baseUrl}/registrar`, formValues)
       .toPromise();
@@ -29,13 +24,9 @@ export class UsuariosService {
   }
 
   create(fd: FormData) {
-    const httpOpciones = {
-      headers: new HttpHeaders({
-        authorization: localStorage.getItem('token')
-      }),
-    };
+   
     return this.httpClient
-      .post(`${this.baseUrl}/create`, fd, httpOpciones)
+      .post(`${this.baseUrl}/create`, fd)
       .toPromise();
   }
 
@@ -55,5 +46,13 @@ export class UsuariosService {
     return this.httpClient
       .get<Usuario>(`${this.baseUrl}/${pId}`, httpOpciones)
       .toPromise();
+  }
+
+  islogged() {
+    if (localStorage.getItem('token')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

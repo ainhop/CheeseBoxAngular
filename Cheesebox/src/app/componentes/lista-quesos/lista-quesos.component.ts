@@ -19,6 +19,7 @@ export class ListaQuesosComponent implements OnInit {
     private activatedRouter: ActivatedRoute
   ) {
     this.paginaActual = 1;
+    this.arrProducto = []
   }
 
   ngOnInit(): void {

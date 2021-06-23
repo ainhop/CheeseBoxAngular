@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { UsuariosService } from './services/usuarios.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent  {
   title = 'Cheesebox';
   token: boolean = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public usuariosService: UsuariosService ) { }
   
   @HostListener("window:scroll", []) onWindowScroll() {
     this.scrollFunction();
