@@ -9,7 +9,8 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
   styleUrls: ['./area-clientes.component.css']
 })
 export class AreaClientesComponent implements OnInit {
-  usuario: Usuario
+  usuario: Usuario;
+  imagen: any;
 
   constructor(private activatedRouter:ActivatedRoute, private router:Router, private usuariosService:UsuariosService) {
     const usuarioId = this.activatedRouter.snapshot.paramMap.get('id')

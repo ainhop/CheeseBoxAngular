@@ -1,8 +1,11 @@
-<button class="btn" [routerLink]="['../']">Volver</button>
+<button class="btn botonBack" [routerLink]="['../']">
+  <span class="back"></span> Volver
+</button>
 <div class="container" *ngIf="producto">
   <div class="row">
     <div class="col-5">
-      <img [src]="producto.imagen" alt="" width="100%" />
+      <!--<img [src]="producto.imagen" alt="" width="100%" />-->
+      <img src="../../../assets/img/mozzarella.png" class="card-img" alt="..." />
     </div>
 
     <div class="col-7 texto">
@@ -39,15 +42,15 @@
 
       <div class="tab-content" id="nav-tabContent">
         <div
-          class="tab-pane fade show active"
+          class="tab-pane fade show active textoDescripcion"
           id="nav-home"
           role="tabpanel"
           aria-labelledby="nav-home-tab"
         >
-          <h4>{{ producto.descripcion }}</h4>
-          <h5>{{ producto.origen }}</h5>
-          <p>{{ producto.tipoLeche }}</p>
-          <p>{{ producto.color }}</p>
+          <h5>{{ producto.descripcion }}</h5>
+           <h6>Origen:</h6><p>{{ producto.origen }}</p>
+           <h6>Tipo de Leche:</h6> <p>{{ producto.tipoLeche }}</p>
+           <h6>Color:</h6> <p>{{ producto.color }}</p>
         </div>
         <div
           class="tab-pane fade"
@@ -55,7 +58,7 @@
           role="tabpanel"
           aria-labelledby="nav-profile-tab"
         >
-          <h4>{{ producto.curiosidades }}</h4>
+          <p>{{ producto.curiosidades }}</p>
         </div>
       </div>
     </div>

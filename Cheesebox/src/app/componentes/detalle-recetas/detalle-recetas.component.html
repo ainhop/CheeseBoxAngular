@@ -1,4 +1,6 @@
-<a routerLink="/" class="btn" [routerLink]="['../']">Volver</a>
+<button class="btn botonBack" [routerLink]="['../']">
+  <span class="back"></span> Volver
+</button>
 <div class="container">
   <div class="row">
     <div class="col-5">
@@ -67,16 +69,14 @@
         </div>
       </nav>
 
-      <div class="tab-content" id="nav-tabContent">
+      <div class="tab-content textoDescripcion" id="nav-tabContent">
         <div
           class="tab-pane fade show active"
           id="nav-home"
           role="tabpanel"
           aria-labelledby="nav-home-tab"
-        >
-          <ul>
-            <li>{{receta.ingredientes}}</li>
-          </ul>
+        > <h5>{{ receta.ingredientes }}</h5>
+         
         </div>
         <div
           class="tab-pane fade"
