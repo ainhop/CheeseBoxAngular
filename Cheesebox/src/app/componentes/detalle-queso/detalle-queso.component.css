@@ -69,11 +69,11 @@ button:hover{
     margin: 2% 0px;
 }
 
-.col-5 img{
+.imagenQueso img{
     transition: all ease 1s;
 }
 
-.col-5 img:hover{
+.imagenQueso img:hover{
     transform: scale(1.5);
 }
 

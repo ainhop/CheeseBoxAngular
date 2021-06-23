@@ -5,13 +5,12 @@
   <div class="row">
     <div class="dosCol">
       <div class="col-6 col-md-auto">
-       <!--{{imagen === usuario.imagen ? {{usuario.imagen}} : '../../../assets/img-defecto.png'}}--> 
-        <div class="imagenPerfil" style="
-            background-image: url();
-          "></div>
+     
+        <div class="imagenPerfil" [ngStyle]="{backgroundImage: obtenerImagen()}"></div>
+
       </div>
       <div class="col-6 col-md-auto ms-5">
-        <h3>{{usuario.nombre}} {{usuario.apellidos}}</h3>
+        <h3>{{usuario?.nombre}} {{usuario?.apellidos}}</h3>
       </div>
     </div>
 
@@ -43,11 +42,11 @@
           <ul>
             <div class="doble">
               <li>Nombre</li>
-              <p class="nombre ms-3">{{usuario.nombre}} {{usuario.apellidos}}</p>
+              <p class="nombre ms-3">{{usuario?.nombre}} {{usuario?.apellidos}}</p>
             </div>
             <div class="doble">
               <li>Email</li>
-              <p class="nombre ms-3">{{usuario.email}}</p>
+              <p class="nombre ms-3">{{usuario?.email}}</p>
             </div>
             <div class="doble">
               <li>Preferencias</li>

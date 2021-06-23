@@ -30,6 +30,12 @@ export class AreaClientesComponent implements OnInit {
   }
 
 
-
+  obtenerImagen(): string{
+    if (this.usuario && this.usuario.imagen) {
+      return `url('${this.usuario.imagen}')`
+    } else {
+      return `url('../../../assets/img-defecto.png')`
+    }
+  }
   
 }
