@@ -1,3 +1,4 @@
+@import url(../area-clientes/area-clientes.component.css);
 *{
     font-family: 'Montserrat', sans-serif;;
 }
@@ -17,12 +18,13 @@
     border-radius: 100px;
 }
 .nav-link:hover{
+    color: #ffd05e;
     background-color: black;
     border-radius: 100px;
+    text-decoration: underline;
 }
 .nav-link.active{
-  
-    color: black;
+
     text-decoration: underline; 
 
 }
@@ -48,4 +50,34 @@ button{
 button:hover{
     background-color:rgb(0, 0, 0)!important;
     color: #FFD05E;
+}
+.textoDescripcion{
+
+    padding: 2%;
+  
+}
+
+.textoDescripcion h5{
+    font-size: 1.1em;
+}
+.textoDescripcion p{
+    font-size: 1.1em;
+   
+}
+.textoDescripcion h6{
+    font-weight: 800;
+    margin: 2% 0px;
+}
+
+.col-5 img{
+    transition: all ease 1s;
+}
+
+.col-5 img:hover{
+    transform: scale(1.5);
+}
+
+.textoDescripcion p:nth-child(1){
+
+    text-transform: capitalize;
 }
