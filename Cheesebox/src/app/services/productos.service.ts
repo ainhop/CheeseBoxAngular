@@ -12,46 +12,90 @@ export class ProductosService {
     this.baseUrl = 'http://localhost:3000/';
   }
 
-  getAll(pPag:any ): Promise<Producto[]> {
+  getAll(pPag: any): Promise<Producto[]> {
     return this.httpClient
       .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`)
       .toPromise();
   }
 
   getById(pId): Promise<Producto> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
     return this.httpClient
-      .get<Producto>(`${this.baseUrl}productos/${pId}`)
+      .get<Producto>(`${this.baseUrl}productos/${pId}`, httpOpciones)
+      .toPromise();
+  }
+
+  delete(pId): Promise<Producto> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .delete<Producto>(`${this.baseUrl}productos/delete/${pId}`, httpOpciones)
       .toPromise();
   }
 
   create(fd: FormData) {
     const httpOpciones = {
-      headers: new HttpHeaders ({
-        authorization: localStorage.getItem('token')
-      })
-    }
-    console.log(fd);
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
 
     return this.httpClient
       .post(`${this.baseUrl}productos/create`, fd, httpOpciones)
       .toPromise();
   }
 
-  getByItem(pValor): Promise<Producto[]> {
+  update(pId, fd: FormData) {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
     return this.httpClient
-      .get<Producto[]>(`${this.baseUrl}productos/search/${pValor}`)
+      .put(`${this.baseUrl}productos/update/${pId}`, fd, httpOpciones)
       .toPromise();
   }
 
-  deleteById(pId): Promise<Producto[]> {
+  editFav(pId): Promise<Producto> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
     return this.httpClient
-      .delete<Producto[]>(`${this.baseUrl}productos/delete/${pId}`)
+      .get<Producto>(`${this.baseUrl}productos/fav/${pId}`, httpOpciones)
       .toPromise();
   }
-  update(pId, fd: FormData) {
-    console.log(fd);
+
+  deleteFav(pId): Promise<Producto> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
     return this.httpClient
-      .put(`${this.baseUrl}productos/update/${pId}`, fd)
+      .delete<Producto>(
+        `${this.baseUrl}productos/fav/delete/${pId}`,
+        httpOpciones
+      )
+      .toPromise();
+  }
+
+  getFavAll(pPag: any): Promise<Producto[]> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .get<Producto[]>(`${this.baseUrl}productos/fav/all`)
       .toPromise();
   }
 
