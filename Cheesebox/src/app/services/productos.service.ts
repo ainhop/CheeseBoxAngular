@@ -73,7 +73,11 @@ export class ProductosService {
       .get<Producto>(`${this.baseUrl}productos/fav/${pId}`, httpOpciones)
       .toPromise();
   }
-
+  getByItem(pValor): Promise<Producto[]> {
+    return this.httpClient
+      .get<Producto[]>(`${this.baseUrl}productos/search/${pValor}`)
+      .toPromise();
+  }
   deleteFav(pId): Promise<Producto> {
     const httpOpciones = {
       headers: new HttpHeaders({

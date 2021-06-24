@@ -15,6 +15,7 @@ export class ListaQuesosComponent implements OnInit {
   public page: number;
   limitePaginas: any;
   currentPage: number;
+  arrQuesosFavoritos: any[]
  
 
   constructor(
@@ -74,6 +75,20 @@ export class ListaQuesosComponent implements OnInit {
     }
     this.arrProducto = await this.ProductosService.getAll(this.paginaActual);
   }
+
+  productoFav($event):void{
+    if ($event) {
+      const valor = this.ProductosService.editFav;
+    
+      console.log(valor)
+ 
+    } else {
+      const falser = this.ProductosService.deleteFav
+      console.log(falser)
+    }
+
+  }
+
   // loadPage(page: number) {
   //   if (page !== this.previousPage) {
   //     this.previousPage = page;

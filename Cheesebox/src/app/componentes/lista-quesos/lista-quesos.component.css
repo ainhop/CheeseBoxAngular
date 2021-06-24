@@ -74,6 +74,9 @@
   .favoritos:hover {
     filter: none;
   } 
+
+  .activo{  filter: none;}
+  .desactivo{ filter: invert(50%) brightness(1%) contrast(1%);}
   .separador{
       width: 15%;
       margin: auto!important;
