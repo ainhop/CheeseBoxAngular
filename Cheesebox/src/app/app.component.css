@@ -45,10 +45,9 @@ header{
 header img {
 
     position: absolute;
-    left: 20%;
     top: 0px;
-     width: 60%;
-     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7))
+    width: 60%;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7))
  } 
 
 header nav ul li a{
@@ -145,9 +144,9 @@ footer hr{
 .logogrande {
 
 position: absolute;
-/* left: 35%!important; */
+left: 20%!important; 
 z-index: 3;
-width: 70%!important;
+width: 60%!important;
 } 
 /* Back To top */
 #myBtn {
@@ -216,11 +215,7 @@ content: none;
     display: none;
      
     }
-    header img {
-
- 
-        width: 40%;
-    } 
+  
 
   } 
   @media screen and (min-width: 700px) {
@@ -253,8 +248,16 @@ content: none;
       
     }
     .logogrande {
-        left: 37%!important;
-        width: 25%!important;
+        left: 28%!important;
+        width: 40%!important;
         } 
   }
   
+  @media screen and (min-width: 968px) {
+    .logogrande {
+        left: 34%!important;
+        width: 30%!important;
+        } 
+  }
+
+

@@ -54,4 +54,9 @@ export class ProductosService {
       .put(`${this.baseUrl}productos/update/${pId}`, fd)
       .toPromise();
   }
+
+  paginator(): Promise<any> {
+    console.log();
+    return this.httpClient.get(`${this.baseUrl}productos/info/pag`).toPromise();
+  }
 }

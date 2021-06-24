@@ -51,3 +51,41 @@ button:hover{
     background-color:rgb(0, 0, 0)!important;
     color: #FFD05E;
 }
+.textoDescripcion p:nth-child(1){
+
+    text-transform: none;
+}
+
+
+/* Estilos read more */
+h4{
+
+    font-size: 1em;
+}
+.more {
+    cursor: pointer;    
+  }
+  
+  .complete {
+    display: none;
+  }
+  
+  input.showmore {
+    display: none;
+  }
+  
+  input.showmore~label.more span.menos {
+    display: none;
+  }
+  
+  input.showmore:checked+.complete {
+    display: block;
+  }
+  
+  input.showmore:checked~label.more span.mas {
+    display: none;
+  }
+  
+  input.showmore:checked~label.more span.menos {
+    display: inline;
+  }

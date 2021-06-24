@@ -2,7 +2,7 @@
     font-family: 'Montserrat', sans-serif;;
 }
 .container{
-    padding: 5%;
+    padding: 2%;
     width: 100%;
     margin: auto!important;
     
@@ -35,8 +35,12 @@
     margin: auto;
    
 }
+/* #nav-tab {
+    width: 50%;
+} */
 
 .imagenPerfil{
+    margin: auto!important;
     width: 175px;
     height: 175px;
     line-height: 175px;
@@ -48,11 +52,8 @@
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7))
     
 }
-.dosCol{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
+ 
 .dosCol h3{
     font-weight: 800;
 
@@ -67,7 +68,8 @@ div ul li{
     font-size: 1.4em;
 }
 .doble{
-display: flex; 
+    margin: 5% auto;
+    display: flex; 
 }
 .nombre{
     font-weight: 300; 
