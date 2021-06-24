@@ -31,14 +31,12 @@ export class FavoritosComponent implements OnInit {
 
     this.ProductosService.getFavAll(ProductoId)
       .then((response) => {
-        console.log(response)
         this.arrQuesoFav = response;
       })
       .catch((error) => console.log(error));
 
     this.RecetaService.getFavAll(ProductoId)
       .then((response) => {
-        console.log(response)
         this.arrRecetaFav = response;
       })
       .catch((error) => console.log(error));

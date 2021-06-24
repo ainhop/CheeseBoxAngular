@@ -24,7 +24,7 @@ export class DetalleRecetasComponent implements OnInit {
     console.log(receta)
     
     
-    //  console.log(this.receta)
+     console.log(this.receta)
   }
 
 
