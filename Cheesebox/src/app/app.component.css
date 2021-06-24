@@ -137,10 +137,6 @@ footer hr{
 }
 /* Menú Desplegable */
 
-.headBanner{
- display: none;
-  
-}
 .logogrande {
 
 position: absolute;
@@ -239,14 +235,6 @@ content: none;
   
     }
     
-    .headBanner{
-        position: absolute;
-        top: -80px;
-        width: 100%;
-        z-index: 2;
-        display: block;
-      
-    }
     .logogrande {
         left: 28%!important;
         width: 40%!important;
@@ -255,9 +243,16 @@ content: none;
   
   @media screen and (min-width: 968px) {
     .logogrande {
+        left: 37%!important;
+        width: 25%!important;
+        } 
+      
+  }
+
+  @media screen and (max-width: 1260px) {
+    .logogrande {
         left: 34%!important;
         width: 30%!important;
         } 
+      
   }
-
-

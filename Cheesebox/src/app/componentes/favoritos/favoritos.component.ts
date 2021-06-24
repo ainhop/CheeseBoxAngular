@@ -15,6 +15,8 @@ declare var Swal;
 export class FavoritosComponent implements OnInit {
   arrQuesoFav: Producto[];
   arrRecetaFav: Receta[];
+  Producto: Producto;
+  // Pendiente preguntar (estabamos utilizando ArrayQuesoFav)
   show: boolean = true;
 
   constructor(
@@ -27,14 +29,14 @@ export class FavoritosComponent implements OnInit {
   ngOnInit(): void {
     const ProductoId = this.activatedRouter.snapshot.paramMap.get('id');
 
-    this.ProductosService.getByItem(5)
+    this.ProductosService.getFavAll(ProductoId)
       .then((response) => {
         console.log(response)
         this.arrQuesoFav = response;
       })
       .catch((error) => console.log(error));
 
-    this.RecetaService.getByItem(8)
+    this.RecetaService.getFavAll(ProductoId)
       .then((response) => {
         console.log(response)
         this.arrRecetaFav = response;
@@ -47,10 +49,10 @@ export class FavoritosComponent implements OnInit {
   }
 
   goToDelete(item: any) {
-    const deleteId = this.ProductosService.deleteById(item.id)
+    const deleteId = this.ProductosService.delete(item.id)
 
       .then((response) => {
-        this.arrQuesoFav = response;
+        this.Producto = response;
       })
 
       .catch((error) => console.log(error));
@@ -67,7 +69,7 @@ export class FavoritosComponent implements OnInit {
 
     swalWithBootstrapButtons
       .fire({
-        title: 'Â¿Estas seguro que quieres quitar de favoritos este queso?',
+        title: '¿Estas seguro que quieres quitar de favoritos este queso?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Si',
@@ -84,6 +86,6 @@ export class FavoritosComponent implements OnInit {
           swalWithBootstrapButtons.fire('Conservas tu queso');
         }
       });
-    this.router.navigate(['clientes']);
+    this.router.navigate(['/clientes']);
   }
 }

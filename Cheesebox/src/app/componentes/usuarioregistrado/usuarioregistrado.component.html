@@ -1,20 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-auto">
-      <div [routerLink]="['/clientes']" class="imagenPerfil" style="background-image: url({{usuario?.imagen}})"> </div>
+      <div [routerLink]="['/clientes']" class="imagenPerfil" style="background-image: url({{usuario?.imagen}})" [ngStyle]="{backgroundImage: obtenerImagen()}"> </div>
 
       <h3>{{usuario?.nombre}}</h3>
-     
 
-      <div class="col-12 botones">
-        <button class="btn send" routerLink="/clientes" >Datos</button>
-      </div>
-      <div class="col-12 botones">
+      <div class="col-12 botones ">
+        <button class="btn send" routerLink="/clientes">Datos</button>
         <button class="btn send" router="/clientes" >Subidos</button>
-      </div>
-      <div class="col-12 botones">
         <button class="btn send" router="/clientes" >Favoritos</button>
       </div>
+    
     </div>
   </div>
 
