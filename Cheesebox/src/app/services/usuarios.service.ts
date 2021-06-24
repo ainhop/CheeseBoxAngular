@@ -19,13 +19,9 @@ export class UsuariosService {
   }
 
   login(formValues: any) {
-    const httpOpciones = {
-      headers: new HttpHeaders({
-        authorization: localStorage.getItem('token'),
-      }),
-    };
+  
     return this.httpClient
-      .post(`${this.baseUrl}/login`, formValues, httpOpciones)
+      .post(`${this.baseUrl}/login`, formValues )
       .toPromise();
   }
 

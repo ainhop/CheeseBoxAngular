@@ -22,7 +22,10 @@ export class AreaClientesComponent implements OnInit {
     .catch((error)=>{console.log(error)})
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    const id = this.activatedRouter.snapshot.paramMap.get('id');
+    const usuario = await this.usuariosService.getById(id);
+    this.usuario = usuario;
   }
 
   goToEdit(usuario:any): void  {
@@ -33,6 +36,7 @@ export class AreaClientesComponent implements OnInit {
   obtenerImagen(): string{
     if (this.usuario && this.usuario.imagen) {
       return `url('${this.usuario.imagen}')`
+      console.log(this.usuario.imagen)
     } else {
       return `url('../../../assets/img-defecto.png')`
     }

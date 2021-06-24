@@ -37,13 +37,8 @@ export class RecetasService {
   }
 
   getById(pId): Promise<Receta> {
-    const httpOpciones = {
-      headers: new HttpHeaders({
-        authorization: localStorage.getItem('token'),
-      }),
-    };
     return this.httpClient
-      .get<Receta>(`${this.baseUrl}recetas/${pId}`, httpOpciones)
+      .get<Receta>(`${this.baseUrl}recetas/${pId}`)
       .toPromise();
   }
 
