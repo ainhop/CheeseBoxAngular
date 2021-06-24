@@ -29,6 +29,17 @@ export class ProductosService {
       .toPromise();
   }
 
+  delete(pId): Promise<Producto> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .delete<Producto>(`${this.baseUrl}productos/delete/${pId}`, httpOpciones)
+      .toPromise();
+  }
+
   create(fd: FormData) {
     const httpOpciones = {
       headers: new HttpHeaders({
@@ -41,17 +52,6 @@ export class ProductosService {
       .toPromise();
   }
 
-  getByItem(pValor): Promise<Producto[]> {
-    return this.httpClient
-      .get<Producto[]>(`${this.baseUrl}productos/search/${pValor}`)
-      .toPromise();
-  }
-
-  deleteById(pId): Promise<Producto[]> {
-    return this.httpClient
-      .delete<Producto[]>(`${this.baseUrl}productos/delete/${pId}`)
-      .toPromise();
-  }
   update(pId, fd: FormData) {
     const httpOpciones = {
       headers: new HttpHeaders({
@@ -60,6 +60,42 @@ export class ProductosService {
     };
     return this.httpClient
       .put(`${this.baseUrl}productos/update/${pId}`, fd, httpOpciones)
+      .toPromise();
+  }
+
+  editFav(pId): Promise<Producto> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .get<Producto>(`${this.baseUrl}productos/fav/${pId}`, httpOpciones)
+      .toPromise();
+  }
+
+  deleteFav(pId): Promise<Producto> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .delete<Producto>(
+        `${this.baseUrl}productos/fav/delete/${pId}`,
+        httpOpciones
+      )
+      .toPromise();
+  }
+
+  getFavAll(pPag: any): Promise<Producto[]> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .get<Producto[]>(`${this.baseUrl}productos/fav/all`)
       .toPromise();
   }
 }

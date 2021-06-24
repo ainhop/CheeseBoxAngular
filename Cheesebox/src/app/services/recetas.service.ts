@@ -58,4 +58,59 @@ export class RecetasService {
       .put(`${this.baseUrl}recetas/update/${pId}`, fd, httpOpciones)
       .toPromise();
   }
+
+  delete(pId): Promise<Receta> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .delete<Receta>(`${this.baseUrl}recetas/delete/${pId}`, httpOpciones)
+      .toPromise();
+  }
+
+  getFav(pId) {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .get(`${this.baseUrl}recetas/fav/${pId}`, httpOpciones)
+      .toPromise();
+  }
+
+  editFav(pId): Promise<Receta> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .get<Receta>(`${this.baseUrl}recetas/fav/${pId}`, httpOpciones)
+      .toPromise();
+  }
+
+  deleteFav(pId): Promise<Receta> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .delete<Receta>(`${this.baseUrl}recetas/fav/delete/${pId}`, httpOpciones)
+      .toPromise();
+  }
+
+  getFavAll(pPag: any): Promise<Receta[]> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .get<Receta[]>(`${this.baseUrl}recetas/fav/all`)
+      .toPromise();
+  }
 }

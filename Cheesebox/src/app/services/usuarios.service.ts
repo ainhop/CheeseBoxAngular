@@ -11,6 +11,7 @@ export class UsuariosService {
   constructor(private httpClient: HttpClient) {
     this.baseUrl = 'http://localhost:3000/usuarios';
   }
+
   registro(formValues: any) {
     return this.httpClient
       .post(`${this.baseUrl}/registrar`, formValues)
@@ -46,6 +47,17 @@ export class UsuariosService {
     };
     return this.httpClient
       .get<Usuario>(`${this.baseUrl}/${pId}`, httpOpciones)
+      .toPromise();
+  }
+
+  delete(pId): Promise<Usuario> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+    return this.httpClient
+      .delete<Usuario>(`${this.baseUrl}recetas/delete/${pId}`, httpOpciones)
       .toPromise();
   }
 
