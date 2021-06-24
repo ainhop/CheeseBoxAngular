@@ -36,6 +36,7 @@ export class AreaClientesComponent implements OnInit {
     } else {
       return `url('../../../assets/img-defecto.png')`
     }
+
   }
   
 }

@@ -6,7 +6,7 @@
   <hr />
   <div class="row">
     <div class="col-12">
-      <form method="POST" enctype="multipart/form-data" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <form method="POST" enctype="multipart/form-data" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
         <div class="mb-3">
           <label for="" class="ms-2 textForm">Nombre</label>
           <input
@@ -124,6 +124,7 @@
             class="form-control"
             formControlName="imagen"
             (change)="onChange($event)"
+            multiple
           />
         </div>
 

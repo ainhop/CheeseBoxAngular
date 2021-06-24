@@ -55,6 +55,7 @@ export class FormularioAddQuesoComponent implements OnInit {
       imageHeight: 200,
       imageAlt: 'Custom image',
     })
+    this.router.navigate(['../']);
   }
 
   onChange($event) {
