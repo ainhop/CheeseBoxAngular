@@ -41,9 +41,15 @@ export class LoginComponent implements OnInit {
     if (response['error']) {
       Swal.fire('error de login', 'error');
     } else {
-      Swal.fire('login correcto', 'success');
+      Swal.fire({
+        title: 'Vamos allá',
+        imageUrl: 'https://media.giphy.com/media/rqiUImqdbTig0/giphy.gif',
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+      });
       localStorage.setItem('token', response['token']);
     }
-    this.router.navigate(['/usuarioregistrado']);
+    this.router.navigate(['../']);
   }
 }

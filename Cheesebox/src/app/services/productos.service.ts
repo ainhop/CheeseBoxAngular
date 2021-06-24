@@ -98,4 +98,9 @@ export class ProductosService {
       .get<Producto[]>(`${this.baseUrl}productos/fav/all`)
       .toPromise();
   }
+
+  paginator(): Promise<any> {
+    console.log();
+    return this.httpClient.get(`${this.baseUrl}productos/info/pag`).toPromise();
+  }
 }

@@ -1,4 +1,4 @@
-<app-buscador (search)="handleSearch($event)"></app-buscador>
+<app-buscador (search)="handleSearch($event)" placeholder="Escribe tu queso..."></app-buscador>
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let producto of arrProducto">
@@ -17,26 +17,20 @@
     </div>
   </div>
 </div>
-
-
-
   <div class="botones" *ngIf="arrProducto.length >= 6">
     <div class="separador">
     </div>
       <nav aria-label="...">
         <ul class="pagination">
-          <li class="page-item " [disabled]="paginaActual === 1" (click)="onClick(false)">
-            Previo
+          <li class="page-item " [disabled]="paginaActual === 1" (click)="onClick(false)" >
+            <img width="70%" src="../../../assets/left.png" alt="">
           </li>
-          <li class="page-item">{{paginaActual}} / {{arrProducto.length}}</li>
-          <li class="page-item"  (click)="onClick(true)" [disabled]="paginaActual === numPaginas"> 
-          Siguiente
+          <li class="page-item"  (click)="onClick(true)" [disabled]="paginaActual >= litimepaginas.numPaginas">
+            <img width="70%" src="../../../assets/right.png" alt="">
           </li>
         </ul>
       </nav>
     </div>
-
-
     <div class="error" *ngIf="arrProducto.length === 0">
       <h2>
         {{ value }} no está entre nuestros quesos pero puedes
@@ -44,4 +38,5 @@
       </h2>
     </div>
   
-   
+
+

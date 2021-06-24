@@ -42,6 +42,7 @@ import { EditarRecetasComponent } from './componentes/editar-recetas/editar-rece
     EditarQuesoComponent,
     EditarDatosComponent,
     EditarRecetasComponent,
+    
  
   ],
   imports: [
@@ -51,6 +52,7 @@ import { EditarRecetasComponent } from './componentes/editar-recetas/editar-rece
     ReactiveFormsModule,
     BrowserAnimationsModule,
     FormsModule,
+
     
  
   

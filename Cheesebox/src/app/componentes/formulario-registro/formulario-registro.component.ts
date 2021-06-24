@@ -81,6 +81,13 @@ export class FormularioRegistroComponent implements OnInit {
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: 'Custom image',
+<<<<<<< HEAD
     });
+=======
+    }
+     
+    )
+    this.router.navigate(['../']);
+>>>>>>> develop
   }
 }
