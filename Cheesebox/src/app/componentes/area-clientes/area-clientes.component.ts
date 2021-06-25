@@ -13,34 +13,39 @@ export class AreaClientesComponent implements OnInit {
   imagen: any;
 
   constructor(private activatedRouter:ActivatedRoute, private router:Router, private usuariosService:UsuariosService) {
-    const usuarioId = this.activatedRouter.snapshot.paramMap.get('id')
-    console.log(usuarioId)
-    this.usuariosService.getById(usuarioId)
+    // const usuarioId = this.activatedRouter.snapshot.paramMap.get('id')
+    this.usuariosService.getById()
       .then((result) => {
-        console.log(result)
+        // console.log(result)
       })
     .catch((error)=>{console.log(error)})
   }
 
   async ngOnInit(): Promise<void> {
-    const id = this.activatedRouter.snapshot.paramMap.get('id');
-    const usuario = await this.usuariosService.getById(id);
+    
+    // const id = this.activatedRouter.snapshot.paramMap.get('id');
+    const usuario = await this.usuariosService.getById();
     this.usuario = usuario;
+    // console.log(this.usuario)
   }
 
-  goToEdit(usuario:any): void  {
-    this.router.navigate(['editarDatos',usuario] )
+    // this.usuariosService.getById(id)
+    // .then((response) => {
+    //   console.log(response)
+     
+    // })
+    // .catch((error) => console.log(error));
+      goToEdit(usuario:any): void  {
+        this.router.navigate(['editarDatos/:',usuario] )
+      }
+    
+        obtenerImagen(): string{
+          if (this.usuario && this.usuario.imagen) {
+            return `url('${this.usuario.imagen}')`
+      
+          } else {
+            return `url('../../../assets/img-defecto.png')`
+          }
+      
+        }
   }
-
-
-  obtenerImagen(): string{
-    if (this.usuario && this.usuario.imagen) {
-      return `url('${this.usuario.imagen}')`
-      console.log(this.usuario.imagen)
-    } else {
-      return `url('../../../assets/img-defecto.png')`
-    }
-
-  }
-  
-}

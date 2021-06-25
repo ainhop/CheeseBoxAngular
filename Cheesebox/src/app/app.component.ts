@@ -9,8 +9,7 @@ import { UsuariosService } from './services/usuarios.service';
 })
 export class AppComponent  {
   title = 'Cheesebox';
-  token: boolean = true;
-
+ 
   constructor(private router: Router, public usuariosService: UsuariosService ) { }
   
   @HostListener("window:scroll", []) onWindowScroll() {
@@ -31,5 +30,10 @@ topFunction() {
     document.documentElement.scrollTop = 0; 
   }
   
+  onLogout() {
+
+    localStorage.removeItem('token');
+    return '';
+    }
 }
 

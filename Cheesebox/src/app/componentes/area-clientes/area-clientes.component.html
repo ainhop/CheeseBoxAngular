@@ -9,9 +9,8 @@
         <div class="imagenPerfil" [ngStyle]="{backgroundImage: obtenerImagen()}"></div>
 
       </div>
-      <div class="col-12 col-md-auto ms-5">
-            {{usuario.imagen}}
-        <h3>{{usuario.nombre}} {{usuario?.apellidos}}</h3>
+      <div class="col-12 col-md-auto ms-5 textoNombre">
+        <h3>{{usuario?.nombre}} {{usuario?.apellidos}}</h3>
       </div>
     </div>
 

@@ -13,9 +13,21 @@ export class ProductosService {
   }
 
   getAll(pPag: any): Promise<Producto[]> {
-    return this.httpClient
-      .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`)
-      .toPromise();
+    if (localStorage.getItem('token')) {
+      const httpOpciones = {
+        headers: new HttpHeaders({
+          authorization: localStorage.getItem('token'),
+        }),
+      };
+      return this.httpClient
+      .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`, httpOpciones)
+      .toPromise(); 
+    }
+      else {
+        return this.httpClient
+          .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`)
+          .toPromise();
+      }
   }
 
   getById(pId): Promise<Producto> {

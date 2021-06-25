@@ -19,7 +19,7 @@ export class DetalleQuesoComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     const id = this.activatedroute.snapshot.paramMap.get('id');
-    const receta = await this.productoService.getById(id);
-    this.producto = receta;
+    const producto = await this.productoService.getById(id);
+    this.producto = producto;
   }
 }

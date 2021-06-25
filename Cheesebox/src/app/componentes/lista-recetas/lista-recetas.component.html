@@ -24,32 +24,23 @@
     </div>
   </div>
 </div>
-
 <div class="botones" *ngIf="arrRecetas.length >= 6">
-  <nav aria-label="...">
-    <ul class="pagination">
-      <li class="page-item " [disabled]="paginaActual === 1">
-        <a class="page-link" (click)="onClick(false)">Previo</a>
-      </li>
-
-
-      <li class="page-item"><a class="page-link" href="#">{{paginaActual}} / {{arrRecetas.length}}</a></li>
-
-      <li class="page-item">
-        <a class="page-link" (click)="onClick(true)" [disabled]="paginaActual === numPaginas">Siguiente</a>
-      </li>
-    </ul>
-  </nav>
-  <button class="btn btn-success" (click)="onClick(false)" [disabled]="paginaActual === 1">
-    ➖
-  </button>
-  <button class="btn btn-success ms-2" (click)="onClick(true)" [disabled]="paginaActual === numPaginas">
-    ➕
-  </button>
-</div>
+  <div class="separador">
+  </div>
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item " [disabled]="arrRecetas.length === 6" (click)="onClick(false)" >
+          <img width="70%" src="../../../assets/left.png" alt="">
+        </li>
+        <li class="page-item"  (click)="onClick(true)" [disabled]="paginaActual >= litimepaginas">
+          <img width="70%" src="../../../assets/right.png" alt="">
+        </li>
+      </ul>
+    </nav>
+  </div>
 <div class="error" *ngIf="arrRecetas.length === 0">
   <h2>
-    {{ value }} no está entre nuestros quesos pero puedes
-    <a [routerLink]="['/registrarReceta']">agregarlo </a>
+    {{ value }} no está entre nuestras recetas pero puedes
+    <a [routerLink]="['../update/recetas']" >agregarla </a>
   </h2>
 </div>
