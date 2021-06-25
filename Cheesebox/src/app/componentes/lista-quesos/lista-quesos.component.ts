@@ -3,6 +3,8 @@ import { ActivatedRoute, ActivatedRouteSnapshot, Router, RouterStateSnapshot } f
 import { Producto } from 'src/app/interfaces/productos.interfaces';
 import { ProductosService } from 'src/app/services/productos.service';
 
+declare var Swal;
+
 @Component({
   selector: 'app-lista-quesos',
   templateUrl: './lista-quesos.component.html',
@@ -32,6 +34,7 @@ export class ListaQuesosComponent implements OnInit {
   ngOnInit(): void {
     this.ProductosService.getAll(this.paginaActual)
       .then((response) => {
+        console.log(response)
         this.arrProducto = response;
         this.numPaginas = response.length;
       })
@@ -75,17 +78,67 @@ export class ListaQuesosComponent implements OnInit {
     this.arrProducto = await this.ProductosService.getAll(this.paginaActual);
   }
 
-  productoFav($event):void{
-    if ($event) {
-      const valor = this.ProductosService.editFav;
+  productoFav(pProducto): void{
     
-      console.log(valor)
- 
-    } else {
-      const falser = this.ProductosService.deleteFav
-      console.log(falser)
-    }
 
+    this.ProductosService.editFav(pProducto.id)
+      .then((response) => {
+        if (response['error']) {
+          Swal.fire({
+            title: '!Ups...! ',
+            text: 'Este queso ya esta entre tus favoritos',
+            imageUrl: 'https://media.giphy.com/media/qCPxDmsoBuopO/giphy.gif',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
+          pProducto.favorito = false
+        }
+        else {
+          Swal.fire({
+            title: '¡Genial!...',
+            text: ' has incluido este queso en tus favoritos',
+            imageUrl: 'https://media.giphy.com/media/97ZWlB7ENlalq/giphy.gif',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
+       pProducto.favorito = true
+        }
+      })
+      .catch((error) => { console.log(error) })
+          
+    
+  }
+
+
+  DeleteFav(pProducto): void {
+    this.ProductosService.deleteFav(pProducto.id)
+    .then((response) => {
+      if (response['error']) {
+        Swal.fire({
+          title: '!Ups...! ',
+          text: 'Este queso ya esta entre tus favoritos',
+          imageUrl: 'https://media.giphy.com/media/qCPxDmsoBuopO/giphy.gif',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Custom image',
+        })
+        pProducto.favorito = false
+      }
+      else {
+        Swal.fire({
+          title: '¡Genial!...',
+          text: ' has incluido este queso en tus favoritos',
+          imageUrl: 'https://media.giphy.com/media/97ZWlB7ENlalq/giphy.gif',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Custom image',
+        })
+     pProducto.favorito = false
+      }
+    })
+    .catch((error) => { console.log(error) })
   }
 
   // loadPage(page: number) {
@@ -95,32 +148,3 @@ export class ListaQuesosComponent implements OnInit {
   //   }
   // }
 }
-  // Paginator(): string{
-  //   if (this.arrProducto ==) {
-  //     return ` <div class="botones" *ngIf="arrProducto.length >= 6">
-  //     <div class="separador">
-  //     </div>
-  //       <nav aria-label="...">
-  //         <ul class="pagination">
-  //           <li class="page-item " [disabled]="paginaActual === 1" (click)="onClick(false)">
-  //             Previo
-  //           </li>
-  //           <li class="page-item">{{paginaActual}} / {{arrProducto.length}}</li>
-  //           <li class="page-item"  (click)="onClick(true)" [disabled]="paginaActual === numPaginas"> 
-  //           Siguiente
-  //           </li>
-  //         </ul>
-  //       </nav>
-  //     </div>`
-  //   } else {
-  //     return `url('../../../assets/img-defecto.png')`
-  //   }
-  // }
-
-//   canActivate(
-//     next: ActivatedRouteSnapshot,
-//     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-//     return this.ProductosService.getById();
-//   }
-
-

@@ -1,6 +1,5 @@
 import { Component, HostListener } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-// import { BehaviorSubject, Observable } from 'rxjs';
 import { UsuariosService } from './services/usuarios.service';
 
 @Component({
@@ -10,11 +9,7 @@ import { UsuariosService } from './services/usuarios.service';
 })
 export class AppComponent  {
   title = 'Cheesebox';
-  token: boolean = true;
-
-  // private userSubject: BehaviorSubject<any>;
-  // public user: Observable<any>;
-
+ 
   constructor(private router: Router, public usuariosService: UsuariosService ) { }
   
   @HostListener("window:scroll", []) onWindowScroll() {
@@ -35,11 +30,10 @@ topFunction() {
     document.documentElement.scrollTop = 0; 
   }
   
-  // logout() {
+  onLogout() {
 
-  //   localStorage.removeItem('user');
-  //   this.userSubject.next(null);
-  //   this.router.navigate(['/account/login']);
-  // }
+    localStorage.removeItem('token');
+    return '';
+    }
 }
 

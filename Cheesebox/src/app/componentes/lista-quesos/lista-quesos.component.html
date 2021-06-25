@@ -6,7 +6,7 @@
         <img src="../../../assets/img/mozzarella.png" class="card-img" alt="..." />
          <!--<img [src]="producto.imagen" class="card-img" alt="...">-->
         <div class="card-img-overlay" >
-          <span class="favoritos"><img width="80%" src="../../../assets/img/confirmado.svg" (click)="productoFav($event)" [style.activo!style.desactivo]="activeLinkStyle"/></span>
+          <span class="favoritos"(click)="productoFav(producto)" [ngClass]="{'activo': producto.favorito , 'desactivo' : !producto.favorito }"><img width="80%" src="../../../assets/img/confirmado.svg"/></span>
           <h5 class="card-title" (click)="goToDetails(producto)">{{ producto.nombre }}</h5>
           <div class="linea"(click)="goToDetails(producto)"></div>
           <p class="card-text"(click)="goToDetails(producto)">
@@ -33,8 +33,8 @@
     </div>
     <div class="error" *ngIf="arrProducto.length === 0">
       <h2>
-        {{ value | json }} no está entre nuestras recetas pero puedes
-        <a [routerLink]="['update/quesos']">agregarlo </a>
+        {{ value | json }} no está entre nuestros quesos pero puedes
+        <a [routerLink]="['../update/quesos']">agregarlo </a>
       </h2>
     </div>
   
