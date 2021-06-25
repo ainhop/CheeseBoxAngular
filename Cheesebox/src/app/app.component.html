@@ -1,4 +1,6 @@
-<button (click)="topFunction()" id="myBtn" title="Go to top"><img class="imgTop" src="../assets/top.png"></button>
+<button (click)="topFunction()" id="myBtn" title="Go to top">
+  <img class="imgTop" src="../assets/top.png" />
+</button>
 
 <header>
   <section class="usuarioLogin" *ngIf="usuariosService.islogged()">
@@ -24,7 +26,7 @@
                 id="navbarScrollingDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false" 
+                aria-expanded="false"
               >
                 Quesos
                 <i class="fas fa-cheese"></i>
@@ -34,15 +36,12 @@
                 aria-labelledby="navbarScrollingDropdown"
               >
                 <li>
-                  <a class="dropdown-item"
-                  [routerLink]="['/update/quesos']"
-                  
-                  >Agregar queso</a
+                  <a class="dropdown-item" [routerLink]="['/update/quesos']"
+                    >Agregar queso</a
                   >
                 </li>
                 <li>
-                  <a  class="dropdown-item" 
-                  [routerLink]="['/quesos']"
+                  <a class="dropdown-item" [routerLink]="['/quesos']"
                     >Ver todos los quesos</a
                   >
                 </li>
@@ -66,14 +65,12 @@
                 aria-labelledby="navbarScrollingDropdown"
               >
                 <li>
-                  <a class="dropdown-item" 
-                  [routerLink]="['/update/recetas']"
+                  <a class="dropdown-item" [routerLink]="['/update/recetas']"
                     >Agregar recetas</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" 
-                  [routerLink]="['/recetas']"
+                  <a class="dropdown-item" [routerLink]="['/recetas']"
                     >Ver todas las recetas</a
                   >
                 </li>
@@ -86,15 +83,14 @@
                 <li class="nav-item">
                   <a
                     class="nav-link recetas"
-                    style="cursor:pointer"
+                    style="cursor: pointer"
                     aria-current="page"
-                    (click)="logout()"
-                    [routerLink]="['/desconectar']"
+                    (click)="onLogout()"
+                    [routerLink]="['/']"
                     >Desconectar</a
-                   
                   >
                 </li>
-             
+
                 <li class="nav-item">
                   <a
                     class="nav-link active recetas user"
@@ -120,7 +116,7 @@
                       ></button>
                     </div>
                     <div class="offcanvas-body">
-                       <app-usuarioregistrado></app-usuarioregistrado > 
+                      <app-usuarioregistrado></app-usuarioregistrado>
                     </div>
                   </div>
                   <!-- fin menu desplegable-->
@@ -152,12 +148,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-2">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" [routerLink]="['quesos']">  Quesos
-                <i class="fas fa-cheese"></i></a>
+              <a
+                class="nav-link active"
+                aria-current="page"
+                [routerLink]="['quesos']"
+              >
+                Quesos <i class="fas fa-cheese"></i
+              ></a>
             </li>
-               <li class="nav-item">
-              <a class="nav-link active" aria-current="page" [routerLink]="['/recetas']">  Recetas
-                <i class="far fa-sticky-note"></i
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                [routerLink]="['/recetas']"
+              >
+                Recetas <i class="far fa-sticky-note"></i
               ></a>
             </li>
           </ul>
@@ -180,7 +185,7 @@
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight"
                     aria-controls="offcanvasRight"
-                    >
+                  >
                     <i class="far fa-user"></i>
                   </a>
                   <!--menu desplegable-->
@@ -199,7 +204,7 @@
                       ></button>
                     </div>
                     <div class="offcanvas-body">
-                     <app-login></app-login > 
+                      <app-login></app-login>
                     </div>
                   </div>
                   <!-- fin menu desplegable-->
@@ -210,7 +215,13 @@
         </div>
       </div>
     </nav>
+<<<<<<< HEAD
+    <div>
+      <a><img class="logogrande" src="./assets/img/logobanner.png" alt="" /></a>
+    </div>
+=======
     <div><a ><img class="logogrande" src="./assets/img/logobanner.png" alt=""  [routerLink]="['/']"/></a></div>
+>>>>>>> develop
   </section>
 </header>
 
@@ -221,6 +232,4 @@
   <h3>© 2021 CheeseBox. All rights reserved🧀</h3>
 </footer>
 
-<script>
-
-</script>
+<script></script>

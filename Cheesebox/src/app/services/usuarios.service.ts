@@ -7,6 +7,7 @@ import { Usuario } from '../interfaces/usuarios.interfaces';
 })
 export class UsuariosService {
   private baseUrl: string;
+  token: string;
 
   constructor(private httpClient: HttpClient) {
     this.baseUrl = 'http://localhost:3000/usuarios';
@@ -19,9 +20,8 @@ export class UsuariosService {
   }
 
   login(formValues: any) {
-  
     return this.httpClient
-      .post(`${this.baseUrl}/login`, formValues )
+      .post(`${this.baseUrl}/login`, formValues)
       .toPromise();
   }
 
@@ -39,10 +39,9 @@ export class UsuariosService {
     const httpOpciones = {
       headers: new HttpHeaders({
         authorization: localStorage.getItem('token'),
-        
       }),
     };
-    
+
     return this.httpClient
       .get<Usuario>(`${this.baseUrl}/perfil`, httpOpciones)
       .toPromise();
