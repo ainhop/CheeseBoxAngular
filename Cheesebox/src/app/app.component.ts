@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, HostListener } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { UsuariosService } from './services/usuarios.service';
@@ -10,7 +11,7 @@ import { UsuariosService } from './services/usuarios.service';
 export class AppComponent  {
   title = 'Cheesebox';
  
-  constructor(private router: Router, public usuariosService: UsuariosService ) { }
+  constructor(private router: Router, public usuariosService: UsuariosService, httpComponente: HttpClient ) { }
   
   @HostListener("window:scroll", []) onWindowScroll() {
     this.scrollFunction();
@@ -33,7 +34,7 @@ topFunction() {
   onLogout() {
 
     localStorage.removeItem('token');
-    return '';
+
     }
 }
 

@@ -60,7 +60,7 @@ export class FormularioAddQuesoComponent implements OnInit {
     fd.append('descripcion', this.formulario.value.descripcion);
     fd.append('tipoLeche', this.formulario.value.tipoLeche);
     fd.append('origen', this.formulario.value.origen);
-    fd.append('caracteristicas', this.formulario.value.curiosidades);
+    fd.append('curiosidades', this.formulario.value.curiosidades);
     fd.append('color', this.formulario.value.color);
     const response = await this.ProductosService.create(fd);
 
