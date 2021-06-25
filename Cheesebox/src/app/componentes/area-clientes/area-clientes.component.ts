@@ -13,10 +13,9 @@ export class AreaClientesComponent implements OnInit {
   imagen: any;
 
   constructor(private activatedRouter:ActivatedRoute, private router:Router, private usuariosService:UsuariosService) {
-    // const usuarioId = this.activatedRouter.snapshot.paramMap.get('id')
+    const usuarioId = this.activatedRouter.snapshot.paramMap.get('id')
     this.usuariosService.getById()
       .then((result) => {
-        // console.log(result)
       })
     .catch((error)=>{console.log(error)})
   }
@@ -26,15 +25,16 @@ export class AreaClientesComponent implements OnInit {
     // const id = this.activatedRouter.snapshot.paramMap.get('id');
     const usuario = await this.usuariosService.getById();
     this.usuario = usuario;
-    // console.log(this.usuario)
+    console.log(this.usuario)
+    this.usuariosService.getById()
+    .then((response) => {
+      this.usuario = response
+     
+    })
+    .catch((error) => console.log(error));
   }
 
-    // this.usuariosService.getById(id)
-    // .then((response) => {
-    //   console.log(response)
-     
-    // })
-    // .catch((error) => console.log(error));
+   
       goToEdit(usuario:any): void  {
         this.router.navigate(['editarDatos/:',usuario] )
       }
@@ -47,5 +47,6 @@ export class AreaClientesComponent implements OnInit {
             return `url('../../../assets/img-defecto.png')`
           }
       
-        }
+  }
+
   }

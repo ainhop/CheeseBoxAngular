@@ -6,9 +6,9 @@
       <h3>{{usuario?.nombre}}</h3>
 
       <div class="col-12 botones ">
-        <button class="btn send" routerLink="/clientes">Datos</button>
-        <button class="btn send" router="/clientes" >Subidos</button>
-        <button class="btn send" router="/clientes" >Favoritos</button>
+        <button class="btn send" [routerLink]="['/clientes']">Datos</button>
+        <button class="btn send" [routerLink]="['/clientes']" >Subidos</button>
+        <button class="btn send" [routerLink]="['/clientes']" >Favoritos</button>
       </div>
     
     </div>
