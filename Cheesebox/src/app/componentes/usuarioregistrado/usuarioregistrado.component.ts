@@ -14,7 +14,7 @@ export class UsuarioregistradoComponent implements OnInit {
   
   async ngOnInit(): Promise<void> {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    const usuario = await this.usuarioService.getById(id);
+    const usuario = await this.usuarioService.getById();
     this.usuario = usuario
     
   }

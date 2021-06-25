@@ -153,7 +153,7 @@ width: 60%!important;
     z-index: 99;
     border: none; 
     outline: none; 
-    background-color: #FFD05E; 
+    background-color: rgb(255, 255, 255); 
     color: white;
     cursor: pointer; 
     padding: 5px; 
@@ -165,10 +165,12 @@ width: 60%!important;
     -o-transform: scale(0.9);
     -ms-transform: scale(0.9);
     transform: scale(0.9);
+    border:2px solid #FFD05E
 }
 
 #myBtn:hover {
-    background-color: #555; 
+   
+    background-color: #FFD05E; 
 } 
 
 /* Efecto ratatuille */

@@ -37,7 +37,6 @@ export class ListaQuesosComponent implements OnInit {
       })
       .catch((error) => console.log(error));
     
-    this.ProductosService.paginator()
   }
 
   async onClickBtn(siguiente: boolean) {

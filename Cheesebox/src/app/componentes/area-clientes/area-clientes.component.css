@@ -129,3 +129,8 @@ transform: scale(1.1) translateX(-60%);
     right: -75%;
     transition: all ease .5s;
  }
+.textoNombre{
+    margin: 3% 0px;
+    width: 90%;
+    text-align: center!important;
+}

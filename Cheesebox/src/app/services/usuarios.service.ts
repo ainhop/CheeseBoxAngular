@@ -35,14 +35,16 @@ export class UsuariosService {
       .toPromise();
   }
 
-  getById(pId): Promise<Usuario> {
+  getById(): Promise<Usuario> {
     const httpOpciones = {
       headers: new HttpHeaders({
         authorization: localStorage.getItem('token'),
+        
       }),
     };
+    
     return this.httpClient
-      .get<Usuario>(`${this.baseUrl}/${pId}`, httpOpciones)
+      .get<Usuario>(`${this.baseUrl}/perfil`, httpOpciones)
       .toPromise();
   }
 

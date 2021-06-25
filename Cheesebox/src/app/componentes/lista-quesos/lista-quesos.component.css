@@ -91,12 +91,33 @@
   }
   .pagination li{
    margin: 2%;
-
    transition: all ease 0.5s;
   }
+  li img{
+    transition: all ease 0.5s;
+  }
+  li img:hover{
+    transform: scale(1.2);
+  }
   
-  .pagination li:hover:nth-child(odd){
+  .pagination li:hover{
       color: #ffd05e ;
       text-decoration: underline;
       cursor: pointer;
+  }
+  .error{
+      padding: 5%;
+      text-align: center;
+  }
+  .error h2{
+      color:#9A9AA0
+  
+  }
+  .error a{
+    color:#ffd05e;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+  .error a:hover{
+    text-decoration: underline;
   }

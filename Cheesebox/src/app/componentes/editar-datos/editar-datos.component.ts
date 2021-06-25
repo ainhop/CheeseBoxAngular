@@ -24,21 +24,24 @@ export class EditarDatosComponent implements OnInit {
 
   ngOnInit(): void {
     let sub = this.activatedRoute.params.subscribe(async (params: Params) => {
-      let IdUsuario = params['idUsuario'];
-      this.usuario = await this.usuariosService.getById(IdUsuario);
+      // let IdUsuario = params['idUsuario'];
+      this.usuario = await this.usuariosService.getById();
 
       this.formulario = new FormGroup({
+        nombre: new FormControl(this.usuario.nombre, [ Validators.required,
+          Validators.minLength(3)]),
+        apellidos: new FormControl(this.usuario.apellidos, [ Validators.required,
+          Validators.minLength(3)]),
+        username: new FormControl(this.usuario.username, [ Validators.required,
+          Validators.minLength(3)]),
+        email: new FormControl(this.usuario.email, [ Validators.pattern(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/),]),
+        password: new FormControl(this.usuario.password, [Validators.pattern(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
+        )]),
         imagen: new FormControl(this.usuario.imagen, []),
-        nombre: new FormControl(this.usuario.nombre, [
-          Validators.required,
-          Validators.minLength(2),
-        ]),
-        apellidos: new FormControl(this.usuario.apellidos, []),
-        username: new FormControl(this.usuario.username, []),
-        email: new FormControl(this.usuario.imagen, []),
-        password: new FormControl(this.usuario.imagen, []),
       });
     });
+   
   }
 
   objectLength(object): number {
