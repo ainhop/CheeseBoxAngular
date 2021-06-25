@@ -11,6 +11,7 @@ declare var Swal;
   styleUrls: ['./lista-quesos.component.css'],
 })
 export class ListaQuesosComponent implements OnInit {
+  
   public paginaActual: number;
   numPaginas: any;
   arrProducto: Producto[];
@@ -78,9 +79,7 @@ export class ListaQuesosComponent implements OnInit {
     this.arrProducto = await this.ProductosService.getAll(this.paginaActual);
   }
 
-  productoFav(pProducto): void{
-    
-
+ RecFav(pProducto): void{
     this.ProductosService.editFav(pProducto.id)
       .then((response) => {
         if (response['error']) {

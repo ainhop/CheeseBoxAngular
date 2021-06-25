@@ -13,11 +13,22 @@ export class RecetasService {
   }
 
   getAll(pPag: any): Promise<Receta[]> {
-    return this.httpClient
-      .get<Receta[]>(`${this.baseUrl}recetas?page=${pPag}`)
-      .toPromise();
+    if (localStorage.getItem('token')) {
+      const httpOpciones = {
+        headers: new HttpHeaders({
+          authorization: localStorage.getItem('token'),
+        }),
+      };
+      return this.httpClient
+      .get<Receta[]>(`${this.baseUrl}recetas?page=${pPag}`, httpOpciones)
+      .toPromise(); 
+    }
+      else {
+        return this.httpClient
+          .get<Receta[]>(`${this.baseUrl}recetas?page=${pPag}`)
+          .toPromise();
+      }
   }
-
   create(fd: FormData) {
     const httpOpciones = {
       headers: new HttpHeaders({
@@ -87,6 +98,7 @@ export class RecetasService {
       .toPromise();
   }
 
+  
   deleteFav(pId): Promise<Receta> {
     const httpOpciones = {
       headers: new HttpHeaders({

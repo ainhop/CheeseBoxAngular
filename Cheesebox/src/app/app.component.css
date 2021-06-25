@@ -124,6 +124,9 @@ footer{
    */
    
 }
+.offcanvas{
+    background-image: url(../assets/img/cabecera.png);
+}
 
 footer h3{
     font-size: 0.8em!important;
