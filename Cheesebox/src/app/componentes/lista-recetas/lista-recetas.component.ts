@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Receta } from 'src/app/interfaces/recetas.interfaces';
 import { RecetasService } from 'src/app/services/recetas.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 declare var Swal;
 
@@ -19,7 +20,8 @@ export class ListaRecetasComponent implements OnInit {
   constructor(
     private RecetasService: RecetasService,
     private router: Router,
-    private activatedRouter: ActivatedRoute
+    private activatedRouter: ActivatedRoute,
+    public usuariosService: UsuariosService
   ) {
     this.paginaActual = 1;
     this.arrRecetas = [];

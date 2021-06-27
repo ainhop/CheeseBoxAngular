@@ -106,11 +106,11 @@ export class ProductosService {
   getFavAll(pPag: any): Promise<Producto[]> {
     const httpOpciones = {
       headers: new HttpHeaders({
-        authorization: localStorage.getItem('token'),
+        authorization: localStorage.getItem('token')
       }),
     };
     return this.httpClient
-      .get<Producto[]>(`${this.baseUrl}productos/fav/all`)
+      .get<Producto[]>(`${this.baseUrl}productos/fav/all`, httpOpciones)
       .toPromise();
   }
 

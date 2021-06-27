@@ -7,12 +7,13 @@ import { RecetasService } from 'src/app/services/recetas.service';
 
 declare var Swal;
 
+
 @Component({
-  selector: 'app-favoritos',
-  templateUrl: './favoritos.component.html',
-  styleUrls: ['./favoritos.component.css']
+  selector: 'app-subidos',
+  templateUrl: './subidos.component.html',
+  styleUrls: ['./subidos.component.css']
 })
-export class FavoritosComponent implements OnInit {
+export class SubidosComponent implements OnInit {
   public paginaActual: number;
   arrQuesoFav: Producto[];
   arrRecetaFav: Receta[];
@@ -31,7 +32,7 @@ export class FavoritosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.ProductosService.getFavAll(this.arrQuesoFav)
+    this.ProductosService.getFavAll(this.paginaActual)
     .then((response) => {
       console.log(response)
       this.arrQuesoFav = response;
@@ -46,7 +47,7 @@ export class FavoritosComponent implements OnInit {
   
       })
       .catch((error) => console.log(error));
- 
+
   }
 
   goToEdit(item: any): void {
@@ -54,16 +55,14 @@ export class FavoritosComponent implements OnInit {
   }
 
 
-
   DeleteProducto(pProducto): void {
-    console.log(pProducto)
-    const pId = this.ProductosService.deleteFav(pProducto)
-    .then((response) => {
-      if (response['error']) {
-        console.log('error')
-      }
-      else {
-      console.log(pId)
+   const pId=  this.ProductosService.deleteFav(pProducto.id)
+
+  .then((response) => {
+    if (response['error']) {
+    console.log('error')
+    }
+    else {
       Swal.fire({
         title: '¡Ups!...',
         text: ' Has eliminado este queso de tus favoritos',
@@ -101,4 +100,5 @@ deleteReceta(pReceta): void {
 .catch((error) => { console.log(error) })
 
 }
+
 }

@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditarQuesoComponent } from './componentes/editar-queso/editar-queso.component';
 import { EditarDatosComponent } from './componentes/editar-datos/editar-datos.component';
 import { EditarRecetasComponent } from './componentes/editar-recetas/editar-recetas.component';
+import { SubidosComponent } from './componentes/subidos/subidos.component';
 
 
 
@@ -42,6 +43,7 @@ import { EditarRecetasComponent } from './componentes/editar-recetas/editar-rece
     EditarQuesoComponent,
     EditarDatosComponent,
     EditarRecetasComponent,
+    SubidosComponent,
     
  
   ],
