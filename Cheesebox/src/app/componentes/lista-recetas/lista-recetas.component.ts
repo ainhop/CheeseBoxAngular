@@ -13,6 +13,7 @@ declare var Swal;
 export class ListaRecetasComponent implements OnInit {
   paginaActual: number;
   numPaginas: number;
+  limitePaginas: number;
   arrRecetas: Receta[];
 
   constructor(
@@ -26,15 +27,24 @@ export class ListaRecetasComponent implements OnInit {
 
   ngOnInit(): void {
     this.RecetasService.getAll(this.paginaActual)
-    
       .then((response) => {
         this.arrRecetas = response;
-        this.numPaginas = response.length;
-        console.log(response)
+        this.limitePaginas = response.length;
+        console.log(response);
       })
       .catch((error) => console.log(error));
   }
 
+  async onClickBtn(siguiente: boolean) {
+    this.limitePaginas = 1;
+    this.limitePaginas = await this.RecetasService.paginator();
+    this.paginaActual = siguiente
+      ? this.paginaActual + 1
+      : this.paginaActual - 1;
+    this.RecetasService.getAll(this.paginaActual)
+      .then((response) => (this.arrRecetas = response))
+      .catch((error) => console.log(error));
+  }
   goToDetails(item: any): void {
     this.router.navigate(['recetas', item.id]);
   }
@@ -49,17 +59,15 @@ export class ListaRecetasComponent implements OnInit {
   }
   filtroValor = '';
 
-  async onClick(siguiente: boolean) {
-    if (siguiente) {
-      this.paginaActual++;
-    } else {
-      this.paginaActual--;
-    }
-    this.arrRecetas = await this.RecetasService.getAll(this.paginaActual);
-  }
-  recetaFav(pReceta): void{
-    
-
+  // async onClick(siguiente: boolean) {
+  //   if (siguiente) {
+  //     this.paginaActual++;
+  //   } else {
+  //     this.paginaActual--;
+  //   }
+  //   this.arrRecetas = await this.RecetasService.getAll(this.paginaActual);
+  // }
+  recetaFav(pReceta): void {
     this.RecetasService.editFav(pReceta.id)
       .then((response) => {
         if (response['error']) {
@@ -70,9 +78,8 @@ export class ListaRecetasComponent implements OnInit {
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: 'Custom image',
-          })
-        }
-        else {
+          });
+        } else {
           Swal.fire({
             title: '¡Genial!...',
             text: ' has incluido esta receta en tus favoritas',
@@ -80,13 +87,12 @@ export class ListaRecetasComponent implements OnInit {
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: 'Custom image',
-          })
-          pReceta.favorito = true
+          });
+          pReceta.favorito = true;
         }
       })
-      .catch((error) => { console.log(error) })
-          
-    
+      .catch((error) => {
+        console.log(error);
+      });
   }
-
 }

@@ -5,7 +5,11 @@
   <div class="row">
     <div class="col-5 imagenQueso">
       <!--<img [src]="producto.imagen" alt="" width="100%" />-->
-      <img src="../../../assets/img/mozzarella.png" class="card-img" alt="..." />
+      <img
+        src="../../../assets/img/mozzarella.png"
+        class="card-img"
+        alt="..."
+      />
     </div>
 
     <div class="col-7 texto">
@@ -48,9 +52,12 @@
           aria-labelledby="nav-home-tab"
         >
           <h5>{{ producto.descripcion }}</h5>
-           <h6>Origen:</h6><p>{{ producto.origen }}</p>
-           <h6>Tipo de Leche:</h6> <p>{{ producto.tipoLeche }}</p>
-           <h6>Color:</h6> <p>{{ producto.color }}</p>
+          <h6>Origen:</h6>
+          <p>{{ producto.origen }}</p>
+          <h6>Tipo de Leche:</h6>
+          <p>{{ producto.tipoLeche }}</p>
+          <h6>Color:</h6>
+          <p>{{ producto.color }}</p>
         </div>
         <div
           class="tab-pane fade textoDescripcion"
@@ -59,8 +66,6 @@
           aria-labelledby="nav-profile-tab"
         >
           <h5>{{ producto.curiosidades }}</h5>
-
-         
         </div>
       </div>
     </div>

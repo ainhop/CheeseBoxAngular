@@ -1,16 +1,33 @@
-<app-buscador (search)="handleSearch($event)" placeholder="Escribe tu queso..."></app-buscador>
+<app-buscador
+  (search)="handleSearch($event)"
+  placeholder="Escribe tu queso..."
+></app-buscador>
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let producto of arrProducto">
-      <div class="card" >
-        <img src="../../../assets/img/mozzarella.png" class="card-img" alt="..." />
-        
-         <!--<img [src]="producto.imagen" class="card-img" alt="...">-->
-        <div class="card-img-overlay" >
-          <span class="favoritos"(click)="productoFav(producto)" [ngClass]="{'activo': producto.favorito , 'desactivo' : !producto.favorito }"><img width="80%" src="../../../assets/img/confirmado.svg"/></span>
-          <h5 class="card-title" (click)="goToDetails(producto)">{{ producto.nombre }}</h5>
-          <div class="linea"(click)="goToDetails(producto)"></div>
-          <p class="card-text"(click)="goToDetails(producto)">
+      <div class="card">
+        <img
+          src="../../../assets/img/mozzarella.png"
+          class="card-img"
+          alt="..."
+        />
+
+        <!-- <img [src]="producto.imagen" class="card-img" alt="..." /> -->
+        <div class="card-img-overlay">
+          <span
+            class="favoritos"
+            (click)="productoFav(producto)"
+            [ngClass]="{
+              activo: producto.favorito,
+              desactivo: !producto.favorito
+            }"
+            ><img width="80%" src="../../../assets/img/confirmado.svg"
+          /></span>
+          <h5 class="card-title" (click)="goToDetails(producto)">
+            {{ producto.nombre }}
+          </h5>
+          <div class="linea" (click)="goToDetails(producto)"></div>
+          <p class="card-text" (click)="goToDetails(producto)">
             <strong>Origen:</strong> {{ producto.origen }}
           </p>
         </div>
@@ -18,26 +35,30 @@
     </div>
   </div>
 </div>
-  <div class="botones" *ngIf="arrProducto.length >= 6">
-    <div class="separador">
-    </div>
-      <nav aria-label="...">
-        <ul class="pagination">
-          <li class="page-item " [disabled]="paginaActual === 1" (click)="onClick(false)" >
-            <img width="70%" src="../../../assets/left.png" alt="">
-          </li>
-          <li class="page-item"  (click)="onClick(true)" [disabled]="paginaActual >= litimepaginas">
-            <img width="70%" src="../../../assets/right.png" alt="">
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="error" *ngIf="arrProducto.length === 0">
-      <h2>
-        {{ value | json }} no está entre nuestros quesos pero puedes
-        <a [routerLink]="['../update/quesos']">agregarlo </a>
-      </h2>
-    </div>
-  
-
-
+<div class="botones" *ngIf="arrProducto.length >= 6">
+  <div class="separador"></div>
+  <nav aria-label="...">
+    <ul class="pagination">
+      <li
+        class="page-item"
+        [disabled]="paginaActual === 1"
+        (click)="onClickBtn(false)"
+      >
+        <img width="70%" src="../../../assets/left.png" alt="" />
+      </li>
+      <li
+        class="page-item"
+        (click)="onClickBtn(true)"
+        [disabled]="paginaActual === limitePaginas"
+      >
+        <img width="70%" src="../../../assets/right.png" alt="" />
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="error" *ngIf="arrProducto.length === 0">
+  <h2>
+    {{ value | json }} no está entre nuestros quesos pero puedes
+    <a [routerLink]="['../update/quesos']">agregarlo </a>
+  </h2>
+</div>

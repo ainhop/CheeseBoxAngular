@@ -20,14 +20,13 @@ export class ProductosService {
         }),
       };
       return this.httpClient
-      .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`, httpOpciones)
-      .toPromise(); 
+        .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`, httpOpciones)
+        .toPromise();
+    } else {
+      return this.httpClient
+        .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`)
+        .toPromise();
     }
-      else {
-        return this.httpClient
-          .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`)
-          .toPromise();
-      }
   }
 
   getById(pId): Promise<Producto> {
@@ -116,7 +115,18 @@ export class ProductosService {
   }
 
   paginator(): Promise<any> {
-    console.log();
     return this.httpClient.get(`${this.baseUrl}productos/info/pag`).toPromise();
+  }
+
+  showEdit(pId): Promise<Producto[]> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+
+    return this.httpClient
+      .get<Producto[]>(`${this.baseUrl}productos/show/${pId}`, httpOpciones)
+      .toPromise();
   }
 }
