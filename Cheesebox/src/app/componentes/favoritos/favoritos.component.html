@@ -1,4 +1,5 @@
 <header>
+<<<<<<< HEAD
 
   <div class="stick">
     <div style="width: 30%;">
@@ -20,21 +21,35 @@
     </div>
   </div>
 
+=======
+  <button class="btn editar" (click)="show = !show">
+    <span class="edit"></span> Editar tus Favoritos
+  </button>
+  <button class="btn" (click)="showCheese = !showCheese">Quesos</button>
+  <button class="btn" (click)="showReceta = !showReceta">Recetas</button>
+  <!-- <button  class="btn" (click)="showReceta ? showReceta : !showCheese" > Recetas</button>-->
+>>>>>>> develop
 </header>
 
 <div class="container" *ngIf="showCheese">
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let quesoFav of arrQuesoFav">
       <div class="card">
-        <img [src]="quesoFav.imagen" class="card-img" alt="...">
+        <img [src]="quesoFav.imagen" class="card-img" alt="..." />
         <div class="card-img-overlay">
-          <h5 class="card-title">{{quesoFav.nombre}}</h5>
+          <h5 class="card-title">{{ quesoFav.nombre }}</h5>
           <div class="linea"></div>
-          <p class="card-text"><strong>Origen:</strong> {{quesoFav.origen}}</p>
-
+          <p class="card-text">
+            <strong>Origen:</strong> {{ quesoFav.origen }}
+          </p>
         </div>
         <div class="editarCampos" *ngIf="!show">
-          <button class="btn eliminar" (click)="DeleteProducto(quesoFav.fk_productos)">Eliminar de favoritos</button>
+          <button
+            class="btn eliminar"
+            (click)="DeleteProducto(quesoFav.fk_productos)"
+          >
+            Quitar favorito
+          </button>
         </div>
       </div>
     </div>
@@ -42,10 +57,13 @@
 </div>
 <div class="container" *ngIf="showReceta">
   <div class="row">
-    <div class="col-12 col-sm-6 col-md-4" *ngFor="let recetaFav of arrRecetaFav">
+    <div
+      class="col-12 col-sm-6 col-md-4"
+      *ngFor="let recetaFav of arrRecetaFav"
+    >
       <div class="card">
         <div class="card">
-          <img [src]="recetaFav.imagen" class="card-img" alt="...">
+          <img [src]="recetaFav.imagen" class="card-img" alt="..." />
           <div class="card-img-overlay">
             <div class="text">
               <h5 class="card-title">{{ recetaFav.nombre }}</h5>
@@ -54,14 +72,23 @@
             </div>
           </div>
           <div class="editarCampos" *ngIf="!show">
-            <br>
-            <button class="btn eliminar" (click)="deleteReceta(recetaFav.fk_recetas)">Eliminar de favoritos</button>
+            <br />
+            <button
+              class="btn eliminar"
+              (click)="deleteReceta(recetaFav.fk_recetas)"
+            >
+              Quitar favorito
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="error" *ngIf="arrQuesoFav.length === 0 && arrRecetaFav.length === 0 ">
-        <h2>
-          Aún no tienes ningun favorito
-        </h2>
+      <div
+        class="error"
+        *ngIf="arrQuesoFav.length === 0 && arrRecetaFav.length === 0"
+      >
+        <h2>Todavía no tienes ningún favorito</h2>
       </div>
+    </div>
+  </div>
+</div>

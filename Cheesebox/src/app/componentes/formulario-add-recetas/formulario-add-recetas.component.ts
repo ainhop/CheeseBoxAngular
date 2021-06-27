@@ -40,7 +40,6 @@ export class FormularioAddRecetasComponent implements OnInit {
     });
   }
 
-
   ngOnInit(): void {}
 
   objectLength(object): number {
@@ -75,12 +74,10 @@ export class FormularioAddRecetasComponent implements OnInit {
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: 'Custom image',
-    })
+    });
     this.router.navigate(['../']);
-  
   }
   onChange($event) {
     this.files = $event.target.files;
   }
-  
 }

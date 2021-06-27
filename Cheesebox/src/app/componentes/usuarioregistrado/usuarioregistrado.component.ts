@@ -6,25 +6,26 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 @Component({
   selector: 'app-usuarioregistrado',
   templateUrl: './usuarioregistrado.component.html',
-  styleUrls: ['./usuarioregistrado.component.css']
+  styleUrls: ['./usuarioregistrado.component.css'],
 })
 export class UsuarioregistradoComponent implements OnInit {
   usuario: Usuario;
-  constructor(private usuarioService: UsuariosService, private activatedRoute: ActivatedRoute) { }
-  
+  constructor(
+    private usuarioService: UsuariosService,
+    private activatedRoute: ActivatedRoute
+  ) {}
+
   async ngOnInit(): Promise<void> {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     const usuario = await this.usuarioService.getById();
-    this.usuario = usuario
-    
+    this.usuario = usuario;
   }
 
-  obtenerImagen(): string{
+  obtenerImagen(): string {
     if (this.usuario && this.usuario.imagen) {
-      return `url('${this.usuario.imagen}')`
+      return `url('${this.usuario.imagen}')`;
     } else {
-      return `url('../../../assets/img-defecto.png')`
+      return `url('../../../assets/img-defecto.png')`;
     }
-
   }
 }

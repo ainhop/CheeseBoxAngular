@@ -1,74 +1,67 @@
 @import url(../formulario-add-queso/formulario-add-queso.component.css);
-.container{
-    margin: auto;
-    text-align: center;
-    width: 100%;
-    padding: 20%;
-    
+.container {
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  padding: 20%;
 }
 
-
-.imagenPerfil{
-    width: 175px;
-    height: 175px;
-    line-height: 175px;
-    border-radius: 100%;
-    background-position: center;
-    background-size:cover;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
-    margin: 0px 15% 15% 15%;
-    cursor: pointer;
-    
+.imagenPerfil {
+  width: 175px;
+  height: 175px;
+  line-height: 175px;
+  border-radius: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+  margin: 0px 15% 15% 15%;
+  cursor: pointer;
 }
-.dosCol{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.dosCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.dosCol h3{
-    font-weight: 800;
-
+.dosCol h3 {
+  font-weight: 800;
 }
-div ul{
-  
-    list-style-type: none;
-
+div ul {
+  list-style-type: none;
 }
-div ul li{
-    font-weight: 800; 
-    font-size: 1.4em;
+div ul li {
+  font-weight: 800;
+  font-size: 1.4em;
 }
-.doble{
-display: flex; 
+.doble {
+  display: flex;
 }
-.nombre{
-    font-weight: 300; 
-    font-size: 1.4em;
-    color: #ffd05e ;
+.nombre {
+  font-weight: 300;
+  font-size: 1.4em;
+  color: #ffd05e;
 }
 
 footer {
-    display: block;
-    position:fixed;
-    bottom: 0px;
+  display: block;
+  position: fixed;
+  bottom: 0px;
 }
-footer h3{
-    font-size: .8em!important;
+footer h3 {
+  font-size: 0.8em !important;
 }
-button{
-    border-radius: 100px;
+button {
+  border-radius: 100px;
 }
 
 @media screen and (min-width: 500px) {
-
-    .footer {
-        display: none;
-            } 
-    } 
+  .footer {
+    display: none;
+  }
+}
 @media screen and (min-width: 700px) {
-    .footer {
-        display: block;
-            } 
-        }
+  .footer {
+    display: block;
+  }
+}
