@@ -21,13 +21,8 @@ export class ListaQuesosComponent implements OnInit {
   constructor(
     private ProductosService: ProductosService,
     private router: Router,
-<<<<<<< HEAD
-    private activatedRouter: ActivatedRoute
-=======
     private activatedRouter: ActivatedRoute,
     public usuariosService: UsuariosService
-   
->>>>>>> develop
   ) {
     this.paginaActual = 1;
     this.arrProducto = [];
@@ -77,13 +72,7 @@ export class ListaQuesosComponent implements OnInit {
   //   this.arrProducto = await this.ProductosService.getAll(this.paginaActual);
   // }
 
-<<<<<<< HEAD
-  RecFav(pProducto): void {
-=======
-  productoFav(pProducto): void{
-    
-
->>>>>>> develop
+  productoFav(pProducto): void {
     this.ProductosService.editFav(pProducto.id)
       .then((response) => {
         if (response['error']) {
@@ -94,16 +83,9 @@ export class ListaQuesosComponent implements OnInit {
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: 'Custom image',
-<<<<<<< HEAD
           });
-          pProducto.favorito = false;
+          pProducto.favorito = true;
         } else {
-=======
-          })
-          pProducto.favorito = true
-        }
-        else {
->>>>>>> develop
           Swal.fire({
             title: '¡Genial!...',
             text: ' has incluido este queso en tus favoritos',
@@ -119,54 +101,18 @@ export class ListaQuesosComponent implements OnInit {
         console.log(error);
       });
   }
-
-<<<<<<< HEAD
-  DeleteFav(pProducto): void {
-    this.ProductosService.deleteFav(pProducto.id)
-      .then((response) => {
-        if (response['error']) {
-          Swal.fire({
-            title: '!Ups...! ',
-            text: 'Este queso ya esta entre tus favoritos',
-            imageUrl: 'https://media.giphy.com/media/qCPxDmsoBuopO/giphy.gif',
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: 'Custom image',
-          });
-          pProducto.favorito = false;
-        } else {
-          Swal.fire({
-            title: '¡Genial!...',
-            text: ' has incluido este queso en tus favoritos',
-            imageUrl: 'https://media.giphy.com/media/97ZWlB7ENlalq/giphy.gif',
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: 'Custom image',
-          });
-          pProducto.favorito = false;
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
 }
-=======
+// obtenerImagen(): string{
+//   if (this.arrProducto.imagen && this.usuario.imagen) {
+//     return `url('${this.usuario.imagen}')`
 
- 
-  }
-  // obtenerImagen(): string{
-  //   if (this.arrProducto.imagen && this.usuario.imagen) {
-  //     return `url('${this.usuario.imagen}')`
+//   } else {
+//     return `url('../../../assets/img-defecto.png')`
+//   }
 
-  //   } else {
-  //     return `url('../../../assets/img-defecto.png')`
-  //   }
-
-  // loadPage(page: number) {
-  //   if (page !== this.previousPage) {
-  //     this.previousPage = page;
-  //     this.fillStudents(this.page-1);
-  //   }
-  // }
->>>>>>> develop
+// loadPage(page: number) {
+//   if (page !== this.previousPage) {
+//     this.previousPage = page;
+//     this.fillStudents(this.page-1);
+//   }
+// }

@@ -5,63 +5,107 @@
   <div class="row">
     <div class="dosCol">
       <div class="col-12 col-md-auto">
-     
-        <div class="imagenPerfil" [ngStyle]="{backgroundImage: obtenerImagen()}"></div>
-
+        <div
+          class="imagenPerfil"
+          [ngStyle]="{ backgroundImage: obtenerImagen() }"
+        ></div>
       </div>
       <div class="col-12 col-md-auto ms-5 textoNombre">
-        <h3>{{usuario?.nombre}} {{usuario?.apellidos}}</h3>
+        <h3>{{ usuario?.nombre }} {{ usuario?.apellidos }}</h3>
       </div>
     </div>
 
     <div class="col-12">
       <nav>
-        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-            type="button" role="tab" aria-controls="nav-home" aria-selected="true">
-             Datos
+        <div
+          class="nav nav-tabs justify-content-center"
+          id="nav-tab"
+          role="tablist"
+        >
+          <button
+            class="nav-link active"
+            id="nav-home-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-home"
+            type="button"
+            role="tab"
+            aria-controls="nav-home"
+            aria-selected="true"
+          >
+            Datos
           </button>
-          <button class="nav-link justify-content-center" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
-            role="tab" aria-controls="nav-profile" aria-selected="false">
+          <button
+            class="nav-link justify-content-center"
+            id="nav-profile-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-profile"
+            type="button"
+            role="tab"
+            aria-controls="nav-profile"
+            aria-selected="false"
+          >
             Tus favoritos
           </button>
-          <button class="nav-link justify-content-center" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
-            role="tab" aria-controls="nav-contact" aria-selected="false">
-            Tus subidos
+          <button
+            class="nav-link justify-content-center"
+            id="nav-contact-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-contact"
+            type="button"
+            role="tab"
+            aria-controls="nav-contact"
+            aria-selected="false"
+          >
+            Tu historial
           </button>
         </div>
       </nav>
       <hr />
       <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div
+          class="tab-pane fade show active"
+          id="nav-home"
+          role="tabpanel"
+          aria-labelledby="nav-home-tab"
+        >
           <button class="btn editar" (click)="goToEdit(usuario)">
-
-            <span class="edit"></span> Editar tus datos
+            <span class="edit"></span> Edita tus datos
           </button>
 
           <ul>
             <div class="doble">
+              <li>Usuario</li>
+              <p class="nombre ms-3">{{ usuario?.username }}</p>
+            </div>
+            <div class="doble">
               <li>Nombre</li>
-              <p class="nombre ms-3">{{usuario?.nombre}} {{usuario?.apellidos}}</p>
+              <p class="nombre ms-3">
+                {{ usuario?.nombre }} {{ usuario?.apellidos }}
+              </p>
             </div>
             <div class="doble">
               <li>Email</li>
-              <p class="nombre ms-3">{{usuario?.email}}</p>
-            </div>
-            <div class="doble">
-              <li>Preferencias</li>
-              <p class="nombre ms-3">Gouda, Roquefort, Mozzarella</p>
+              <p class="nombre ms-3">{{ usuario?.email }}</p>
             </div>
           </ul>
         </div>
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div
+          class="tab-pane fade"
+          id="nav-profile"
+          role="tabpanel"
+          aria-labelledby="nav-profile-tab"
+        >
           <app-favoritos></app-favoritos>
         </div>
-        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <div
+          class="tab-pane fade"
+          id="nav-contact"
+          role="tabpanel"
+          aria-labelledby="nav-contact-tab"
+        >
           <button class="btn editar">
-           <app-subidos></app-subidos>
+            <app-subidos></app-subidos>
           </button>
-
         </div>
       </div>
     </div>

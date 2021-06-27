@@ -4,23 +4,9 @@
 <div class="container" *ngIf="producto">
   <div class="row">
     <div class="col-5 imagenQueso">
-<<<<<<< HEAD
-      <!--<img [src]="producto.imagen" alt="" width="100%" />-->
-      <img
-        src="../../../assets/img/mozzarella.png"
-        class="card-img"
-        alt="..."
-      />
-=======
-      <a 
-      data-fancybox="gallery"
-      [href]="producto.imagen"
-      ><img
-        [src]="producto.imagen"
-        width="99%"
-    /></a>
-      <!-- <img src="../../../assets/img/mozzarella.png" class="card-img" alt="..." />-->
->>>>>>> develop
+      <a data-fancybox="gallery" [href]="producto.imagen"
+        ><img [src]="producto.imagen" width="99%"
+      /></a>
     </div>
 
     <div class="col-6 texto">

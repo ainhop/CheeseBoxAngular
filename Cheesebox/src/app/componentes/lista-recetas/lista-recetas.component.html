@@ -6,13 +6,8 @@
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let receta of arrRecetas">
       <div class="card">
-<<<<<<< HEAD
         <div class="card">
-          <img
-            src="../../assets/img/revueltos_espinacas_parmesano.jpg"
-            class="card-img"
-            alt="..."
-          />
+          <img [src]="receta.imagen" class="card-img" />
           <div class="card-img-overlay">
             <span
               class="favoritos"
@@ -21,16 +16,8 @@
                 activo: receta.favorito,
                 desactivo: !receta.favorito
               }"
+              *ngIf="usuariosService.islogged()"
               ><img width="80%" src="../../../assets/img/confirmado.svg"
-=======
-        <div class="card" >
-          <img [src]="receta.imagen" class="card-img">
-          <div class="card-img-overlay" >
-            <span class="favoritos" (click)="recetaFav(receta)" [ngClass]="{'activo': receta.favorito , 'desactivo' : !receta.favorito }"
-            *ngIf="usuariosService.islogged()" 
-            ><img width="80%" src="../../../assets/img/confirmado.svg"
-             
->>>>>>> develop
             /></span>
             <div class="text" (click)="goToDetails(receta)">
               <h5 class="card-title">{{ receta.nombre }}</h5>
@@ -66,7 +53,7 @@
 </div>
 <div class="error" *ngIf="arrRecetas.length === 0">
   <h2>
-    {{ value }} no está entre nuestras recetas pero puedes
+    {{ value }} no está entre nuestras recetas, pero puedes
     <a [routerLink]="['../update/recetas']">agregarla </a>
   </h2>
 </div>
