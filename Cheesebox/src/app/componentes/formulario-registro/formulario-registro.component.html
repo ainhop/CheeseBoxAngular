@@ -6,7 +6,12 @@
   <hr />
   <div class="row">
     <div class="col-12">
-      <form method="POST" enctype="multipart/form-data" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <form
+        method="POST"
+        enctype="multipart/form-data"
+        [formGroup]="formulario"
+        (ngSubmit)="onSubmit()"
+      >
         <div class="formDoble">
           <div class="mb-3 col-6">
             <label for="" class="ms-2 textForm">Nombre</label>
@@ -30,7 +35,7 @@
           "
         >
           <div class="alert alert-dismissible fade show mt-3" role="alert">
-            Tu nombre debe componerse de <strong>al menos 3 caracteres</strong>
+            Tu nombre debe tener <strong>al menos 3 caracteres</strong>
             <button
               type="button"
               class="btn-close"
@@ -48,7 +53,7 @@
           "
         >
           <div class="alert alert-dismissible fade show mt-3" role="alert">
-            Tu apellido debe componerse de <strong>almenos 3 caracteres</strong>
+            Tu apellido debe tener <strong>al menos 3 caracteres</strong>
             <button
               type="button"
               class="btn-close"
@@ -68,8 +73,8 @@
             "
           >
             <div class="alert alert-dismissible fade show mt-3" role="alert">
-              Tu usuario debe componerse de
-              <strong>almenos 3 caracteres</strong>
+              Tu usuario debe tener
+              <strong>al menos 3 caracteres</strong>
               <button
                 type="button"
                 class="btn-close"
@@ -106,10 +111,10 @@
           />
           <div class="error" *ngIf="checkControl('password', 'pattern')">
             <div class="alert alert-dismissible fade show mt-3" role="alert">
-              Tu contraseña tiene que incluir:
+              Tu contraseña debe incluir:
               <strong
-                >ocho caracteres, al menos una letra mayúscula, un número y un
-                símbolo.</strong
+                >ocho caracteres, al menos una mayúscula, un número y un
+                símbolo</strong
               >
               <button
                 type="button"
@@ -123,7 +128,11 @@
         <div class="formDoble">
           <div class="mb-3 col-6">
             <label for="" class="ms-2 textForm">Foto de perfil</label>
-            <input type="file" formControlName="imagen" (change)="onChange($event)"/>
+            <input
+              type="file"
+              formControlName="imagen"
+              (change)="onChange($event)"
+            />
           </div>
         </div>
         <button

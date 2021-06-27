@@ -4,14 +4,9 @@
 <div class="container" *ngIf="producto">
   <div class="row">
     <div class="col-5 imagenQueso">
-      <a 
-      data-fancybox="gallery"
-      [href]="producto.imagen"
-      ><img
-        [src]="producto.imagen"
-        width="99%"
-    /></a>
-      <!-- <img src="../../../assets/img/mozzarella.png" class="card-img" alt="..." />-->
+      <a data-fancybox="gallery" [href]="producto.imagen"
+        ><img [src]="producto.imagen" width="99%"
+      /></a>
     </div>
 
     <div class="col-6 texto">
@@ -54,9 +49,12 @@
           aria-labelledby="nav-home-tab"
         >
           <h5>{{ producto.descripcion }}</h5>
-           <h6>Origen:</h6><p>{{ producto.origen }}</p>
-           <h6>Tipo de Leche:</h6> <p>{{ producto.tipoLeche }}</p>
-           <h6>Color:</h6> <p>{{ producto.color }}</p>
+          <h6>Origen:</h6>
+          <p>{{ producto.origen }}</p>
+          <h6>Tipo de Leche:</h6>
+          <p>{{ producto.tipoLeche }}</p>
+          <h6>Color:</h6>
+          <p>{{ producto.color }}</p>
         </div>
         <div
           class="tab-pane fade textoDescripcion"
@@ -65,8 +63,6 @@
           aria-labelledby="nav-profile-tab"
         >
           <h5>{{ producto.curiosidades }}</h5>
-
-         
         </div>
       </div>
     </div>

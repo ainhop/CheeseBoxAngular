@@ -20,14 +20,13 @@ export class RecetasService {
         }),
       };
       return this.httpClient
-      .get<Receta[]>(`${this.baseUrl}recetas?page=${pPag}`, httpOpciones)
-      .toPromise(); 
+        .get<Receta[]>(`${this.baseUrl}recetas?page=${pPag}`, httpOpciones)
+        .toPromise();
+    } else {
+      return this.httpClient
+        .get<Receta[]>(`${this.baseUrl}recetas?page=${pPag}`)
+        .toPromise();
     }
-      else {
-        return this.httpClient
-          .get<Receta[]>(`${this.baseUrl}recetas?page=${pPag}`)
-          .toPromise();
-      }
   }
   create(fd: FormData) {
     const httpOpciones = {
@@ -98,7 +97,6 @@ export class RecetasService {
       .toPromise();
   }
 
-  
   deleteFav(pId): Promise<Receta> {
     const httpOpciones = {
       headers: new HttpHeaders({
@@ -118,6 +116,23 @@ export class RecetasService {
     };
     return this.httpClient
       .get<Receta[]>(`${this.baseUrl}recetas/fav/all`, httpOpciones)
+      .toPromise();
+  }
+
+  paginator(): Promise<any> {
+    console.log();
+    return this.httpClient.get(`${this.baseUrl}recetas/info/pag`).toPromise();
+  }
+
+  showEdit(pId): Promise<Receta[]> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
+
+    return this.httpClient
+      .get<Receta[]>(`${this.baseUrl}recetas/show/${pId}`, httpOpciones)
       .toPromise();
   }
 }

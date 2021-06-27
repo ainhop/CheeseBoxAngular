@@ -3,42 +3,14 @@
 </button>
 <div class="container">
   <div class="row">
-    <div class="col-5" >
-      <a 
-        data-fancybox="gallery"
-        [href]="receta.imagen"
-        ><img
-          [src]="receta.imagen"
-          width="99%"
+    <div class="col-5">
+      <a data-fancybox="gallery" [href]="receta.imagen"
+        ><img [src]="receta.imagen" width="99%"
       /></a>
-<!--
-      <a
-        data-fancybox="gallery"
-        href="https://images.pexels.com/photos/6401665/pexels-photo-6401665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        ><img
-          class="miniatura"
-          src="https://images.pexels.com/photos/6401665/pexels-photo-6401665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-      /></a>
-
-      <a
-        data-fancybox="gallery"
-        href="https://images.pexels.com/photos/6401669/pexels-photo-6401669.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        ><img
-          class="miniatura"
-          src="https://images.pexels.com/photos/6401669/pexels-photo-6401669.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-      /></a>
-
-      <a
-        data-fancybox="gallery"
-        href="https://images.pexels.com/photos/6401668/pexels-photo-6401668.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        ><img
-          class="miniatura"
-          src="https://images.pexels.com/photos/6401668/pexels-photo-6401668.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-      /></a>-->
     </div>
 
     <div class="col-7">
-      <h2>{{receta?.nombre}}</h2>
+      <h2>{{ receta?.nombre }}</h2>
       <hr />
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -75,27 +47,32 @@
           id="nav-home"
           role="tabpanel"
           aria-labelledby="nav-home-tab"
-        > <h4>{{ receta?.ingredientes }}</h4>
-          <h6>Tiempo:</h6><h4>{{receta?.tiempo}}</h4> 
-          <h6>Raciones:</h6><h4>{{receta?.raciones}}</h4> 
-         
+        >
+          <h4>{{ receta?.ingredientes }}</h4>
+          <h6>Tiempo:</h6>
+          <h4>{{ receta?.tiempo }}</h4>
+          <h6>Raciones:</h6>
+          <h4>{{ receta?.raciones }}</h4>
         </div>
         <div
           class="tab-pane fade"
           id="nav-profile"
           role="tabpanel"
           aria-labelledby="nav-profile-tab"
-        >    
+        >
           <div class="text-comment">
             <p class="text-name">
               <span class="summary">
-                <h4>{{receta?.elaboracion.slice(0, 90)}}-</h4>
+                <h4>{{ receta?.elaboracion.slice(0, 90) }}-</h4>
               </span>
-              <input id="showmore_1" type="checkbox" class="showmore">
+              <input id="showmore_1" type="checkbox" class="showmore" />
               <span class="complete">
-                <h4>{{receta?.elaboracion.slice(90, 1000)}}</h4>
+                <h4>{{ receta?.elaboracion.slice(90, 1000) }}</h4>
               </span>
-              <label for="showmore_1" class="more "><span class="mas">➕</span> <span class="menos">➖</span></label>
+              <label for="showmore_1" class="more"
+                ><span class="mas">➕</span>
+                <span class="menos">➖</span></label
+              >
             </p>
           </div>
         </div>
@@ -103,5 +80,3 @@
     </div>
   </div>
 </div>
-
-
