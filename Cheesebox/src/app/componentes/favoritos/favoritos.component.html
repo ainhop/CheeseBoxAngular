@@ -1,11 +1,27 @@
 <header>
-  <button class="btn editar" (click)="show=!show">
-    <span class="edit"></span> Editar tus Favoritos
-  </button>
-  <button class="btn" (click)="showCheese=!showCheese"> Quesos</button>
-  <button class="btn" (click)="showReceta=!showReceta"> Recetas</button>
-  <!-- <button  class="btn" (click)="showReceta ? showReceta : !showCheese" > Recetas</button>-->
+
+  <div class="stick">
+    <div style="width: 30%;">
+      <button class="btn editar" (click)="show=!show">
+        <span class="edit"></span> Editar tus Favoritos
+      </button>
+    </div>
+    <div>
+      <div class="form-check form-switch form-check-inline">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
+          (input)="showCheese=!showCheese">
+        <label class="form-check-label" for="flexSwitchCheckChecked">Quesos</label>
+      </div>
+      <div class="form-check form-switch form-check-inline">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
+          (input)="showReceta=!showReceta">
+        <label class="form-check-label" for="flexSwitchCheckChecked">Recetas</label>
+      </div>
+    </div>
+  </div>
+
 </header>
+
 <div class="container" *ngIf="showCheese">
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let quesoFav of arrQuesoFav">
