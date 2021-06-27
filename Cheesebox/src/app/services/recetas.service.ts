@@ -117,7 +117,7 @@ export class RecetasService {
       }),
     };
     return this.httpClient
-      .get<Receta[]>(`${this.baseUrl}recetas/fav/all`)
+      .get<Receta[]>(`${this.baseUrl}recetas/fav/all`, httpOpciones)
       .toPromise();
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import { Producto } from 'src/app/interfaces/productos.interfaces';
 import { ProductosService } from 'src/app/services/productos.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 declare var Swal;
 
@@ -25,6 +26,7 @@ export class ListaQuesosComponent implements OnInit {
     private ProductosService: ProductosService,
     private router: Router,
     private activatedRouter: ActivatedRoute,
+    public usuariosService: UsuariosService
    
   ) {
     this.paginaActual = 1;
@@ -79,7 +81,9 @@ export class ListaQuesosComponent implements OnInit {
     this.arrProducto = await this.ProductosService.getAll(this.paginaActual);
   }
 
- RecFav(pProducto): void{
+  productoFav(pProducto): void{
+    
+
     this.ProductosService.editFav(pProducto.id)
       .then((response) => {
         if (response['error']) {
@@ -91,7 +95,7 @@ export class ListaQuesosComponent implements OnInit {
             imageHeight: 200,
             imageAlt: 'Custom image',
           })
-          pProducto.favorito = false
+          pProducto.favorito = true
         }
         else {
           Swal.fire({
@@ -111,34 +115,15 @@ export class ListaQuesosComponent implements OnInit {
   }
 
 
-  DeleteFav(pProducto): void {
-    this.ProductosService.deleteFav(pProducto.id)
-    .then((response) => {
-      if (response['error']) {
-        Swal.fire({
-          title: '!Ups...! ',
-          text: 'Este queso ya esta entre tus favoritos',
-          imageUrl: 'https://media.giphy.com/media/qCPxDmsoBuopO/giphy.gif',
-          imageWidth: 400,
-          imageHeight: 200,
-          imageAlt: 'Custom image',
-        })
-        pProducto.favorito = false
-      }
-      else {
-        Swal.fire({
-          title: '¡Genial!...',
-          text: ' has incluido este queso en tus favoritos',
-          imageUrl: 'https://media.giphy.com/media/97ZWlB7ENlalq/giphy.gif',
-          imageWidth: 400,
-          imageHeight: 200,
-          imageAlt: 'Custom image',
-        })
-     pProducto.favorito = false
-      }
-    })
-    .catch((error) => { console.log(error) })
+ 
   }
+  // obtenerImagen(): string{
+  //   if (this.arrProducto.imagen && this.usuario.imagen) {
+  //     return `url('${this.usuario.imagen}')`
+
+  //   } else {
+  //     return `url('../../../assets/img-defecto.png')`
+  //   }
 
   // loadPage(page: number) {
   //   if (page !== this.previousPage) {
@@ -146,4 +131,3 @@ export class ListaQuesosComponent implements OnInit {
   //     this.fillStudents(this.page-1);
   //   }
   // }
-}
