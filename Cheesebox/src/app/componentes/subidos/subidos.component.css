@@ -1,113 +1,144 @@
 *{
-    font-family: 'Montserrat', sans-serif;;
-  }
-  header{
-      margin: -2%;
-  }
-  .card{
-    margin: 7%;
-    border: none!important;
-    position: relative;
-    border-radius: 10px!important;
-    transition: all ease .5s;
-  
-    /* background-color: rgba(214, 214, 214, 0.459);
-    box-shadow: 5px 5px 25px rgb(255, 255, 255) inset;
-    border-radius: 10px!important;
-    box-shadow: 10px 10px 10px 2px rgb(213, 213, 213); */
-  
-  }
-  
-  
-  .card-img-overlay{
-    opacity: 0;
-    background: rgba(255,255,255,0.25);
-    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
-    backdrop-filter: blur(4.5px);
-    -webkit-backdrop-filter: blur(4.5px);
-    border-radius: 10px;
-    transition: all ease 0.5s;
-    height: 80%;
-    width: 100%;
-    position: absolute;
-    top: 10%;
-    cursor: pointer;
-  
-  }
-  .card-img-overlay:hover{
-   
-    opacity: 1;
-  }
-  .card:hover img{
+  font-family: 'Montserrat', sans-serif;;
+}
+.card{
+  margin: 7%;
+  border: none!important;
+  position: relative;
+  border-radius: 10px!important;
+  transition: all ease .5s;
 
-    transform: scale(1.2)
-  }
-  .card img{
-    transition: all ease 0.5s;
-    text-shadow:10px 10px 10px 2px rgb(213, 213, 213) ;
-  }
-  .card-img-overlay h5{
-    padding: 5%;
-  font-weight: 700;
-  font-size: 1.1em;
-  
-  }
-  .card-img-overlay p{
-  
-    padding: 5%;
-  }
-  .card .linea{
-    width: 25%;
-    height: 1px;
-    margin: -5px 10px;
-    border-bottom: 5px solid #ffd05e;
-  }
+  /* background-color: rgba(214, 214, 214, 0.459);
+  box-shadow: 5px 5px 25px rgb(255, 255, 255) inset;
+  border-radius: 10px!important;
+  box-shadow: 10px 10px 10px 2px rgb(213, 213, 213); */
+
+}
+
+.header{
+
+  justify-content:space-around;
+  align-items:baseline;
+
+}
+.stick{
+
+  margin: 3% auto!important;
+  justify-content:space-between;
+  align-items: center;
+  display: flex;
+}
 
 
-  .text{
-    overflow: hidden;
-    height: 80%;
-    width: 100%;
-  }
+.card-img-overlay{
+  padding: 5%;
+  opacity: 0;
+  background: rgba(255,255,255,0.25);
+  box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border-radius: 10px;
+  transition: all ease 0.5s;
+  height: 80%;
+  width: 100%;
+  position: absolute;
+  top: 10%;
+  cursor: pointer;
 
-  /* Botones */
-  .botonBack, .btn{
-    margin: 1%;
-    border: none;
-    color: #3b3d34!important;
-    transition: all ease .5s;
-    transform: rotateY(360deg)!important;
-    position: relative;
-    overflow: hidden; 
-    box-shadow: none!important;
-    outline: none!important;
+}
+.card-img-overlay:hover{
+ 
+  opacity: 1;
+}
+.card:hover img{
+
+  transform: scale(1.2)
+}
+.card img{
+  transition: all ease 0.5s;
+  text-shadow:10px 10px 10px 2px rgb(213, 213, 213) ;
+}
+.card-img-overlay h5{
+  padding: 5%;
+font-weight: 700;
+font-size: 1.1em;
+
+}
+.card-img-overlay p{
+
+  padding: 5%;
+}
+.card .linea{
+  width: 25%;
+  height: 1px;
+  margin: -5px 10px;
+  border-bottom: 5px solid #ffd05e;
+}
+.favoritos {
+  position: absolute;
+  top: -20%;
+  left: 85%;
+  transition: all ease 0.5s;
+  filter: none;
+  opacity: 0;
+  z-index: 10;
+}
+.card:hover .favoritos {
+  opacity: 1;
+  -moz-transform: translateY(125%);
+  -webkit-transform: translateY(125%);
+  -o-transform: translateY(125%);
+  -ms-transform: translateY(125%);
+  transform: translateY(125%);
+}
+.favoritos:hover {
+  
+  filter: invert(50%)brightness(1%) contrast(1%);
+} 
+.text{
+  overflow: hidden;
+  height: 80%;
+  width: 100%;
+}
+
+/* Botones */
+.botonBack, .btn{
+  margin: 1%;
+  border: none;
+  color: #3b3d34!important;
+  transition: all ease .5s;
+  transform: rotateY(360deg)!important;
+  position: relative;
+  overflow: hidden; 
+  box-shadow: none!important;
+  outline: none!important;
 
 }
 .editar:hover{
-    color: rgba(255, 255, 255, 0)!important;
+  color: rgba(255, 255, 255, 0)!important;
 }
 
 .botonBack:hover, .send:hover{
-    background-color: #3b3d34!important;
-    color: #ffcf5e00;
-    text-decoration: underline;
-    transition: all ease .5s;
+  background-color: #3b3d34!important;
+  color: #ffcf5e00;
+  text-decoration: underline;
+  transition: all ease .5s;
 }
 .edit{
-    position: absolute;
-    background-image: url('../../../assets/img/edit.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 20%;
-    height: 65px;
-    width: 100%;
-    top: -40%;
-    right: -75%;
-    transition: all ease .5s;
- }
+  position: absolute;
+  background-image: url('../../../assets/img/edit.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+  height: 65px;
+  width: 100%;
+  top: -40%;
+  right: -75%;
+  transition: all ease .5s;
+}
 
- .btn:hover .edit, .botonBack:hover .back{
-    transition: transform 0.5s;
+.btn:hover .edit, .botonBack:hover .back{
+  transition: transform 0.5s;
 -moz-transform: scale(1.1) translateX(-60%);
 -webkit-transform: scale(1.1) translateX(-60%);
 -o-transform: scale(1.1) translateX(-60%);
@@ -115,19 +146,31 @@
 transform: scale(1.1) translateX(-60%);
 } 
 .back{
-    position: absolute;
-    background-image: url('../../../assets/img/arrow.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
-    height: 65px;
-    width: 100%;
-    top: -40%;
-    right: -75%;
-    transition: all ease .5s;
- }
- .edicion:hover{text-decoration: underline;
- }
+  position: absolute;
+  background-image: url('../../../assets/img/arrow.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  height: 65px;
+  width: 100%;
+  top: -40%;
+  right: -75%;
+  transition: all ease .5s;
+}
+.edicion:hover{text-decoration: underline;
+}
 .eliminar:hover{
-  text-decoration:line-through ;
-} 
+text-decoration:line-through ;
+}
+.form-check-input:checked {
+background-color: #ffd05e;
+border-color: #ffd05e;
+}
+.form-check-input:focus {
+border-color: none;
+
+box-shadow: none;
+}
+.form-switch .form-check-input:focus {
+filter: grayscale(1);
+}

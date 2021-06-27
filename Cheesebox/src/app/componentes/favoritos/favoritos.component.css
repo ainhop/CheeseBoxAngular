@@ -17,6 +17,20 @@
   
   }
   
+  .header{
+
+    justify-content:space-around;
+    align-items:baseline;
+
+  }
+ .stick{
+  
+    margin: 3% auto!important;
+    justify-content:space-between;
+    align-items: center;
+    display: flex;
+  }
+
   
   .card-img-overlay{
     padding: 5%;
@@ -149,4 +163,16 @@ transform: scale(1.1) translateX(-60%);
  }
 .eliminar:hover{
   text-decoration:line-through ;
+}
+.form-check-input:checked {
+  background-color: #ffd05e;
+  border-color: #ffd05e;
+}
+.form-check-input:focus {
+  border-color: none;
+
+  box-shadow: none;
+}
+.form-switch .form-check-input:focus {
+  filter: grayscale(1);
 }
