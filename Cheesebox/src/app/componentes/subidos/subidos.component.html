@@ -1,5 +1,4 @@
 <header>
-<<<<<<< HEAD
   <div class="stick">
     <div style="width: 30%;">
       <button class="btn editar" (click)="show=!show">
@@ -22,21 +21,10 @@
 
 </header>
 
-=======
-  <button class="btn editar" (click)="show = !show">
-    <span class="edit"></span> Edita tus Favoritos
-  </button>
-  /
-  <button class="btn" (click)="showCheese = !showCheese">Quesos</button>
-  <button class="btn" (click)="showReceta = !showReceta">Recetas</button>
-  <!-- <button  class="btn" (click)="showReceta ? showReceta : !showCheese" > Recetas</button>-->
-</header>
->>>>>>> develop
 <div class="container" *ngIf="showCheese">
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let quesoFav of arrQuesoFav">
       <div class="card">
-<<<<<<< HEAD
         <img [src]="quesoFav.imagen" class="card-img" alt="...">
         <div class="card-img-overlay">
           <h5 class="card-title">{{quesoFav.nombre}}</h5>
@@ -46,62 +34,11 @@
         </div>
         <div class="editarCampos" *ngIf="!show">
           <button class="btn eliminar" (click)="DeleteProducto(quesoFav.fk_productos)">Eliminar de favoritos</button>
-=======
-        <img
-          src="../../../assets/img/mozzarella.png"
-          class="card-img"
-          alt="..."
-        />
-        <!-- <img [src]="producto.imagen" class="card-img" alt="...">-->
-        <div class="card-img-overlay">
-          <h5 class="card-title">{{ quesoFav.nombre }}</h5>
-          <div class="linea"></div>
-          <p class="card-text">
-            <strong>Origen:</strong> {{ quesoFav.origen }}
-          </p>
-        </div>
-        <div class="editarCampos" *ngIf="!show">
-          <button class="btn eliminar" (click)="DeleteProducto(quesoFav.id)">
-            Quitar de favoritos
-          </button>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="container" *ngIf="showReceta">
-  <div class="row">
-    <div
-      class="col-12 col-sm-6 col-md-4"
-      *ngFor="let recetaFav of arrRecetaFav"
-    >
-      <div class="card">
-        <div class="card">
-          <img
-            src="../../assets/img/revueltos_espinacas_parmesano.jpg"
-            class="card-img"
-            alt="..."
-          />
-          <div class="card-img-overlay">
-            <div class="text">
-              <h5 class="card-title">{{ recetaFav.nombre }}</h5>
-              <div class="linea"></div>
-              <p class="card-text">Raciones: {{ recetaFav.raciones }}</p>
-            </div>
-          </div>
-          <div class="editarCampos" *ngIf="!show">
-            <br />
-            <button class="btn eliminar" (click)="deleteReceta(recetaFav)">
-              Quitar de favoritos
-            </button>
-          </div>
->>>>>>> develop
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<<<<<<< HEAD
 <div class="container" *ngIf="showReceta">
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let recetaFav of arrRecetaFav">
@@ -127,5 +64,3 @@
           Aún no tienes ningun favorito
         </h2>
       </div>
-=======
->>>>>>> develop
