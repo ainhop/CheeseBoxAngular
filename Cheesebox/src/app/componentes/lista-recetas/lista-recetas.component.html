@@ -4,14 +4,11 @@
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let receta of arrRecetas">
       <div class="card">
         <div class="card" >
-          <img
-            src="../../assets/img/revueltos_espinacas_parmesano.jpg"
-            class="card-img"
-            alt="..."
-          />
+          <img [src]="receta.imagen" class="card-img">
           <div class="card-img-overlay" >
             <span class="favoritos" (click)="recetaFav(receta)" [ngClass]="{'activo': receta.favorito , 'desactivo' : !receta.favorito }"
-              ><img width="80%" src="../../../assets/img/confirmado.svg"
+            *ngIf="usuariosService.islogged()" 
+            ><img width="80%" src="../../../assets/img/confirmado.svg"
              
             /></span>
             <div class="text" (click)="goToDetails(receta)">

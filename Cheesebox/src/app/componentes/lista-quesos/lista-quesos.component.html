@@ -2,12 +2,11 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let producto of arrProducto">
-      <div class="card" >
-        <img src="../../../assets/img/mozzarella.png" class="card-img" alt="..." />
-        
-         <!--<img [src]="producto.imagen" class="card-img" alt="...">-->
+      <div class="card" >    
+
+         <img [src]="producto.imagen" class="card-img imagenLista">
         <div class="card-img-overlay" >
-          <span class="favoritos"(click)="productoFav(producto)" [ngClass]="{'activo': producto.favorito , 'desactivo' : !producto.favorito }"><img width="80%" src="../../../assets/img/confirmado.svg"/></span>
+          <span class="favoritos"(click)="productoFav(producto)" [ngClass]="{'activo': producto.favorito , 'desactivo' : !producto.favorito }" *ngIf="usuariosService.islogged()"><img width="80%" src="../../../assets/img/confirmado.svg"/></span>
           <h5 class="card-title" (click)="goToDetails(producto)">{{ producto.nombre }}</h5>
           <div class="linea"(click)="goToDetails(producto)"></div>
           <p class="card-text"(click)="goToDetails(producto)">
