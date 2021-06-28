@@ -15,10 +15,10 @@ declare var Swal;
 })
 export class SubidosComponent implements OnInit {
   public paginaActual: number;
-  arrQuesoFav: Producto[];
-  arrRecetaFav: Receta[];
+  arrQuesoUp: Producto[];
+  arrRecetaUp: Receta[];
   Producto: Producto;
-  // Pendiente preguntar (estabamos utilizando ArrayQuesoFav)
+
   show: boolean = true;
   showCheese: boolean = true;
   showReceta: boolean = true;
@@ -32,26 +32,26 @@ export class SubidosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.ProductosService.getFavAll(this.paginaActual)
+    this.ProductosService.showEdit(this.paginaActual)
     .then((response) => {
       console.log(response)
-      this.arrQuesoFav = response;
+      this.arrQuesoUp = response;
 
     })
       .catch((error) => console.log(error));
     
-      this.RecetaService.getFavAll(this.paginaActual)
+      this.RecetaService.showEdit(this.paginaActual)
       .then((response) => {
-        console.log(response)
-        this.arrRecetaFav = response;
+
+        this.arrRecetaUp = response;
   
       })
       .catch((error) => console.log(error));
 
   }
 
-  goToEdit(item: any): void {
-    this.router.navigate(['editarQueso', item.id]);
+  goToEdit(Producto): void {
+    this.router.navigate(['editarQueso/:',Producto]);
   }
 
 

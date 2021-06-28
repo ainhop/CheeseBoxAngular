@@ -31,7 +31,7 @@ export class ListaQuesosComponent implements OnInit {
   ngOnInit(): void {
     this.ProductosService.getAll(this.paginaActual)
       .then((response) => {
-        console.log(response);
+
         this.arrProducto = response;
         this.limitePaginas = response.length;
       })
@@ -63,14 +63,6 @@ export class ListaQuesosComponent implements OnInit {
   }
   filtroValor = '';
 
-  // async onClick(siguiente: boolean) {
-  //   if (siguiente) {
-  //     this.paginaActual++;
-  //   } else {
-  //     this.paginaActual--;
-  //   }
-  //   this.arrProducto = await this.ProductosService.getAll(this.paginaActual);
-  // }
 
   productoFav(pProducto): void {
     this.ProductosService.editFav(pProducto.id)
@@ -102,17 +94,3 @@ export class ListaQuesosComponent implements OnInit {
       });
   }
 }
-// obtenerImagen(): string{
-//   if (this.arrProducto.imagen && this.usuario.imagen) {
-//     return `url('${this.usuario.imagen}')`
-
-//   } else {
-//     return `url('../../../assets/img-defecto.png')`
-//   }
-
-// loadPage(page: number) {
-//   if (page !== this.previousPage) {
-//     this.previousPage = page;
-//     this.fillStudents(this.page-1);
-//   }
-// }

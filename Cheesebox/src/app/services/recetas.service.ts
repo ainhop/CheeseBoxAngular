@@ -124,7 +124,7 @@ export class RecetasService {
     return this.httpClient.get(`${this.baseUrl}recetas/info/pag`).toPromise();
   }
 
-  showEdit(pId): Promise<Receta[]> {
+  showEdit(pPag: any): Promise<Receta[]> {
     const httpOpciones = {
       headers: new HttpHeaders({
         authorization: localStorage.getItem('token'),
@@ -132,7 +132,8 @@ export class RecetasService {
     };
 
     return this.httpClient
-      .get<Receta[]>(`${this.baseUrl}recetas/show/${pId}`, httpOpciones)
+      .get<Receta[]>(`${this.baseUrl}recetas/show/create`, httpOpciones)
       .toPromise();
   }
+
 }

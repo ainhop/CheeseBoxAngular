@@ -2,7 +2,7 @@
   <div class="stick">
     <div style="width: 30%;">
       <button class="btn editar" (click)="show=!show">
-        <span class="edit"></span> Editar tus Favoritos
+        <span class="edit"></span> Edita tus contribuciones
       </button>
     </div>
     <div>
@@ -23,17 +23,18 @@
 
 <div class="container" *ngIf="showCheese">
   <div class="row">
-    <div class="col-12 col-sm-6 col-md-4" *ngFor="let quesoFav of arrQuesoFav">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let quesoUp of arrQuesoUp">
       <div class="card">
-        <img [src]="quesoFav.imagen" class="card-img" alt="...">
+        <img [src]="quesoUp.imagen" class="card-img" alt="...">
         <div class="card-img-overlay">
-          <h5 class="card-title">{{quesoFav.nombre}}</h5>
+          <h5 class="card-title">{{quesoUp.nombre}}</h5>
           <div class="linea"></div>
-          <p class="card-text"><strong>Origen:</strong> {{quesoFav.origen}}</p>
+          <p class="card-text"><strong>Origen:</strong> {{quesoUp.origen}}</p>
 
         </div>
         <div class="editarCampos" *ngIf="!show">
-          <button class="btn eliminar" (click)="DeleteProducto(quesoFav.fk_productos)">Eliminar de favoritos</button>
+          <button class="btn eliminar" (click)="DeleteProducto(quesoUp.fk_productos)">Elimina</button>
+          <button class="btn eliminar" (click)="goToEdit(quesoUp)">Edita</button>
         </div>
       </div>
     </div>
@@ -41,25 +42,26 @@
 </div>
 <div class="container" *ngIf="showReceta">
   <div class="row">
-    <div class="col-12 col-sm-6 col-md-4" *ngFor="let recetaFav of arrRecetaFav">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let recetaUp of arrRecetaUp">
       <div class="card">
         <div class="card">
-          <img [src]="recetaFav.imagen" class="card-img" alt="...">
+          <img [src]="recetaUp.imagen" class="card-img" alt="...">
           <div class="card-img-overlay">
             <div class="text">
-              <h5 class="card-title">{{ recetaFav.nombre }}</h5>
+              <h5 class="card-title">{{ recetaUp.nombre }}</h5>
               <div class="linea"></div>
-              <p class="card-text">Raciones: {{ recetaFav.raciones }}</p>
+              <p class="card-text">Raciones: {{ recetaUp.raciones }}</p>
             </div>
           </div>
           <div class="editarCampos" *ngIf="!show">
             <br>
-            <button class="btn eliminar" (click)="deleteReceta(recetaFav.fk_recetas)">Eliminar de favoritos</button>
+            <button class="btn eliminar" (click)="deleteReceta(recetaUp.fk_recetas)">Elimina</button>
+            <button class="btn eliminar" (click)="goToEdit(recetaUp.fk_recetas)">Edita </button>
           </div>
         </div>
       </div>
 
-      <div class="error" *ngIf="arrQuesoFav.length === 0 && arrRecetaFav.length === 0 ">
+      <div class="error" *ngIf="arrQuesoUp.length === 0 && arrRecetaUp.length === 0 ">
         <h2>
           Aún no tienes ningun favorito
         </h2>

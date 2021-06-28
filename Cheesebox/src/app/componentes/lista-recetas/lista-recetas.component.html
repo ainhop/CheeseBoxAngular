@@ -36,7 +36,7 @@
     <ul class="pagination">
       <li
         class="page-item"
-        [disabled]="arrRecetas.length === 6"
+        [disabled]="paginaActual === 1"
         (click)="onClickBtn(false)"
       >
         <img width="70%" src="../../../assets/left.png" alt="" />
@@ -44,7 +44,7 @@
       <li
         class="page-item"
         (click)="onClickBtn(true)"
-        [disabled]="paginaActual >= limitePaginas"
+        [disabled]="paginaActual === limitePaginas"
       >
         <img width="70%" src="../../../assets/right.png" alt="" />
       </li>

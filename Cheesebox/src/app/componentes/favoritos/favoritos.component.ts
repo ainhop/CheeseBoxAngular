@@ -49,11 +49,6 @@ export class FavoritosComponent implements OnInit {
  
   }
 
-  goToEdit(item: any): void {
-    this.router.navigate(['editarQueso', item.id]);
-  }
-
-
 
   DeleteProducto(pProducto): void {
     console.log(pProducto)

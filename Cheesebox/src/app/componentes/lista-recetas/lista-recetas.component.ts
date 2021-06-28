@@ -32,7 +32,6 @@ export class ListaRecetasComponent implements OnInit {
       .then((response) => {
         this.arrRecetas = response;
         this.limitePaginas = response.length;
-        console.log(response);
       })
       .catch((error) => console.log(error));
   }
@@ -61,14 +60,6 @@ export class ListaRecetasComponent implements OnInit {
   }
   filtroValor = '';
 
-  // async onClick(siguiente: boolean) {
-  //   if (siguiente) {
-  //     this.paginaActual++;
-  //   } else {
-  //     this.paginaActual--;
-  //   }
-  //   this.arrRecetas = await this.RecetasService.getAll(this.paginaActual);
-  // }
   recetaFav(pReceta): void {
     this.RecetasService.editFav(pReceta.id)
       .then((response) => {
