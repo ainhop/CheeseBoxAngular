@@ -118,7 +118,7 @@ export class ProductosService {
     return this.httpClient.get(`${this.baseUrl}productos/info/pag`).toPromise();
   }
 
-  showEdit(pId): Promise<Producto[]> {
+  showEdit(pPag: any): Promise<Producto[]> {
     const httpOpciones = {
       headers: new HttpHeaders({
         authorization: localStorage.getItem('token'),
@@ -126,7 +126,7 @@ export class ProductosService {
     };
 
     return this.httpClient
-      .get<Producto[]>(`${this.baseUrl}productos/show/${pId}`, httpOpciones)
+      .get<Producto[]>(`${this.baseUrl}productos/show/create`, httpOpciones)
       .toPromise();
   }
 }
