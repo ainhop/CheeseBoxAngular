@@ -13,12 +13,16 @@ import { FormularioRegistroComponent } from './componentes/formulario-registro/f
 import { ListaQuesosComponent } from './componentes/lista-quesos/lista-quesos.component';
 import { ListaRecetasComponent } from './componentes/lista-recetas/lista-recetas.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { EditarRecetasComponent } from './componentes/editar-recetas/editar-recetas.component';
+
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: ListaQuesosComponent },
   { path: 'registrar', component: FormularioRegistroComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'clientes', component: AreaClientesComponent },
+  {
+    path: 'clientes', component: AreaClientesComponent},
   { path: 'quesos', component: ListaQuesosComponent },
   { path: 'recetas', component: ListaRecetasComponent },
   { path: 'update/quesos', component: FormularioAddQuesoComponent },
@@ -27,6 +31,7 @@ const routes: Routes = [
   { path: 'recetas/:id', component: DetalleRecetasComponent },
   { path: 'editarQueso/:idQueso', component: EditarQuesoComponent },
   { path: 'editarDatos/:idUser', component: EditarDatosComponent },
+  { path: 'editarReceta/:idReceta', component: EditarRecetasComponent },
   { path: 'favoritos', component: FavoritosComponent },
   { path: '**', redirectTo: '/' },
 ];

@@ -10,6 +10,7 @@ import { RecetasService } from 'src/app/services/recetas.service';
 })
 export class EditarRecetasComponent implements OnInit {
   formulario: FormGroup;
+  form: any[];
   files;
   receta: any;
   constructor(
@@ -21,8 +22,9 @@ export class EditarRecetasComponent implements OnInit {
   ngOnInit(): void {
     let sub = this.activateRoute.params.subscribe(async (params: Params) => {
       let idReceta = params['idReceta'];
+      console.log(idReceta)
       this.receta = await this.recetaService.getById(idReceta);
-
+      console.log(this.receta)
       this.formulario = new FormGroup({
         imagen: new FormControl(this.receta.imagen, []),
         nombre: new FormControl(this.receta.nombre, [
@@ -51,13 +53,14 @@ export class EditarRecetasComponent implements OnInit {
         ]),
       });
     });
+  
   }
 
   async onSubmit() {
     this.activateRoute.params.subscribe(async (params: Params) => {
-      let IdQueso = params['idQueso'];
-      this.receta = await this.recetaService.getById(IdQueso);
-      let fd = new FormData();
+      const idReceta = params['idReceta'];
+      this.receta = await this.recetaService.getById(idReceta);
+      const fd = new FormData();
       fd.append('imagen', this.files[0]);
       fd.append('nombre', this.formulario.value.nombre);
       fd.append('quesoUtilizado', this.formulario.value.quesoUtilizado);
@@ -66,7 +69,7 @@ export class EditarRecetasComponent implements OnInit {
       fd.append('raciones', this.formulario.value.raciones);
       fd.append('elaboracion', this.formulario.value.elaboracion);
 
-      const response = await this.recetaService.update(IdQueso, fd);
+      const response = await this.recetaService.update(idReceta, fd);
       if (response['affectedRows'] === 1) {
         this.router.navigate(['/clientes']);
       }

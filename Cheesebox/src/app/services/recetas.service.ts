@@ -46,9 +46,20 @@ export class RecetasService {
       .toPromise();
   }
 
+  // getById(pId): Promise<Receta> {
+  //   return this.httpClient
+  //     .get<Receta>(`${this.baseUrl}recetas/${pId}`)
+  //     .toPromise();
+  // }
+
   getById(pId): Promise<Receta> {
+    const httpOpciones = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('token'),
+      }),
+    };
     return this.httpClient
-      .get<Receta>(`${this.baseUrl}recetas/${pId}`)
+      .get<Receta> (`${this.baseUrl}recetas/${pId}`, httpOpciones)
       .toPromise();
   }
 
