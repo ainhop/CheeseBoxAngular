@@ -24,8 +24,9 @@ export class EditarDatosComponent implements OnInit {
 
   ngOnInit(): void {
     let sub = this.activatedRoute.params.subscribe(async (params: Params) => {
-      // let IdUsuario = params['idUsuario'];
+      let IdUsuario = params['idUsuario'];
       this.usuario = await this.usuariosService.getById();
+      console.log(this.usuario)
 
       this.formulario = new FormGroup({
         nombre: new FormControl(this.usuario.nombre, [ Validators.required,
@@ -35,10 +36,10 @@ export class EditarDatosComponent implements OnInit {
         username: new FormControl(this.usuario.username, [ Validators.required,
           Validators.minLength(3)]),
         email: new FormControl(this.usuario.email, [ Validators.pattern(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/),]),
-        password: new FormControl(this.usuario.password, [Validators.pattern(
+        password: new FormControl('', [Validators.pattern(
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
         )]),
-        imagen: new FormControl(this.usuario.imagen, []),
+        imagen: new FormControl('', []),
       });
     });
    
@@ -68,7 +69,7 @@ export class EditarDatosComponent implements OnInit {
     fd.append('username', this.formulario.value.username);
     fd.append('email', this.formulario.value.email);
     fd.append('password', this.formulario.value.password);
-    const response = await this.usuariosService.create(fd);
+    const response = await this.usuariosService.update(this.usuario.id,fd);
     if (response['affectedRows'] === 1) {
       this.router.navigate(['/clientes']);
     }

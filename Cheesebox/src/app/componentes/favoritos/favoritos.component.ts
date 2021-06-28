@@ -53,7 +53,8 @@ export class FavoritosComponent implements OnInit {
   DeleteProducto(pProducto): void {
     console.log(pProducto)
     const pId = this.ProductosService.deleteFav(pProducto)
-    .then((response) => {
+      .then((response) => {
+      console.log(response)
       if (response['error']) {
         console.log('error')
       }
@@ -62,12 +63,19 @@ export class FavoritosComponent implements OnInit {
       Swal.fire({
         title: '¡Ups!...',
         text: ' Has eliminado este queso de tus favoritos',
-        imageUrl: 'https://media.giphy.com/media/97ZWlB7ENlalq/giphy.gif',
+        imageUrl: 'https://media.giphy.com/media/11l0EFkWYWrSKY/giphy.gif',
         imageWidth: 400,
         imageHeight: 200,
         imageAlt: 'Custom image',
       })
-   pProducto.favorito = false
+      this.ProductosService.getFavAll(this.arrQuesoFav)
+      .then((response) => {
+        console.log(response)
+        this.arrQuesoFav = response;
+  
+      })
+        .catch((error) => console.log(error));
+      
     }
   })
   .catch((error) => { console.log(error) })
@@ -75,7 +83,7 @@ export class FavoritosComponent implements OnInit {
 }
 
 deleteReceta(pReceta): void {
-  this.RecetaService.deleteFav(pReceta.id)
+  this.RecetaService.deleteFav(pReceta)
 .then((response) => {
   if (response['error']) {
   console.log('error')
@@ -84,12 +92,18 @@ deleteReceta(pReceta): void {
     Swal.fire({
       title: '¡Ups!...',
       text: ' Has eliminado este queso de tus favoritos',
-      imageUrl: 'https://media.giphy.com/media/97ZWlB7ENlalq/giphy.gif',
+      imageUrl: 'https://media.giphy.com/media/11l0EFkWYWrSKY/giphy.gif',
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: 'Custom image',
     })
-    pReceta.favorito = false
+    this.RecetaService.getFavAll(this.paginaActual)
+    .then((response) => {
+      console.log(response)
+      this.arrRecetaFav = response;
+
+    })
+    .catch((error) => console.log(error));
   
   }
 })

@@ -25,6 +25,7 @@ import { SubidosComponent } from './componentes/subidos/subidos.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { SubidosComponent } from './componentes/subidos/subidos.component';
     EditarDatosComponent,
     EditarRecetasComponent,
     SubidosComponent,
+
     
  
   ],

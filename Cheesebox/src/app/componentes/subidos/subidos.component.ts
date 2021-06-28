@@ -18,6 +18,7 @@ export class SubidosComponent implements OnInit {
   arrQuesoUp: Producto[];
   arrRecetaUp: Receta[];
   Producto: Producto;
+  Receta: Receta;
 
   show: boolean = true;
   showCheese: boolean = true;
@@ -50,8 +51,13 @@ export class SubidosComponent implements OnInit {
 
   }
 
-  goToEdit(Producto): void {
-    this.router.navigate(['editarQueso/:',Producto]);
+  goToEditProductos(Producto): void {
+    this.router.navigate(['editarQueso/',Producto.id]);
+  }
+
+  goToEditRecetas(Receta): void {
+    this.router.navigate(['editarReceta/',Receta.id]);
+    console.log(Receta.id)
   }
 
 
@@ -66,12 +72,18 @@ export class SubidosComponent implements OnInit {
       Swal.fire({
         title: '¡Ups!...',
         text: ' Has eliminado este queso de tus favoritos',
-        imageUrl: 'https://media.giphy.com/media/97ZWlB7ENlalq/giphy.gif',
+        imageUrl: 'https://media.giphy.com/media/11l0EFkWYWrSKY/giphy.gif',
         imageWidth: 400,
         imageHeight: 200,
         imageAlt: 'Custom image',
       })
-   pProducto.favorito = false
+      this.ProductosService.showEdit(this.paginaActual)
+      .then((response) => {
+        console.log(response)
+        this.arrQuesoUp = response;
+  
+      })
+        .catch((error) => console.log(error));
     }
   })
   .catch((error) => { console.log(error) })
@@ -87,13 +99,19 @@ deleteReceta(pReceta): void {
   else {
     Swal.fire({
       title: '¡Ups!...',
-      text: ' Has eliminado este queso de tus favoritos',
-      imageUrl: 'https://media.giphy.com/media/97ZWlB7ENlalq/giphy.gif',
+      text: ' Has eliminado tu receta',
+      imageUrl: 'https://media.giphy.com/media/11l0EFkWYWrSKY/giphy.gif',
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: 'Custom image',
     })
-    pReceta.favorito = false
+    this.RecetaService.showEdit(this.paginaActual)
+      .then((response) => {
+
+        this.arrRecetaUp = response;
+  
+      })
+      .catch((error) => console.log(error));
   
   }
 })

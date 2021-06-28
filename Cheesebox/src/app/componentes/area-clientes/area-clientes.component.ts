@@ -22,23 +22,13 @@ export class AreaClientesComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     
-    // const id = this.activatedRouter.snapshot.paramMap.get('id');
     const usuario = await this.usuariosService.getById();
     this.usuario = usuario;
-    console.log(this.usuario)
-    this.usuariosService.getById()
-    .then((response) => {
-      this.usuario = response
-     
-    })
-    .catch((error) => console.log(error));
-  }
-
    
-      goToEdit(usuario:any): void  {
-        this.router.navigate(['editarDatos/:',usuario] )
-      }
-    
+  }
+  goToEdit(usuario:any): void  {
+    this.router.navigate(['editarDatos/',usuario.id] )
+  }
         obtenerImagen(): string{
           if (this.usuario && this.usuario.imagen) {
             return `url('${this.usuario.imagen}')`

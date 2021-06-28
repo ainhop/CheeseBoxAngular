@@ -34,7 +34,7 @@
         </div>
         <div class="editarCampos" *ngIf="!show">
           <button class="btn eliminar" (click)="DeleteProducto(quesoUp.fk_productos)">Elimina</button>
-          <button class="btn eliminar" (click)="goToEdit(quesoUp)">Edita</button>
+          <button class="btn eliminar" (click)="goToEditProductos(quesoUp)">Edita</button>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
           <div class="editarCampos" *ngIf="!show">
             <br>
             <button class="btn eliminar" (click)="deleteReceta(recetaUp.fk_recetas)">Elimina</button>
-            <button class="btn eliminar" (click)="goToEdit(recetaUp.fk_recetas)">Edita </button>
+            <button class="btn eliminar" (click)="goToEditRecetas(recetaUp)">Edita </button>
           </div>
         </div>
       </div>
@@ -66,3 +66,6 @@
           Aún no tienes ningun favorito
         </h2>
       </div>
+    </div>
+  </div>
+</div>

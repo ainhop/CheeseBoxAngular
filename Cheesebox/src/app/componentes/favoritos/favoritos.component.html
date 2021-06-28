@@ -35,13 +35,10 @@
           </p>
         </div>
         <div class="editarCampos" *ngIf="!show">
-          <button
-            class="btn eliminar"
-            (click)="DeleteProducto(quesoFav.fk_productos)"
-          >
+          <button class="btn eliminar" (click)="DeleteProducto(quesoFav.fk_productos)">
             Quita tu favorito
           </button>
-          
+
         </div>
       </div>
     </div>
@@ -49,10 +46,7 @@
 </div>
 <div class="container" *ngIf="showReceta">
   <div class="row">
-    <div
-      class="col-12 col-sm-6 col-md-4"
-      *ngFor="let recetaFav of arrRecetaFav"
-    >
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let recetaFav of arrRecetaFav">
       <div class="card">
         <div class="card">
           <img [src]="recetaFav.imagen" class="card-img" alt="..." />
@@ -65,20 +59,14 @@
           </div>
           <div class="editarCampos" *ngIf="!show">
             <br />
-            <button
-              class="btn eliminar"
-              (click)="deleteReceta(recetaFav.fk_recetas)"
-            >
+            <button class="btn eliminar" (click)="deleteReceta(recetaFav.fk_recetas)">
               Quitar favorito
             </button>
           </div>
         </div>
       </div>
 
-      <div
-        class="error"
-        *ngIf="arrQuesoFav.length === 0 && arrRecetaFav.length === 0"
-      >
+      <div class="error" *ngIf="arrQuesoFav.length === 0 && arrRecetaFav.length === 0">
         <h2>Todavía no tienes ningún favorito</h2>
       </div>
     </div>

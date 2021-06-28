@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Producto } from 'src/app/interfaces/productos.interfaces';
 import { ProductosService } from 'src/app/services/productos.service';
 
 declare var Swal;
@@ -12,6 +11,7 @@ declare var Swal;
 })
 export class EditarQuesoComponent implements OnInit {
   formulario: FormGroup;
+  form: any[];
   files;
   producto: any;
 
@@ -25,7 +25,7 @@ export class EditarQuesoComponent implements OnInit {
     let sub = this.activatedRoute.params.subscribe(async (params: Params) => {
       let IdQueso = params['idQueso'];
       this.producto = await this.ProductosService.getById(IdQueso);
-
+    
       this.formulario = new FormGroup({
         imagen: new FormControl(this.producto.imagen, []),
         nombre: new FormControl(this.producto.nombre, [
@@ -54,13 +54,15 @@ export class EditarQuesoComponent implements OnInit {
         ]),
       });
     });
+
+    console.log(sub)
   }
 
   async onSubmit() {
     this.activatedRoute.params.subscribe(async (params: Params) => {
-      let IdQueso = params['idQueso'];
+      const IdQueso = params['idQueso'];
       this.producto = await this.ProductosService.getById(IdQueso);
-      let fd = new FormData();
+      const fd = new FormData();
       fd.append('imagen', this.files[0]);
       fd.append('nombre', this.formulario.value.nombre);
       fd.append('descripcion', this.formulario.value.descripcion);

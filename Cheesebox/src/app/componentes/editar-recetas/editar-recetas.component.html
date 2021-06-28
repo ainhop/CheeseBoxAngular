@@ -3,11 +3,12 @@
 </button>
 
 <section>
-  <h2>Edita tu queso</h2>
+  <h2>Sube tu receta</h2>
   <hr />
   <div class="row">
     <div class="col-12">
       <form
+     *ngIf="formulario"
         method="POST"
         enctype="multipart/form-data"
         [formGroup]="formulario"
@@ -17,11 +18,12 @@
           <label for="" class="ms-2 textForm">Nombre</label>
           <input
             type="text"
-            class="form-control"
             id="nombre"
             formControlName="nombre"
+            class="form-control"
           />
         </div>
+
         <div
           class="error"
           *ngIf="
@@ -30,7 +32,7 @@
           "
         >
           <div class="alert alert-dismissible fade show mt-3" role="alert">
-            El campo es requerido
+            El campo es obligatorio
             <button
               type="button"
               class="btn-close"
@@ -39,66 +41,35 @@
             ></button>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="" class="ms-2 textForm">Descripción</label>
-          <input
-            type="textarea"
-            class="form-control"
-            id="descripcion"
-            formControlName="descripcion"
-          />
-          <div
-            class="error"
-            *ngIf="
-              !formulario.controls.descripcion.pristine &&
-              objectLength(formulario.controls.descripcion.errors) > 0
-            "
-          >
-            <div class="alert alert-dismissible fade show mt-3" role="alert">
-              El campo es requerido
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="alert"
-                aria-label="Close"
-              ></button>
-            </div>
-          </div>
-        </div>
         <div class="formDoble">
           <div class="mb-3 col-6">
-            <label for="" class="ms-2 textForm">Tipo de Leche</label>
-            <select
-              class="form-select"
-              aria-label="Tipo de leche"
-              formControlName="tipoLeche"
-            >
-              <!-- <option selected>Tipo de leche</option> -->
-              <option value="vaca">Vaca</option>
-              <option value="oveja">Oveja</option>
-              <option value="Cabra">Cabra</option>
-              <option value="Tres leches">Tres leches</option>
-            </select>
-          </div>
-          <div class="mb-3 ms-2 col-6">
-            <label for="" class="ms-2 textForm">Origen</label>
+            <label for="" class="ms-2 textForm">Queso utilizado</label>
             <input
               type="text"
+              id="quesoUtilizado"
               class="form-control"
-              id="origen"
-              formControlName="origen"
+              formControlName="quesoUtilizado"
+            />
+          </div>
+          <div class="mb-3 ms-2 col-6">
+            <label for="" class="ms-2 textForm">Tiempo</label>
+            <input
+              type="time"
+              id="tiempo"
+              class="form-control"
+              formControlName="tiempo"
             />
           </div>
         </div>
         <div
           class="error"
           *ngIf="
-            !formulario.controls.tipoLeche.pristine &&
-            objectLength(formulario.controls.tipoLeche.errors) > 0
+            !formulario.controls.quesoUtilizado.pristine &&
+            objectLength(formulario.controls.quesoUtilizado.errors) > 0
           "
         >
           <div class="alert alert-dismissible fade show mt-3" role="alert">
-            El campo es requerido
+            El campo es obligatorio
             <button
               type="button"
               class="btn-close"
@@ -110,12 +81,12 @@
         <div
           class="error"
           *ngIf="
-            !formulario.controls.origen.pristine &&
-            objectLength(formulario.controls.origen.errors) > 0
+            !formulario.controls.tiempo.pristine &&
+            objectLength(formulario.controls.tiempo.errors) > 0
           "
         >
           <div class="alert alert-dismissible fade show mt-3" role="alert">
-            El campo es requerido
+            El campo es obligatorio
             <button
               type="button"
               class="btn-close"
@@ -125,23 +96,23 @@
           </div>
         </div>
         <div class="mb-3">
-          <label for="" class="ms-2 textForm">Curiosidades</label>
+          <label for="" class="ms-2 textForm">Raciones</label>
           <input
-            type="text"
+            type="number"
+            id="raciones"
             class="form-control"
-            id="curiosidades"
-            formControlName="curiosidades"
+            formControlName="raciones"
           />
         </div>
         <div
           class="error"
           *ngIf="
-            !formulario.controls.curiosidades.pristine &&
-            objectLength(formulario.controls.curiosidades.errors) > 0
+            !formulario.controls.raciones.pristine &&
+            objectLength(formulario.controls.raciones.errors) > 0
           "
         >
           <div class="alert alert-dismissible fade show mt-3" role="alert">
-            El campo es requerido
+            El campo es obligatorio
             <button
               type="button"
               class="btn-close"
@@ -150,38 +121,72 @@
             ></button>
           </div>
         </div>
-
-        <div class="col-12">
-          <label for="" class="ms-2 textForm">Color</label>
+        <div class="mb-3">
+          <label for="" class="ms-2 textForm">Ingredientes</label>
           <input
-            type="text"
+            type="textarea"
+            id="ingredientes"
             class="form-control"
-            id="color"
-            formControlName="color"
+            formControlName="ingredientes"
           />
         </div>
-
         <div
           class="error"
           *ngIf="
-            !formulario.controls.color.pristine &&
-            objectLength(formulario.controls.color.errors) > 0
+            !formulario.controls.ingredientes.pristine &&
+            objectLength(formulario.controls.ingredientes.errors) > 0
           "
-        ></div>
-        <div class="col-12">
+        >
+          <div class="alert alert-dismissible fade show mt-3" role="alert">
+            El campo es obligatorio
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+        <label for="" class="ms-2 textForm">Elaboración</label>
+        <textarea
+          id="exampleFormControlTextarea1"
+          class="form-control"
+          formControlName="elaboracion"
+          rows="3"
+        ></textarea>
+        <div
+          class="error"
+          *ngIf="
+            !formulario.controls.elaboracion.pristine &&
+            objectLength(formulario.controls.elaboracion.errors) > 0
+          "
+        >
+          <div class="alert alert-dismissible fade show mt-3" role="alert">
+            El campo es obligatorio
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+        <div class="mb-3">
           <label for="" class="ms-2 textForm">Imagen</label>
           <input
             type="file"
-            class="form-control"
             id="imagen"
-            placeholder="imagen"
-            multiple
+            class="form-control"
             formControlName="imagen"
             (change)="onChange($event)"
+            multiple
           />
         </div>
+
         <button type="submit" class="btn mt-3 send col-12">Enviar</button>
       </form>
     </div>
   </div>
 </section>
+
+
