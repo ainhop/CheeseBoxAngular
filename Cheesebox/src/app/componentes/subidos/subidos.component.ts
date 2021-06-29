@@ -35,7 +35,7 @@ export class SubidosComponent implements OnInit {
 
     this.ProductosService.showEdit(this.paginaActual)
     .then((response) => {
-      console.log(response)
+     
       this.arrQuesoUp = response;
 
     })
@@ -62,8 +62,8 @@ export class SubidosComponent implements OnInit {
 
 
   DeleteProducto(pProducto): void {
-   const pId=  this.ProductosService.deleteFav(pProducto.id)
-
+    const pId = this.ProductosService.delete(pProducto.id)
+     
   .then((response) => {
     if (response['error']) {
     console.log('error')
@@ -91,9 +91,10 @@ export class SubidosComponent implements OnInit {
 }
 
 deleteReceta(pReceta): void {
-  this.RecetaService.deleteFav(pReceta.id)
-.then((response) => {
-  if (response['error']) {
+  this.RecetaService.delete(pReceta.id)
+  .then((response) => {
+
+    if (response['error']) {
   console.log('error')
   }
   else {
