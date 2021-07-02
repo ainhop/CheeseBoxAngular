@@ -17,7 +17,6 @@ export class FavoritosComponent implements OnInit {
   arrQuesoFav: Producto[];
   arrRecetaFav: Receta[];
   Producto: Producto;
-  // Pendiente preguntar (estabamos utilizando ArrayQuesoFav)
   show: boolean = true;
   showCheese: boolean = true;
   showReceta: boolean = true;

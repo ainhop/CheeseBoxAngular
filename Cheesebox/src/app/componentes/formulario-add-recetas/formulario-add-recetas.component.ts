@@ -65,6 +65,7 @@ export class FormularioAddRecetasComponent implements OnInit {
     fd.append('raciones', this.formulario.value.raciones);
     fd.append('ingredientes', this.formulario.value.ingredientes);
     fd.append('elaboracion', this.formulario.value.elaboracion);
+    console.log(fd)
     const response = await this.RecetasService.create(fd);
 
     Swal.fire({

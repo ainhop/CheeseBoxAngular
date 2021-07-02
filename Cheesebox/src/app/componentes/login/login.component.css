@@ -83,13 +83,57 @@ h5 a{
 }
 
 footer {
-    margin-top: 60%;
+    margin-top: 13em;
     text-align: center;
   
 }
 footer h3{
     font-size: .8em!important;
 }
+.logo{
+    width: 30px;
+    height: 30px;
+  background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 3%;
+  }
+  .logoIg{
+    transition: all ease 1s;
+    background-image: url(../../../assets/img/instagram-50.png);
+  }
+  .logoIg:hover{
+    background-image: url(../../../assets/img/instagram-50-hover.png);
+   
+  }
+  .logoTw{
+    transition: all ease 1s;
+    background-image: url(../../../assets/img/twitter-50.png);
+  }
+  .logoTw:hover{
+    background-image: url(../../../assets/img/twitter-50-hover.png);
+    
+  }
+  .logoFb{
+    transition: all ease 1s;
+    background-image: url(../../../assets/img/facebook-50.png);
+  }
+  .logoFb:hover{
+    background-image: url(../../../assets/img/facebook-50-hover.png);
+  
+  }
+  .logo img{
+    width: 60%;
+  
+  }
+  .rrss{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+
+
 @media screen and (min-width: 500px) {
 
     .footer {

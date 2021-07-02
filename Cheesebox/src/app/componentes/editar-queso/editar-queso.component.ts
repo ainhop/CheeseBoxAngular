@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
 
-declare var Swal;
+// declare var Swal;
 @Component({
   selector: 'app-editar-queso',
   templateUrl: './editar-queso.component.html',
@@ -12,7 +12,7 @@ declare var Swal;
 export class EditarQuesoComponent implements OnInit {
   formulario: FormGroup;
   form: any[];
-  files;
+  files: any;
   producto: any;
 
   constructor(
@@ -70,6 +70,7 @@ export class EditarQuesoComponent implements OnInit {
       fd.append('origen', this.formulario.value.origen);
       fd.append('curiosidades', this.formulario.value.curiosidades);
       fd.append('color', this.formulario.value.color);
+      console.log(fd)
       const response = await this.ProductosService.update(IdQueso, fd);
       if (response['affectedRows'] === 1) {
         this.router.navigate(['/clientes']);
@@ -77,17 +78,17 @@ export class EditarQuesoComponent implements OnInit {
     });
   }
 
-  onChange($event) {
+  onChange($event:any) {
     this.files = $event.target.files;
   }
-  objectLength(object): number {
+  objectLength(object:any): number {
     if (!object) {
       return 0;
     }
     return Object.keys(object).length;
   }
 
-  checkControl(controlName, validatorName) {
+  checkControl(controlName:any, validatorName:any) {
     return (
       this.formulario.get(controlName).hasError(validatorName) &&
       this.formulario.get(controlName).touched
