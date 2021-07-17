@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Usuario } from '../interfaces/usuarios.interfaces';
 
 @Injectable({
@@ -10,28 +11,31 @@ export class UsuariosService {
   token: string;
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = 'http://localhost:3000/usuarios';
+    this.baseUrl = environment.baseUrl;
   }
 
   registro(formValues: any) {
     return this.httpClient
-      .post(`${this.baseUrl}/registrar`, formValues)
+      .post(`${this.baseUrl}/usuarios/registrar`, formValues)
       .toPromise();
   }
 
   login(formValues: any) {
+    console.log(formValues);
     return this.httpClient
-      .post(`${this.baseUrl}/login`, formValues)
+      .post(`${this.baseUrl}/usuarios/login`, formValues)
       .toPromise();
   }
 
   create(fd: FormData) {
-    return this.httpClient.post(`${this.baseUrl}/create`, fd).toPromise();
+    return this.httpClient
+      .post(`${this.baseUrl}/usuarios/create`, fd)
+      .toPromise();
   }
 
   update(formValues: any, pId) {
     return this.httpClient
-      .put(`${this.baseUrl}/update${pId}`, formValues)
+      .put(`${this.baseUrl}/usuarios/update${pId}`, formValues)
       .toPromise();
   }
 
@@ -43,7 +47,7 @@ export class UsuariosService {
     };
 
     return this.httpClient
-      .get<Usuario>(`${this.baseUrl}/perfil`, httpOpciones)
+      .get<Usuario>(`${this.baseUrl}/usuarios/perfil`, httpOpciones)
       .toPromise();
   }
 
@@ -54,7 +58,7 @@ export class UsuariosService {
       }),
     };
     return this.httpClient
-      .delete<Usuario>(`${this.baseUrl}recetas/delete/${pId}`, httpOpciones)
+      .delete<Usuario>(`${this.baseUrl}/recetas/delete/${pId}`, httpOpciones)
       .toPromise();
   }
 

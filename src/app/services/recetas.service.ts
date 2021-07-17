@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 import { Receta } from '../interfaces/recetas.interfaces';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class RecetasService {
   private baseUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = 'http://localhost:3000/';
+    this.baseUrl = environment.baseUrl;
   }
 
   getAll(pPag: any): Promise<Receta[]> {
@@ -21,11 +22,11 @@ export class RecetasService {
         }),
       };
       return this.httpClient
-        .get<Receta[]>(`${this.baseUrl}recetas?page=${pPag}`, httpOpciones)
+        .get<Receta[]>(`${this.baseUrl}/recetas?page=${pPag}`, httpOpciones)
         .toPromise();
     } else {
       return this.httpClient
-        .get<Receta[]>(`${this.baseUrl}recetas?page=${pPag}`)
+        .get<Receta[]>(`${this.baseUrl}/recetas?page=${pPag}`)
         .toPromise();
     }
   }
@@ -37,19 +38,19 @@ export class RecetasService {
     };
 
     return this.httpClient
-      .post(`${this.baseUrl}recetas/create`, fd, httpOpciones)
+      .post(`${this.baseUrl}/recetas/create`, fd, httpOpciones)
       .toPromise();
   }
 
   getByItem(pValor): Promise<Receta[]> {
     return this.httpClient
-      .get<Receta[]>(`${this.baseUrl}recetas/search/${pValor}`)
+      .get<Receta[]>(`${this.baseUrl}/recetas/search/${pValor}`)
       .toPromise();
   }
 
   // getById(pId): Promise<Receta> {
   //   return this.httpClient
-  //     .get<Receta>(`${this.baseUrl}recetas/${pId}`)
+  //     .get<Receta>(`${this.baseUrl}/recetas/${pId}`)
   //     .toPromise();
   // }
 
@@ -60,7 +61,7 @@ export class RecetasService {
       }),
     };
     return this.httpClient
-      .get<Receta> (`${this.baseUrl}recetas/${pId}`, httpOpciones)
+      .get<Receta>(`${this.baseUrl}/recetas/${pId}`, httpOpciones)
       .toPromise();
   }
 
@@ -72,7 +73,7 @@ export class RecetasService {
     };
 
     return this.httpClient
-      .put(`${this.baseUrl}recetas/update/${pId}`, fd, httpOpciones)
+      .put(`${this.baseUrl}/recetas/update/${pId}`, fd, httpOpciones)
       .toPromise();
   }
 
@@ -83,7 +84,7 @@ export class RecetasService {
       }),
     };
     return this.httpClient
-      .delete<Receta>(`${this.baseUrl}recetas/delete/${pId}`, httpOpciones)
+      .delete<Receta>(`${this.baseUrl}/recetas/delete/${pId}`, httpOpciones)
       .toPromise();
   }
 
@@ -94,7 +95,7 @@ export class RecetasService {
       }),
     };
     return this.httpClient
-      .get(`${this.baseUrl}recetas/fav/${pId}`, httpOpciones)
+      .get(`${this.baseUrl}/recetas/fav/${pId}`, httpOpciones)
       .toPromise();
   }
 
@@ -105,7 +106,7 @@ export class RecetasService {
       }),
     };
     return this.httpClient
-      .get<Receta>(`${this.baseUrl}recetas/fav/${pId}`, httpOpciones)
+      .get<Receta>(`${this.baseUrl}/recetas/fav/${pId}`, httpOpciones)
       .toPromise();
   }
 
@@ -116,7 +117,7 @@ export class RecetasService {
       }),
     };
     return this.httpClient
-      .delete<Receta>(`${this.baseUrl}recetas/fav/delete/${pId}`, httpOpciones)
+      .delete<Receta>(`${this.baseUrl}/recetas/fav/delete/${pId}`, httpOpciones)
       .toPromise();
   }
 
@@ -127,13 +128,13 @@ export class RecetasService {
       }),
     };
     return this.httpClient
-      .get<Receta[]>(`${this.baseUrl}recetas/fav/all`, httpOpciones)
+      .get<Receta[]>(`${this.baseUrl}/recetas/fav/all`, httpOpciones)
       .toPromise();
   }
 
   paginator(): Promise<any> {
     console.log();
-    return this.httpClient.get(`${this.baseUrl}recetas/info/pag`).toPromise();
+    return this.httpClient.get(`${this.baseUrl}/recetas/info/pag`).toPromise();
   }
 
   showEdit(pPag: any): Promise<Receta[]> {
@@ -144,8 +145,7 @@ export class RecetasService {
     };
 
     return this.httpClient
-      .get<Receta[]>(`${this.baseUrl}recetas/show/create`, httpOpciones)
+      .get<Receta[]>(`${this.baseUrl}/recetas/show/create`, httpOpciones)
       .toPromise();
   }
-
 }

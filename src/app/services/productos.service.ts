@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Producto } from '../interfaces/productos.interfaces';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ export class ProductosService {
   private baseUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = 'http://localhost:3000/';
+    this.baseUrl = environment.baseUrl;
   }
 
   getAll(pPag: any): Promise<Producto[]> {
@@ -20,11 +21,11 @@ export class ProductosService {
         }),
       };
       return this.httpClient
-        .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`, httpOpciones)
+        .get<Producto[]>(`${this.baseUrl}/productos?page=${pPag}`, httpOpciones)
         .toPromise();
     } else {
       return this.httpClient
-        .get<Producto[]>(`${this.baseUrl}productos?page=${pPag}`)
+        .get<Producto[]>(`${this.baseUrl}/productos?page=${pPag}`)
         .toPromise();
     }
   }
@@ -36,7 +37,7 @@ export class ProductosService {
       }),
     };
     return this.httpClient
-      .get<Producto>(`${this.baseUrl}productos/${pId}`, httpOpciones)
+      .get<Producto>(`${this.baseUrl}/productos/${pId}`, httpOpciones)
       .toPromise();
   }
 
@@ -47,7 +48,7 @@ export class ProductosService {
       }),
     };
     return this.httpClient
-      .delete<Producto>(`${this.baseUrl}productos/delete/${pId}`, httpOpciones)
+      .delete<Producto>(`${this.baseUrl}/productos/delete/${pId}`, httpOpciones)
       .toPromise();
   }
 
@@ -59,7 +60,7 @@ export class ProductosService {
     };
 
     return this.httpClient
-      .post(`${this.baseUrl}productos/create`, fd, httpOpciones)
+      .post(`${this.baseUrl}/productos/create`, fd, httpOpciones)
       .toPromise();
   }
 
@@ -70,7 +71,7 @@ export class ProductosService {
       }),
     };
     return this.httpClient
-      .put(`${this.baseUrl}productos/update/${pId}`, fd, httpOpciones)
+      .put(`${this.baseUrl}/productos/update/${pId}`, fd, httpOpciones)
       .toPromise();
   }
 
@@ -81,12 +82,12 @@ export class ProductosService {
       }),
     };
     return this.httpClient
-      .get<Producto>(`${this.baseUrl}productos/fav/${pId}`, httpOpciones)
+      .get<Producto>(`${this.baseUrl}/productos/fav/${pId}`, httpOpciones)
       .toPromise();
   }
   getByItem(pValor): Promise<Producto[]> {
     return this.httpClient
-      .get<Producto[]>(`${this.baseUrl}productos/search/${pValor}`)
+      .get<Producto[]>(`${this.baseUrl}/productos/search/${pValor}`)
       .toPromise();
   }
   deleteFav(pId): Promise<Producto> {
@@ -97,7 +98,7 @@ export class ProductosService {
     };
     return this.httpClient
       .delete<Producto>(
-        `${this.baseUrl}productos/fav/delete/${pId}`,
+        `${this.baseUrl}/productos/fav/delete/${pId}`,
         httpOpciones
       )
       .toPromise();
@@ -106,16 +107,18 @@ export class ProductosService {
   getFavAll(pPag: any): Promise<Producto[]> {
     const httpOpciones = {
       headers: new HttpHeaders({
-        authorization: localStorage.getItem('token')
+        authorization: localStorage.getItem('token'),
       }),
     };
     return this.httpClient
-      .get<Producto[]>(`${this.baseUrl}productos/fav/all`, httpOpciones)
+      .get<Producto[]>(`${this.baseUrl}/productos/fav/all`, httpOpciones)
       .toPromise();
   }
 
   paginator(): Promise<any> {
-    return this.httpClient.get(`${this.baseUrl}productos/info/pag`).toPromise();
+    return this.httpClient
+      .get(`${this.baseUrl}/productos/info/pag`)
+      .toPromise();
   }
 
   showEdit(pPag: any): Promise<Producto[]> {
@@ -126,7 +129,7 @@ export class ProductosService {
     };
 
     return this.httpClient
-      .get<Producto[]>(`${this.baseUrl}productos/show/create`, httpOpciones)
+      .get<Producto[]>(`${this.baseUrl}/productos/show/create`, httpOpciones)
       .toPromise();
   }
 }
